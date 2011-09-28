@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GMAPI", "GMAPI.vcxproj", "{40491886-356D-4820-9E3B-0A2D7FDB084F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test", "Test\Test.vcxproj", "{E45235D3-3D18-4BD5-B81C-61402141B2FB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{40491886-356D-4820-9E3B-0A2D7FDB084F} = {40491886-356D-4820-9E3B-0A2D7FDB084F}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5F3D9D6F-379B-494A-8A7C-9816FD4A9D54}"
+	ProjectSection(SolutionItems) = preProject
+		Licence.txt = Licence.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Debug-Static|Win32 = Debug-Static|Win32
+		Release|Win32 = Release|Win32
+		Release-Static|Win32 = Release-Static|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40491886-356D-4820-9E3B-0A2D7FDB084F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{40491886-356D-4820-9E3B-0A2D7FDB084F}.Debug|Win32.Build.0 = Debug|Win32
+		{40491886-356D-4820-9E3B-0A2D7FDB084F}.Debug-Static|Win32.ActiveCfg = Debug-Static|Win32
+		{40491886-356D-4820-9E3B-0A2D7FDB084F}.Debug-Static|Win32.Build.0 = Debug-Static|Win32
+		{40491886-356D-4820-9E3B-0A2D7FDB084F}.Release|Win32.ActiveCfg = Release|Win32
+		{40491886-356D-4820-9E3B-0A2D7FDB084F}.Release|Win32.Build.0 = Release|Win32
+		{40491886-356D-4820-9E3B-0A2D7FDB084F}.Release-Static|Win32.ActiveCfg = Release-Static|Win32
+		{40491886-356D-4820-9E3B-0A2D7FDB084F}.Release-Static|Win32.Build.0 = Release-Static|Win32
+		{E45235D3-3D18-4BD5-B81C-61402141B2FB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E45235D3-3D18-4BD5-B81C-61402141B2FB}.Debug|Win32.Build.0 = Debug|Win32
+		{E45235D3-3D18-4BD5-B81C-61402141B2FB}.Debug-Static|Win32.ActiveCfg = Debug-Static|Win32
+		{E45235D3-3D18-4BD5-B81C-61402141B2FB}.Debug-Static|Win32.Build.0 = Debug-Static|Win32
+		{E45235D3-3D18-4BD5-B81C-61402141B2FB}.Release|Win32.ActiveCfg = Release|Win32
+		{E45235D3-3D18-4BD5-B81C-61402141B2FB}.Release|Win32.Build.0 = Release|Win32
+		{E45235D3-3D18-4BD5-B81C-61402141B2FB}.Release-Static|Win32.ActiveCfg = Release-Static|Win32
+		{E45235D3-3D18-4BD5-B81C-61402141B2FB}.Release-Static|Win32.Build.0 = Release-Static|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

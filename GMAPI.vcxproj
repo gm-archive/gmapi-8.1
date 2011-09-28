@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug-Static|Win32">
+      <Configuration>Debug-Static</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release-Static|Win32">
+      <Configuration>Release-Static</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{40491886-356D-4820-9E3B-0A2D7FDB084F}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>GMAPI</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Static|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-Static|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Static|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release-Static|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Static|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-Static|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;GMAPI_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>Precompiled.hpp</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir)\Include\GMAPI\</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Static|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;GMAPI_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>Precompiled.hpp</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir)\Include\GMAPI\</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;GMAPI_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>Precompiled.hpp</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir)\Include\GMAPI\</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release-Static|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;GMAPI_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>Precompiled.hpp</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir)\Include\GMAPI\</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="Include\GMAPI.hpp" />
+    <ClInclude Include="Include\GMAPI\Constants.hpp" />
+    <ClInclude Include="Include\GMAPI\Core.hpp" />
+    <ClInclude Include="Include\GMAPI\Dll.hpp" />
+    <ClInclude Include="Include\GMAPI\Function.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\computing_things_clipboard.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\computing_things_dates.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\computing_things_real.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\computing_things_string.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\dll.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\ds_grid.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\ds_list.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\ds_map.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\ds_priority_queue.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\ds_queue.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\ds_stack.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\gameplay_collision_checking.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\gameplay_deactivating_instances.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\gameplay_events.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\gameplay_instances.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\gameplay_misc.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\gameplay_motion_planning.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\gameplay_moving_around.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\gameplay_paths.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\gameplay_rooms.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\gameply_timing.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\graphics_display.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\graphics_draw_advanced.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\graphics_draw_backgrounds.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\graphics_draw_shapes.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\graphics_draw_sprites.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\graphics_draw_text.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\graphics_repaint.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\graphics_surfaces.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\graphics_tiles.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\graphics_views.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\graphics_window.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\highscore.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\message_box.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\resources_backgrounds.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\resources_fonts.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\resources_objects.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\resources_paths.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\resources_rooms.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\resources_scripts.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\resources_sounds.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\resources_sprites.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\resources_timelines.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\sound_3d.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\sound_basic.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\sound_cd.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\sound_effects.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\splash.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\ui.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\ui_joystick.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\ui_keyboard.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\ui_mouse.hpp" />
+    <ClInclude Include="Include\GMAPI\Instance.hpp" />
+    <ClInclude Include="Include\GMAPI\String.hpp" />
+    <ClInclude Include="Include\GMAPI\Types.hpp" />
+    <ClInclude Include="Include\GMAPI\Value.hpp" />
+    <ClInclude Include="Source\BinSearch.hpp" />
+    <ClInclude Include="Source\CallHook.hpp" />
+    <ClInclude Include="Source\CoreInternal.hpp" />
+    <ClInclude Include="Source\FunctionNames.hpp" />
+    <ClInclude Include="Source\Functions.hpp" />
+    <ClInclude Include="Source\Precompiled.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\BinSearch.cpp" />
+    <ClCompile Include="Source\CallHook.cpp" />
+    <ClCompile Include="Source\Core.cpp" />
+    <ClCompile Include="Source\Functions.cpp" />
+    <ClCompile Include="Source\Instance.cpp" />
+    <ClCompile Include="Source\Precompiled.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug-Static|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release-Static|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Source\String.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
