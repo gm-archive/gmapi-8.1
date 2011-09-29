@@ -28,22 +28,10 @@ namespace gm
     const void *delphiNewUtf8     = 0;
     const void *delphiReleaseStr  = 0;
     
-    GMAPI_DLL char *newStr(unsigned len)
-    {
-        char *res;
-        __asm
-        {
-            mov     esi, len
-            mov     edi, 0
-            mov     eax, len
-            mov     ecx, 0
-            mov     ebx, 0
-            mov     edx, 0
-            call    delphiNewUtf8
-            mov res, eax
-        }
-        return res;
-    }
+    //Implemented in assembly
+    //GMAPI_DLL char *newStr(unsigned len)
+    //GMAPI_DLL void releaseStr(char *gmstr)
+    
     GMAPI_DLL char *newStr(const char *str)
     {
         return newStr(str, strlen(str));
@@ -53,17 +41,6 @@ namespace gm
         char *gmstr = newStr(len);
         memcpy(gmstr, str, len);
         return gmstr;
-    }
-    GMAPI_DLL void releaseStr(char *gmstr)
-    {
-        if(gmstr)
-        {
-            __asm
-            {
-                lea eax, gmstr
-                call delphiReleaseStr
-            }
-        }
     }
     GMAPI_DLL void strIncRef(char *gmstr)
     {

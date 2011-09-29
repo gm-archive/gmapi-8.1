@@ -209,6 +209,7 @@
     <ClInclude Include="Source\Precompiled.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\AssemblyVc.cpp" />
     <ClCompile Include="Source\BinSearch.cpp" />
     <ClCompile Include="Source\CallHook.cpp" />
     <ClCompile Include="Source\Core.cpp" />

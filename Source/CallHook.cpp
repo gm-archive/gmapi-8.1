@@ -26,6 +26,7 @@
 namespace gm
 {
     void *hookReturn;
+    //Implemented in assembly
     void hookFunction();
     
     /**old external_call code
@@ -91,30 +92,5 @@ namespace gm
             return;
         memcpy(external_call_ptr, oldCode, sizeof(newCode));
         reprotectMem(oldProtect);
-    }
-    __declspec(naked) void hookFunction()
-    {
-        __asm
-        {
-            ;save stuff
-            push eax
-            push edx
-            
-            call getShared
-            
-            pop edx
-            mov dword ptr [eax]Shared.self, edx
-            pop edx
-            mov dword ptr [eax]Shared.other, edx
-            
-            ;overwritten code
-            push        ebp  
-            mov         ebp,esp  
-            add         esp,0FFFFFE64h  
-            ;push        ebx  
-            ;push        esi  
-            ;push        edi  
-            jmp hookReturn
-        }
     }
 }
