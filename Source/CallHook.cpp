@@ -101,10 +101,11 @@ namespace gm
             push edx
             
             call getShared
+            
             pop edx
             mov dword ptr [eax]Shared.self, edx
             pop edx
-            mov dword ptr [eax]Shared.self, edx
+            mov dword ptr [eax]Shared.other, edx
             
             ;overwritten code
             push        ebp  

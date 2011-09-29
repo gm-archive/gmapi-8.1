@@ -32,7 +32,10 @@ namespace gm
     {
         Function get_function_address_ptr = (Function)(uintptr_t)get_function_address;
         for(unsigned i = 0; i < FUNCTION_COUNT; ++i)
-            functions[i] = (Function)(uintptr_t)call(get_function_address_ptr, gm::Value(FUNCTION_NAMES[i])).real;
+        {
+            Value v = call(get_function_address_ptr, gm::Value(FUNCTION_NAMES[i]));
+            functions[i] = (Function)(uintptr_t)v.real;
+        }
         return true;
     }
 }

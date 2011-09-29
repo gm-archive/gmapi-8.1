@@ -34,7 +34,7 @@ namespace gm
             REAL   = 0,
             STRING = 1
         };
-        Value():type(REAL), real(0), str(0){}
+        Value():type(REAL), real(-1056), str(0){}
         Value(double real):type(REAL), real(real), str(0){}
         Value(const char *str):type(REAL), real(0), str(0)
         {
