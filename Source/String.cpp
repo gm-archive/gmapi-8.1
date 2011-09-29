@@ -58,11 +58,11 @@ namespace gm
     {
         if(gmstr)
         {
-            /*__asm
+            __asm
             {
-                mov eax, gmstr
+                lea eax, gmstr
                 call delphiReleaseStr
-            }*/
+            }
         }
     }
     GMAPI_DLL void strIncRef(char *gmstr)
