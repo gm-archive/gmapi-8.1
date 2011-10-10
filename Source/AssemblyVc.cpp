@@ -2,11 +2,29 @@
 #include "String.hpp"
 #include "CallHook.hpp"
 #include "CoreInternal.hpp"
+#include "Value.hpp"
+#include "Function.hpp"
 
 namespace gm
 {
     extern const void *delphiNewUtf8;
     extern const void *delphiReleaseStr;
+    GMAPI_DLL Value docall(Function f, Instance *self, Instance *other, unsigned argcnt, Value *args)
+    {
+        Value retv;
+        Value *retvptr = &retv;
+        __asm
+        {
+            push args
+                push argcnt
+                push retvptr
+                mov eax, other
+                mov edx, self
+                mov ecx, argcnt
+                call f
+        }
+        return retv;
+    }
     GMAPI_DLL char *newStr(unsigned len)
     {
         char *res;

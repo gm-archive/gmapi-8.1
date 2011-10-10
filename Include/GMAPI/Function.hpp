@@ -27,27 +27,12 @@ namespace gm
 {
     typedef void *Function;
     GMAPI_DLL extern Function functions[];
-    
-    inline Value docall(Function f, Instance *self, Instance *other, unsigned argcnt, Value *args);
+
+    /**Assembly*/
+    GMAPI_DLL Value docall(Function f, Instance *self, Instance *other, unsigned argcnt, Value *args);
     inline Value docall(Function f, unsigned argcnt, Value *args)
     {
         return docall(f, getSelf(), getOther(), argcnt, args);
-    }
-    static Value docall(Function f, Instance *self, Instance *other, unsigned argcnt, Value *args)
-    {
-        Value retv;
-        Value *retvptr = &retv;
-        __asm
-        {
-            push args
-            push argcnt
-            push retvptr
-            mov eax, other
-            mov edx, self
-            mov ecx, argcnt
-            call f
-        }
-        return retv;
     }
     
     inline Value call(Function func)
