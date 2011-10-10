@@ -198,6 +198,7 @@
     <ClInclude Include="Include\GMAPI\Functions\ui_keyboard.hpp" />
     <ClInclude Include="Include\GMAPI\Functions\ui_mouse.hpp" />
     <ClInclude Include="Include\GMAPI\Instance.hpp" />
+    <ClInclude Include="Include\GMAPI\InstanceArray.hpp" />
     <ClInclude Include="Include\GMAPI\String.hpp" />
     <ClInclude Include="Include\GMAPI\Types.hpp" />
     <ClInclude Include="Include\GMAPI\Value.hpp" />
@@ -215,6 +216,7 @@
     <ClCompile Include="Source\Core.cpp" />
     <ClCompile Include="Source\Functions.cpp" />
     <ClCompile Include="Source\Instance.cpp" />
+    <ClCompile Include="Source\InstanceArray.cpp" />
     <ClCompile Include="Source\Precompiled.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug-Static|Win32'">Create</PrecompiledHeader>

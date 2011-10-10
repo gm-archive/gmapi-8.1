@@ -37,15 +37,22 @@ namespace gm
         {
             ;save stuff
             push    eax
+            push    ecx
             push    edx
 
-            call    getShared
+                push    eax
+                push    edx
+
+                call    getShared
+
+                pop     edx
+                mov     dword ptr [eax]Shared.self, edx
+                pop     edx
+                mov     dword ptr [eax]Shared.other, edx
 
             pop     edx
-            mov     dword ptr [eax]Shared.self, edx
-            pop     edx
-            mov     dword ptr [eax]Shared.other, edx
-
+            pop     ecx
+            pop     eax
             ;overwritten code
             push    ebp
             mov     ebp,esp

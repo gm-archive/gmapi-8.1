@@ -28,3 +28,4 @@
 #include "GMAPI/String.hpp"
 #include "GMAPI/Types.hpp"
 #include "GMAPI/Value.hpp"
+#include "GMAPI/InstanceArray.hpp"

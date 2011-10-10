@@ -21,11 +21,13 @@
  */
 #ifndef GMAPI_INSTANCE_HPP
 #define GMAPI_INSTANCE_HPP
+#include "Dll.hpp"
 namespace gm
 {
     struct Instance
     {
-        char _pad0000[8];
+        char _pad0000[4];
+        int id;
         char _pad0008[8];
         double image_index;
         double image_speed;

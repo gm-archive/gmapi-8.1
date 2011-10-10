@@ -25,6 +25,7 @@
 #include "BinSearch.hpp"
 #include "Functions.hpp"
 #include "Functions/dll.hpp"
+#include "InstanceArray.hpp"
 namespace gm
 {
     Shared *shared          = 0;
@@ -56,8 +57,13 @@ namespace gm
                 return false; 
             if(!initFunctions(get_function_address_ptr))
                 return false;
+            if(!initInstanceArray())
+                return false;
             if(!shared->initCnt)
-                installCallHook((void*)(uintptr_t)get_function_address("external_call").real);
+            {
+                if(!installCallHook((void*)(uintptr_t)get_function_address("external_call").real))
+                    return false;
+            }
             shared->initCnt++;
             ++initcnt;
             return true;
