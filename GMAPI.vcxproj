@@ -202,6 +202,7 @@
     <ClInclude Include="Include\GMAPI\String.hpp" />
     <ClInclude Include="Include\GMAPI\Types.hpp" />
     <ClInclude Include="Include\GMAPI\Value.hpp" />
+    <ClInclude Include="Include\GMAPI\Variable.hpp" />
     <ClInclude Include="Source\BinSearch.hpp" />
     <ClInclude Include="Source\CallHook.hpp" />
     <ClInclude Include="Source\CoreInternal.hpp" />

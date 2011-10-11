@@ -16,12 +16,12 @@ namespace gm
         __asm
         {
             push args
-                push argcnt
-                push retvptr
-                mov eax, other
-                mov edx, self
-                mov ecx, argcnt
-                call f
+            push argcnt
+            push retvptr
+            mov eax, self
+            mov edx, other
+            mov ecx, argcnt
+            call f
         }
         return retv;
     }
@@ -64,9 +64,9 @@ namespace gm
                 call    getShared
 
                 pop     edx
-                mov     dword ptr [eax]Shared.self, edx
-                pop     edx
                 mov     dword ptr [eax]Shared.other, edx
+                pop     edx
+                mov     dword ptr [eax]Shared.self, edx
 
             pop     edx
             pop     ecx

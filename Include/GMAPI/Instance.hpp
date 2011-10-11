@@ -28,15 +28,15 @@ namespace gm
     {
         char _pad0000[4];
         int id;
-        char _pad0008[8];
+        char _pad0008[8];//0xFFFFFFFF 0x00000000
         double image_index;
         double image_speed;
         double image_xscale;
         double image_yscale;
         double image_angle;
         double image_alpha;
-        char _pad0040[8];
-        char _pad0048[8];
+        char _pad0040[8];//00ffffff ffffffff
+        char _pad0048[8];//00000000 00000000
         double x;
         double y;
         double xstart;
@@ -48,24 +48,28 @@ namespace gm
         double friction;
         double gravity_direction;
         double gravity;
-        char _pad00A8[8];
-        char _pad00B0[8];
-        char _pad00B8[8];
-        char _pad00C0[8];
-        char _pad00C8[8];
-        char _pad00D0[4];
+        char _pad00A8[8];//25.0 ?
+        char _pad00B0[8];//0584fbe6 c045a690
+        char _pad00B8[8];//fffe7960 fffe7960
+        char _pad00C0[8];//fffe7960 fffe7960
+        char _pad00C8[1];//00 boolean?
+        char solid;
+        char persistent;
+        char _pad00CB[1];//01 boolean?
+        unsigned object_index;
+        char _pad00D0[4];//changes between runs, pointer?
         int alarm[12];
-        char _pad0104[4];
-        char _pad0108[8];
-        char _pad0110[8];
-        char _pad0118[8];
+        char _pad0104[4];//changes between runs, pointer?
+        char _pad0108[8];//00000000 ffffffff
+        char _pad0110[8];//00000000 00000000
+        char _pad0118[8];//00000000 00000000
         double path_speed;
         double path_orientation;
         double path_scale;
-        char _pad138[8];
-        char _pad140[8];
-        char _pad148[8];
-        char _pad150[8];
+        char _pad138[8];//00000000 00000000
+        char _pad140[8];//00000000 00000000
+        char _pad148[8];//00000000 00000000
+        char _pad150[8];//00000000 00000000
         double timeline_position;
         double timeline_speed;
         //possibly more
