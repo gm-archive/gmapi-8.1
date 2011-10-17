@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline void window_set_region_size(Real w, Real h, Real adaptwindow)
     {
         call(functions[491], w, h, adaptwindow);
@@ -71,5 +73,6 @@ namespace gm
         call(functions[499], x, y);
     }
     
+    ///@}
 }
 #endif

@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline void cd_init()
     {
         call(functions[736]);
@@ -121,5 +123,6 @@ namespace gm
         call(functions[754], str);
     }
     
+    ///@}
 }
 #endif

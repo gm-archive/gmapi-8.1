@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline void draw_set_font(Real font)
     {
         call(functions[418], font);
@@ -101,5 +103,6 @@ namespace gm
         call(functions[432], x, y, string, sep, w, xscale, yscale, angle, c1, c2, c3, c4, alpha);
     }
     
+    ///@}
 }
 #endif

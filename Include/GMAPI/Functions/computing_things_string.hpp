@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline String chr(Real val)
     {
         return call(functions[94], val);
@@ -141,5 +143,6 @@ namespace gm
         return call(functions[116], str);
     }
     
+    ///@}
 }
 #endif

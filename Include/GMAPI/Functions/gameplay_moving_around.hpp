@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline void motion_set(Real dir, Real speed)
     {
         call(functions[294], dir, speed);
@@ -126,5 +128,6 @@ namespace gm
         return call(functions[313], x, y, obj);
     }
     
+    ///@}
 }
 #endif

@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline Real font_exists(Real ind)
     {
         return call(functions[587], ind);
@@ -86,5 +88,6 @@ namespace gm
         call(functions[598], ind);
     }
     
+    ///@}
 }
 #endif

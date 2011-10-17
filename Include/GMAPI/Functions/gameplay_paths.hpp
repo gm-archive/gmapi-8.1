@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline void path_start(Real path, Real speed, Real endaction, Real absolute)
     {
         call(functions[314], path, speed, endaction, absolute);
@@ -36,5 +38,6 @@ namespace gm
         call(functions[315]);
     }
     
+    ///@}
 }
 #endif

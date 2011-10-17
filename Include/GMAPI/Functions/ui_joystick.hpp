@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline Real joystick_exists(Real id)
     {
         return call(functions[786], id);
@@ -96,5 +98,6 @@ namespace gm
         return call(functions[799], id);
     }
     
+    ///@}
 }
 #endif

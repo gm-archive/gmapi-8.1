@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline Real mp_linear_step(Real x, Real y, Real stepsize, Real checkall)
     {
         return call(functions[275], x, y, stepsize, checkall);
@@ -121,5 +123,6 @@ namespace gm
         call(functions[293], id);
     }
     
+    ///@}
 }
 #endif

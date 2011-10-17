@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline void sound_play(Real index)
     {
         call(functions[725], index);
@@ -81,5 +83,6 @@ namespace gm
         call(functions[735], dir);
     }
     
+    ///@}
 }
 #endif

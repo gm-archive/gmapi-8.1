@@ -28,8 +28,7 @@ EXPORT double test_foo()
     gm::Instance *other = gm::getOther();
     gm::Value val = gm::variable_local_get("x");
     //100001
-    gm::Value a = gm::instance_exists(100001);
-    gm::Value b = gm::instance_exists(100002);
+    gm::Value a = gm::variable_local_exists("my_var");
     
     std::ofstream os("mem.bin", std::ios::trunc | std::ios::binary);
     char *start = (char*)0x02000000;

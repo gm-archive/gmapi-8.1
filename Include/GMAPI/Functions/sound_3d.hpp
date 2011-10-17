@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline void sound_3d_set_sound_position(Real snd, Real x, Real y, Real z)
     {
         call(functions[721], snd, x, y, z);
@@ -46,5 +48,6 @@ namespace gm
         call(functions[724], snd, x, y, z, anglein, angleout, voloutside);
     }
     
+    ///@}
 }
 #endif

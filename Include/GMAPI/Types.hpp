@@ -24,7 +24,9 @@
 #include "Value.hpp"
 namespace gm
 {
+    /**@ingroup gm_variables*/
     typedef Value String;
+    /**@ingroup gm_variables*/
     typedef Value Real;
 }
 #endif

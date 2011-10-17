@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline void draw_sprite(Real sprite, Real subimg, Real x, Real y)
     {
         call(functions[408], sprite, subimg, x, y);
@@ -76,5 +78,6 @@ namespace gm
         call(functions[417]);
     }
     
+    ///@}
 }
 #endif

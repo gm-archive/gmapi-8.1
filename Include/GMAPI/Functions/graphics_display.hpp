@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline Real display_get_width()
     {
         return call(functions[329]);
@@ -91,5 +93,6 @@ namespace gm
         call(functions[341], x, y);
     }
     
+    ///@}
 }
 #endif

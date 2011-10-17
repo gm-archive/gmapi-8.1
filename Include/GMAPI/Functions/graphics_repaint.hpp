@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline void screen_redraw()
     {
         call(functions[433]);
@@ -51,5 +53,6 @@ namespace gm
         call(functions[437]);
     }
     
+    ///@}
 }
 #endif

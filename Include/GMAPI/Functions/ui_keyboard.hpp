@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline void keyboard_set_map(Real key1, Real key2)
     {
         call(functions[800], key1, key2);
@@ -91,5 +93,6 @@ namespace gm
         call(functions[812]);
     }
     
+    ///@}
 }
 #endif

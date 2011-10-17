@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline Real path_exists(Real ind)
     {
         return call(functions[620], ind);
@@ -186,5 +188,6 @@ namespace gm
         call(functions[651], ind, xshift, yshift);
     }
     
+    ///@}
 }
 #endif

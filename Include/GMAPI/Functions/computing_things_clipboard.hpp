@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline Real clipboard_has_text()
     {
         return call(functions[0]);
@@ -41,5 +43,6 @@ namespace gm
         return call(functions[2], str);
     }
     
+    ///@}
 }
 #endif

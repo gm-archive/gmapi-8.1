@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline Real ds_grid_create(Real w, Real h)
     {
         return call(functions[122], w, h);
@@ -211,5 +213,6 @@ namespace gm
         call(functions[158], id, str);
     }
     
+    ///@}
 }
 #endif

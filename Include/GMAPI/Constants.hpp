@@ -25,6 +25,8 @@
 #include "Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     static const Real all   = -1.;
     enum EventType
     {
@@ -161,5 +163,6 @@ namespace gm
         se_compressor   =32,
         se_equalizer    =64
     };
+    ///@}
 }
 #endif

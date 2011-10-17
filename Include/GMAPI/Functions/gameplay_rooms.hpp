@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline void room_goto(Real numb)
     {
         call(functions[316], numb);
@@ -86,5 +88,6 @@ namespace gm
         return call(functions[327], kind);
     }
     
+    ///@}
 }
 #endif

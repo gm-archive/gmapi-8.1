@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline void event_perform(Real type, Real numb)
     {
         call(functions[242], type, numb);
@@ -46,5 +48,6 @@ namespace gm
         call(functions[245]);
     }
     
+    ///@}
 }
 #endif

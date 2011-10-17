@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline Real object_exists(Real ind)
     {
         return call(functions[599], ind);
@@ -131,5 +133,6 @@ namespace gm
         call(functions[619], ind, evtype, evnumb);
     }
     
+    ///@}
 }
 #endif

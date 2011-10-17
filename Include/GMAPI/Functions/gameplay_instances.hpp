@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline Real instance_find(Real obj, Real n)
     {
         return call(functions[246], obj, n);
@@ -91,5 +93,6 @@ namespace gm
         call(functions[258], x, y, obj, perf);
     }
     
+    ///@}
 }
 #endif

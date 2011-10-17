@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline Real variable_global_exists(String name)
     {
         return call(functions[259], name);
@@ -106,5 +108,6 @@ namespace gm
         call(functions[274], title);
     }
     
+    ///@}
 }
 #endif

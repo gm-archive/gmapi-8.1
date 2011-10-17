@@ -24,7 +24,19 @@
 #include "Dll.hpp"
 namespace gm
 {
+    /**@defgroup core GMAPI Core
+     * @brief Core functions.
+     */
+    ///@{
+    /**@brief Initialises GMAPI modules.
+     * 
+     * This must be called (and succeed) before most of GMAPI features can be
+     * used.
+     */
     GMAPI_DLL bool init(double get_function_address);
+    /**@brief Shuts down GMAPI modules, freeing used resources.
+     */
     GMAPI_DLL void shutdown();
+    ///@}
 }
 #endif

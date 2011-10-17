@@ -26,15 +26,33 @@ namespace gm
 {
 #pragma warning(push)
 #pragma warning(disable:4200)
+    /**@brief A Delphi string object.
+     * 
+     * Stores various information about the string, with the string itself following this object.
+     */
     struct StrStruct
     {
+        /**The codepage for this string.*/
         unsigned short codepage;
+        /**The size in bytes of a single element.*/
         unsigned short elementSize;
+        /**The number of references to this string.*/
         long volatile refcnt;
+        /**The number of elements in the string, excluding the final null
+         * element.
+         */
         unsigned len;
+        /**The string itself, which follows on from here.
+         * 
+         * The string may contain embedded nulls, and is also garunteed to end
+         * with a null.
+         */
         char str[0];
     };
 #pragma warning(pop)
+    /**Gets a pointer to the start of the string object from the start of the
+     * string itself.
+     */
     inline StrStruct *getStrStruct(char *gmstr)
     {
         return (StrStruct*)(gmstr - sizeof(StrStruct));
@@ -43,6 +61,11 @@ namespace gm
     {
         return (const StrStruct*)(gmstr - sizeof(StrStruct));
     }
+    /**Gets the length of the Delphi string object. Since this just reads a
+     * a field in the string object, it is far faster than searching for the
+     * null with something like strlen, and also handles strings with embedded
+     * nulls correctly.
+     */
     inline unsigned gmstrLen(const char *gmstr)
     {
         return getStrStruct(gmstr)->len;
@@ -52,10 +75,21 @@ namespace gm
         getStrStruct(gmstr)->len = newlen;
     }
     
+    /**Allocates a new UTF8 Delphi string object with space for len elements.*/
     GMAPI_DLL char *newStr(unsigned len);
+    /**Allocates a new UTF8 Delphi string object initially storing a copy of 
+     * the null terminated string str.
+     */
     GMAPI_DLL char *newStr(const char *str);
+    /**Allocates a new UTF8 Delphi string object initially storing a copy of 
+     * the string str with length len.
+     */
     GMAPI_DLL char *newStr(const char *str, unsigned len);
+    /**Decrements the string objects reference counter, destroying it if the
+     * reference count reaches zero.
+     */
     GMAPI_DLL void releaseStr(char *gmstr);
+    /**Adds an extra reference to the string object.*/
     GMAPI_DLL void strIncRef(char *gmstr);
 }
 #endif

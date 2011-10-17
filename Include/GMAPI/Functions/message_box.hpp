@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline void show_message(String str)
     {
         call(functions[545], str);
@@ -151,5 +153,6 @@ namespace gm
         call(functions[569], str, abort);
     }
     
+    ///@}
 }
 #endif

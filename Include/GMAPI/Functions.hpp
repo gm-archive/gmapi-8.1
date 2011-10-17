@@ -19,6 +19,10 @@
  * 3. This notice may not be removed or altered from any source
  * distribution.
  */
+
+/**@defgroup gm_functions GM Functions & Constants
+ * @brief All the builtin GM functions.
+ */
 #include "Functions/computing_things_clipboard.hpp"
 #include "Functions/computing_things_dates.hpp"
 #include "Functions/computing_things_real.hpp"

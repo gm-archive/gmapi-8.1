@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline Real ds_priority_create()
     {
         return call(functions[192]);
@@ -106,5 +108,6 @@ namespace gm
         call(functions[207], id, str);
     }
     
+    ///@}
 }
 #endif

@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline void window_set_visible(Real visible)
     {
         call(functions[500], visible);
@@ -186,5 +188,6 @@ namespace gm
         call(functions[531], x, y);
     }
     
+    ///@}
 }
 #endif

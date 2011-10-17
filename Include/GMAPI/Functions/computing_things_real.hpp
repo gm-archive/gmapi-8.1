@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline Real random(Real x)
     {
         return call(functions[50], x);
@@ -566,5 +568,6 @@ namespace gm
         return call(functions[93], x);
     }
     
+    ///@}
 }
 #endif

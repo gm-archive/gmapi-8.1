@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline void splash_show_video(String fname, Real loop)
     {
         call(functions[763], fname, loop);
@@ -131,5 +133,6 @@ namespace gm
         call(functions[783], fname);
     }
     
+    ///@}
 }
 #endif

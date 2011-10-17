@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline Real mouse_check_button(Real numb)
     {
         return call(functions[813], numb);
@@ -61,5 +63,6 @@ namespace gm
         call(functions[819]);
     }
     
+    ///@}
 }
 #endif

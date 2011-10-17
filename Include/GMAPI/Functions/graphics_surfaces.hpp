@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline Real surface_create(Real w, Real h)
     {
         return call(functions[438], w, h);
@@ -136,5 +138,6 @@ namespace gm
         call(functions[459], destination, x, y, source, xs, ys, ws, hs);
     }
     
+    ///@}
 }
 #endif

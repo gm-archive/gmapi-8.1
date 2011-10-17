@@ -31,7 +31,7 @@ namespace gm
         __asm
         {
             mov     eax, len
-            mov     edx, 0
+            mov     edx, CP_UTF8
             call    delphiNewUtf8
             mov     res, eax
         }

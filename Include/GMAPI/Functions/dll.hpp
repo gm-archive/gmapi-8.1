@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline void external_define(String dll, String name, Real calltype, Real restype, Real argnumb)
     {
         call(functions[117], dll, name, calltype, restype, argnumb);
@@ -155,5 +157,6 @@ namespace gm
         return call(functions[121], func_name);
     }
     
+    ///@}
 }
 #endif

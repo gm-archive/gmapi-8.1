@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline Real sprite_exists(Real ind)
     {
         return call(functions[686], ind);
@@ -166,5 +168,6 @@ namespace gm
         call(functions[713], ind, sepmasks, bboxmode, bbleft, bbtop, bbright, bbbottom, kind, tolerance);
     }
     
+    ///@}
 }
 #endif

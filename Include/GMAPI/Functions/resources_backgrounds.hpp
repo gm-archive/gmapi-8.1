@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline Real background_exists(Real ind)
     {
         return call(functions[570], ind);
@@ -111,5 +113,6 @@ namespace gm
         call(functions[586], ind, back);
     }
     
+    ///@}
 }
 #endif

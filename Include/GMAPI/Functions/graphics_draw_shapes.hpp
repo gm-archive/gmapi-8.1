@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline void draw_clear(Real col)
     {
         call(functions[377], col);
@@ -181,5 +183,6 @@ namespace gm
         call(functions[407], fname, x, y, w, h);
     }
     
+    ///@}
 }
 #endif

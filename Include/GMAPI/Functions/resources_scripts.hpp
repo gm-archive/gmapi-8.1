@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline Real script_exists(Real ind)
     {
         return call(functions[671], ind);
@@ -236,5 +238,6 @@ namespace gm
         return call(functions[676], scr, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14);
     }
     
+    ///@}
 }
 #endif

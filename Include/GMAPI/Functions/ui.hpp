@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline void io_clear()
     {
         call(functions[784]);
@@ -36,5 +38,6 @@ namespace gm
         call(functions[785]);
     }
     
+    ///@}
 }
 #endif

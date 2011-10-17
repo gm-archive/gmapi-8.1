@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline Real ds_map_create()
     {
         return call(functions[175]);
@@ -111,5 +113,6 @@ namespace gm
         call(functions[191], id, str);
     }
     
+    ///@}
 }
 #endif

@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline Real sound_exists(Real ind)
     {
         return call(functions[677], ind);
@@ -71,5 +73,6 @@ namespace gm
         call(functions[685], index);
     }
     
+    ///@}
 }
 #endif

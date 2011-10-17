@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline void highscore_show(Real numb)
     {
         call(functions[532], numb);
@@ -91,5 +93,6 @@ namespace gm
         call(functions[544], x1, y1, x2, y2);
     }
     
+    ///@}
 }
 #endif

@@ -26,10 +26,13 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline void sleep(Real numb)
     {
         call(functions[328], numb);
     }
     
+    ///@}
 }
 #endif

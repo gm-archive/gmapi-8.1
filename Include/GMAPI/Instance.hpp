@@ -24,6 +24,11 @@
 #include "Dll.hpp"
 namespace gm
 {
+    /**@defgroup instances Instances
+     * @brief Objects and functions for working with GM instances.
+     */
+    ///@{
+    /**@brief The GM instance structure.*/
     struct Instance
     {
         char _pad0000[4];
@@ -75,11 +80,20 @@ namespace gm
         //possibly more
     };
     
+    /**Gets the current GM instance.*/
     GMAPI_DLL Instance *getSelf();
+    /**Gets the current GM other instance.*/
     GMAPI_DLL Instance *getOther();
+    /**Sets the current GM instance. Note that this only effects DLL's using
+     * this API, and upon returning to GM, GM will use the original instance.
+     */
     GMAPI_DLL void setSelf(Instance *self);
+    /**Sets the current GM other instance.*/
     GMAPI_DLL void setOther(Instance *other);
     
+    /**@brief Stores the current GM self and other instances, and restores them
+     * when this object goes out of scope.
+     */
     class PreserveState
     {
     public:
@@ -96,5 +110,6 @@ namespace gm
     private:
         Instance *self, *other;
     };
+    ///@}
 }
 #endif

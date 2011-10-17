@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline void draw_point_color(Real x, Real y, Real col1)
     {
         call(functions[342], x, y, col1);
@@ -156,5 +158,6 @@ namespace gm
         call(functions[367], src, dest);
     }
     
+    ///@}
 }
 #endif

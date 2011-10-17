@@ -25,29 +25,46 @@
 #include <string>
 namespace gm
 {
+    /**@defgroup gm_variables GM Variables & Values
+     * @brief Objects and methods for working with GM variables and rvalues.
+     */
+    ///@{
+    /**@brief A dynamically typed GM value.
+     * 
+     * The type member indicates if this value is a string or a real.
+     */
     class Value
     {
     public:
         friend void swap(Value &a, Value &v);
+        /**Indicates if the value currently represents a real (double) or a
+         * string.
+         */
         enum Type
         {
             REAL   = 0,
             STRING = 1
         };
-        Value():type(REAL), real(-1056), str(0){}
+        /**Default constructor. Sets the value to a real with value 0.0.*/
+        Value():type(REAL), real(0), str(0){}
+        /**Constructs a real value.*/
         Value(double real):type(REAL), real(real), str(0){}
+        /**Constructs a string value using a copy of str.*/
         Value(const char *str):type(REAL), real(0), str(0)
         {
             setStr(str);
         }
+        /**Constructs a string value using a copy of str.*/
         Value(const char *str, unsigned len):type(REAL), real(0), str(0)
         {
             setStr(str, len);
         }
+        /**Constructs a string value using a copy of str.*/
         Value(const std::string &str):type(REAL), real(0), str(0)
         {
             setStr(str);
         }
+        /**Constructs the value as a copy of v.*/
         Value(const Value &v)
         :type(v.type), real(v.real), str(0)
         {
@@ -98,9 +115,24 @@ namespace gm
             this->str = newStr(str, len);
         }
         Type type;
+        /**When type == REAL, stores the real value.*/
         double real;
+        /**When type == STRING, points to the string object.
+         * 
+         * This is actually a Delphi string, that stores some information
+         * before the string.
+         * 
+         * Use the gm::getStrStruct(Value::str)function to get this struct.
+         * 
+         * It is advisable to use setStr rather than directly setting this
+         * field.
+         */
         char *str;
     };
+    /**Swap the values of two gm::Value objects.
+     * This has been implemented to avoid an expensive string copy (or even
+     * reference count changes).
+     */
     inline void swap(Value &a, Value &b)
     {
         using std::swap;
@@ -108,5 +140,6 @@ namespace gm
         swap(a.real, b.real);
         swap(a.str, b.str);
     }
+    ///@}
 }
 #endif

@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline void sound_effect_set(Real snd, Real effect)
     {
         call(functions[755], snd, effect);
@@ -66,5 +68,6 @@ namespace gm
         call(functions[762], snd, center, bandwidth, gain);
     }
     
+    ///@}
 }
 #endif

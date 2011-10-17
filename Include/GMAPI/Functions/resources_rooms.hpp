@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline Real room_exists(Real ind)
     {
         return call(functions[652], ind);
@@ -121,5 +123,6 @@ namespace gm
         call(functions[670], ind);
     }
     
+    ///@}
 }
 #endif

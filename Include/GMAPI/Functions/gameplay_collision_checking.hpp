@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline Real collision_point(Real x, Real y, Real obj, Real prec, Real notme)
     {
         return call(functions[231], x, y, obj, prec, notme);
@@ -51,5 +53,6 @@ namespace gm
         return call(functions[235], x1, y1, x2, y2, obj, prec, notme);
     }
     
+    ///@}
 }
 #endif

@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline Real date_current_datetime()
     {
         return call(functions[3]);
@@ -261,5 +263,6 @@ namespace gm
         return call(functions[49], date);
     }
     
+    ///@}
 }
 #endif

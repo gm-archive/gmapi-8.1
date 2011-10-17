@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline void instance_deactivate_all(Real notme)
     {
         call(functions[236], notme);
@@ -56,5 +58,6 @@ namespace gm
         call(functions[241], left, top, width, height, inside);
     }
     
+    ///@}
 }
 #endif

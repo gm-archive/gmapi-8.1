@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline Real tile_add(Real background, Real left, Real top, Real width, Real height, Real x, Real y, Real depth)
     {
         return call(functions[460], background, left, top, width, height, x, y, depth);
@@ -181,5 +183,6 @@ namespace gm
         call(functions[490], depth, newdepth);
     }
     
+    ///@}
 }
 #endif

@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline Real timeline_exists(Real ind)
     {
         return call(functions[714], ind);
@@ -61,5 +63,6 @@ namespace gm
         call(functions[720], ind, step);
     }
     
+    ///@}
 }
 #endif

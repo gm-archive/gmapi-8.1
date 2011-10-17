@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline Real ds_queue_create()
     {
         return call(functions[208]);
@@ -86,5 +88,6 @@ namespace gm
         call(functions[219], id, str);
     }
     
+    ///@}
 }
 #endif

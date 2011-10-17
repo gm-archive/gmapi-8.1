@@ -26,6 +26,8 @@
 #include "../Types.hpp"
 namespace gm
 {
+    /**@addtogroup gm_functions*/
+    ///@{
     inline void draw_background(Real back, Real x, Real y)
     {
         call(functions[368], back, x, y);
@@ -71,5 +73,6 @@ namespace gm
         call(functions[376], back, left, top, width, height, x, y, xscale, yscale, rot, c1, c2, c3, c4, alpha);
     }
     
+    ///@}
 }
 #endif
