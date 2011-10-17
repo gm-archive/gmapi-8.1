@@ -30,97 +30,97 @@ namespace gm
     ///@{
     inline void cd_init()
     {
-        call(functions[736]);
+        call(functions[816]);
     }
     
     inline Real cd_present()
     {
-        return call(functions[737]);
+        return call(functions[817]);
     }
     
     inline Real cd_number()
     {
-        return call(functions[738]);
+        return call(functions[818]);
     }
     
     inline Real cd_playing()
     {
-        return call(functions[739]);
+        return call(functions[819]);
     }
     
     inline Real cd_paused()
     {
-        return call(functions[740]);
+        return call(functions[820]);
     }
     
     inline Real cd_track()
     {
-        return call(functions[741]);
+        return call(functions[821]);
     }
     
     inline Real cd_length()
     {
-        return call(functions[742]);
+        return call(functions[822]);
     }
     
     inline Real cd_track_length(Real n)
     {
-        return call(functions[743], n);
+        return call(functions[823], n);
     }
     
     inline Real cd_position()
     {
-        return call(functions[744]);
+        return call(functions[824]);
     }
     
     inline Real cd_track_position()
     {
-        return call(functions[745]);
+        return call(functions[825]);
     }
     
     inline void cd_play(Real first, Real last)
     {
-        call(functions[746], first, last);
+        call(functions[826], first, last);
     }
     
     inline void cd_stop()
     {
-        call(functions[747]);
+        call(functions[827]);
     }
     
     inline void cd_pause()
     {
-        call(functions[748]);
+        call(functions[828]);
     }
     
     inline void cd_resume()
     {
-        call(functions[749]);
+        call(functions[829]);
     }
     
     inline void cd_set_position(Real pos)
     {
-        call(functions[750], pos);
+        call(functions[830], pos);
     }
     
     inline void cd_set_track_position(Real pos)
     {
-        call(functions[751], pos);
+        call(functions[831], pos);
     }
     
     inline void cd_open_door()
     {
-        call(functions[752]);
+        call(functions[832]);
     }
     
     inline void cd_close_door()
     {
-        call(functions[753]);
+        call(functions[833]);
     }
     
     inline void MCI_command(String str)
     {
-        call(functions[754], str);
+        call(functions[834], str);
     }
     
     ///@}

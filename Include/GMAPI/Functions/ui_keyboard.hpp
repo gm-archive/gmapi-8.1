@@ -30,67 +30,67 @@ namespace gm
     ///@{
     inline void keyboard_set_map(Real key1, Real key2)
     {
-        call(functions[800], key1, key2);
+        call(functions[880], key1, key2);
     }
     
     inline Real keyboard_get_map(Real key)
     {
-        return call(functions[801], key);
+        return call(functions[881], key);
     }
     
     inline void keyboard_unset_map()
     {
-        call(functions[802]);
+        call(functions[882]);
     }
     
     inline Real keyboard_check(Real key)
     {
-        return call(functions[803], key);
+        return call(functions[883], key);
     }
     
     inline Real keyboard_check_pressed(Real key)
     {
-        return call(functions[804], key);
+        return call(functions[884], key);
     }
     
     inline Real keyboard_check_released(Real key)
     {
-        return call(functions[805], key);
+        return call(functions[885], key);
     }
     
     inline Real keyboard_check_direct(Real key)
     {
-        return call(functions[806], key);
+        return call(functions[886], key);
     }
     
     inline Real keyboard_get_numlock()
     {
-        return call(functions[807]);
+        return call(functions[887]);
     }
     
     inline void keyboard_set_numlock(Real on)
     {
-        call(functions[808], on);
+        call(functions[888], on);
     }
     
     inline Real keyboard_key_press(Real key)
     {
-        return call(functions[809], key);
+        return call(functions[889], key);
     }
     
     inline Real keyboard_key_release(Real key)
     {
-        return call(functions[810], key);
+        return call(functions[890], key);
     }
     
     inline void keyboard_clear(Real key)
     {
-        call(functions[811], key);
+        call(functions[891], key);
     }
     
     inline void keyboard_wait()
     {
-        call(functions[812]);
+        call(functions[892]);
     }
     
     ///@}

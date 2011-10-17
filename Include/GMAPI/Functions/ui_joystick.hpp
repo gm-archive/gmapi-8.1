@@ -30,72 +30,72 @@ namespace gm
     ///@{
     inline Real joystick_exists(Real id)
     {
-        return call(functions[786], id);
+        return call(functions[866], id);
     }
     
     inline String joystick_name(Real id)
     {
-        return call(functions[787], id);
+        return call(functions[867], id);
     }
     
     inline Real joystick_axes(Real id)
     {
-        return call(functions[788], id);
+        return call(functions[868], id);
     }
     
     inline Real joystick_buttons(Real id)
     {
-        return call(functions[789], id);
+        return call(functions[869], id);
     }
     
     inline Real joystick_has_pov(Real id)
     {
-        return call(functions[790], id);
+        return call(functions[870], id);
     }
     
     inline Real joystick_direction(Real id)
     {
-        return call(functions[791], id);
+        return call(functions[871], id);
     }
     
     inline Real joystick_check_button(Real id, Real numb)
     {
-        return call(functions[792], id, numb);
+        return call(functions[872], id, numb);
     }
     
     inline Real joystick_xpos(Real id)
     {
-        return call(functions[793], id);
+        return call(functions[873], id);
     }
     
     inline Real joystick_ypos(Real id)
     {
-        return call(functions[794], id);
+        return call(functions[874], id);
     }
     
     inline Real joystick_zpos(Real id)
     {
-        return call(functions[795], id);
+        return call(functions[875], id);
     }
     
     inline Real joystick_rpos(Real id)
     {
-        return call(functions[796], id);
+        return call(functions[876], id);
     }
     
     inline Real joystick_upos(Real id)
     {
-        return call(functions[797], id);
+        return call(functions[877], id);
     }
     
     inline Real joystick_vpos(Real id)
     {
-        return call(functions[798], id);
+        return call(functions[878], id);
     }
     
     inline Real joystick_pov(Real id)
     {
-        return call(functions[799], id);
+        return call(functions[879], id);
     }
     
     ///@}

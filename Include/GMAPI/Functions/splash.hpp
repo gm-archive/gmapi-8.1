@@ -30,107 +30,107 @@ namespace gm
     ///@{
     inline void splash_show_video(String fname, Real loop)
     {
-        call(functions[763], fname, loop);
+        call(functions[843], fname, loop);
     }
     
     inline void splash_show_text(String fname, Real delay)
     {
-        call(functions[764], fname, delay);
+        call(functions[844], fname, delay);
     }
     
     inline void splash_show_image(String fname, Real delay)
     {
-        call(functions[765], fname, delay);
+        call(functions[845], fname, delay);
     }
     
     inline void splash_show_web(String url, Real delay)
     {
-        call(functions[766], url, delay);
+        call(functions[846], url, delay);
     }
     
     inline void splash_set_main(Real main)
     {
-        call(functions[767], main);
+        call(functions[847], main);
     }
     
     inline void splash_set_scale(Real scale)
     {
-        call(functions[768], scale);
+        call(functions[848], scale);
     }
     
     inline void splash_set_cursor(Real vis)
     {
-        call(functions[769], vis);
+        call(functions[849], vis);
     }
     
     inline void splash_set_color(Real col)
     {
-        call(functions[770], col);
+        call(functions[850], col);
     }
     
     inline void splash_set_caption(String cap)
     {
-        call(functions[771], cap);
+        call(functions[851], cap);
     }
     
     inline void splash_set_fullscreen(Real full)
     {
-        call(functions[772], full);
+        call(functions[852], full);
     }
     
     inline void splash_set_border(Real border)
     {
-        call(functions[773], border);
+        call(functions[853], border);
     }
     
     inline void splash_set_size(Real w, Real h)
     {
-        call(functions[774], w, h);
+        call(functions[854], w, h);
     }
     
     inline void splash_set_position(Real x, Real y)
     {
-        call(functions[775], x, y);
+        call(functions[855], x, y);
     }
     
     inline void splash_set_adapt(Real adapt)
     {
-        call(functions[776], adapt);
+        call(functions[856], adapt);
     }
     
     inline void splash_set_top(Real top)
     {
-        call(functions[777], top);
+        call(functions[857], top);
     }
     
     inline void splash_set_interrupt(Real interrupt)
     {
-        call(functions[778], interrupt);
+        call(functions[858], interrupt);
     }
     
     inline void splash_set_stop_key(Real stop)
     {
-        call(functions[779], stop);
+        call(functions[859], stop);
     }
     
     inline void splash_set_stop_mouse(Real stop)
     {
-        call(functions[780], stop);
+        call(functions[860], stop);
     }
     
     inline void splash_set_close_button(Real show)
     {
-        call(functions[781], show);
+        call(functions[861], show);
     }
     
     inline void show_info()
     {
-        call(functions[782]);
+        call(functions[862]);
     }
     
     inline void load_info(String fname)
     {
-        call(functions[783], fname);
+        call(functions[863], fname);
     }
     
     ///@}

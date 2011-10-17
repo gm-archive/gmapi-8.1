@@ -226,6 +226,9 @@
     <ClInclude Include="Include\GMAPI\Variable.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Include\GMAPI\Functions\particles.hpp">
+      <Filter>Header Files\Functions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\BinSearch.cpp">

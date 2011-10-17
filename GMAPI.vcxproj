@@ -179,6 +179,7 @@
     <ClInclude Include="Include\GMAPI\Functions\graphics_window.hpp" />
     <ClInclude Include="Include\GMAPI\Functions\highscore.hpp" />
     <ClInclude Include="Include\GMAPI\Functions\message_box.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\particles.hpp" />
     <ClInclude Include="Include\GMAPI\Functions\resources_backgrounds.hpp" />
     <ClInclude Include="Include\GMAPI\Functions\resources_fonts.hpp" />
     <ClInclude Include="Include\GMAPI\Functions\resources_objects.hpp" />

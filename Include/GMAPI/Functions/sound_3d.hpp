@@ -30,22 +30,22 @@ namespace gm
     ///@{
     inline void sound_3d_set_sound_position(Real snd, Real x, Real y, Real z)
     {
-        call(functions[721], snd, x, y, z);
+        call(functions[801], snd, x, y, z);
     }
     
     inline void sound_3d_set_sound_velocity(Real snd, Real x, Real y, Real z)
     {
-        call(functions[722], snd, x, y, z);
+        call(functions[802], snd, x, y, z);
     }
     
     inline void sound_3d_set_sound_distance(Real snd, Real mindist, Real maxdist)
     {
-        call(functions[723], snd, mindist, maxdist);
+        call(functions[803], snd, mindist, maxdist);
     }
     
     inline void sound_3d_set_sound_cone(Real snd, Real x, Real y, Real z, Real anglein, Real angleout, Real voloutside)
     {
-        call(functions[724], snd, x, y, z, anglein, angleout, voloutside);
+        call(functions[804], snd, x, y, z, anglein, angleout, voloutside);
     }
     
     ///@}

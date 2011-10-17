@@ -30,142 +30,142 @@ namespace gm
     ///@{
     inline Real sprite_exists(Real ind)
     {
-        return call(functions[686], ind);
+        return call(functions[766], ind);
     }
     
     inline String sprite_get_name(Real ind)
     {
-        return call(functions[687], ind);
+        return call(functions[767], ind);
     }
     
     inline Real sprite_get_number(Real ind)
     {
-        return call(functions[688], ind);
+        return call(functions[768], ind);
     }
     
     inline Real sprite_get_width(Real ind)
     {
-        return call(functions[689], ind);
+        return call(functions[769], ind);
     }
     
     inline Real sprite_get_height(Real ind)
     {
-        return call(functions[690], ind);
+        return call(functions[770], ind);
     }
     
     inline Real sprite_get_xoffset(Real ind)
     {
-        return call(functions[691], ind);
+        return call(functions[771], ind);
     }
     
     inline Real sprite_get_yoffset(Real ind)
     {
-        return call(functions[692], ind);
+        return call(functions[772], ind);
     }
     
     inline Real sprite_get_bbox_left(Real ind)
     {
-        return call(functions[693], ind);
+        return call(functions[773], ind);
     }
     
     inline Real sprite_get_bbox_right(Real ind)
     {
-        return call(functions[694], ind);
+        return call(functions[774], ind);
     }
     
     inline Real sprite_get_bbox_top(Real ind)
     {
-        return call(functions[695], ind);
+        return call(functions[775], ind);
     }
     
     inline Real sprite_get_bbox_bottom(Real ind)
     {
-        return call(functions[696], ind);
+        return call(functions[776], ind);
     }
     
     inline void sprite_save(Real ind, Real subimg, String fname)
     {
-        call(functions[697], ind, subimg, fname);
+        call(functions[777], ind, subimg, fname);
     }
     
     inline void sprite_save_strip(Real ind, String fname)
     {
-        call(functions[698], ind, fname);
+        call(functions[778], ind, fname);
     }
     
     inline void sprite_set_offset(Real ind, Real xoff, Real yoff)
     {
-        call(functions[699], ind, xoff, yoff);
+        call(functions[779], ind, xoff, yoff);
     }
     
     inline Real sprite_duplicate(Real ind)
     {
-        return call(functions[700], ind);
+        return call(functions[780], ind);
     }
     
     inline void sprite_assign(Real ind, Real spr)
     {
-        call(functions[701], ind, spr);
+        call(functions[781], ind, spr);
     }
     
     inline void sprite_merge(Real ind1, Real ind2)
     {
-        call(functions[702], ind1, ind2);
+        call(functions[782], ind1, ind2);
     }
     
     inline Real sprite_add(String fname, Real imgnumb, Real removeback, Real smooth, Real xorig, Real yorig)
     {
-        return call(functions[703], fname, imgnumb, removeback, smooth, xorig, yorig);
+        return call(functions[783], fname, imgnumb, removeback, smooth, xorig, yorig);
     }
     
     inline Real sprite_replace(Real ind, String fname, Real imgnumb, Real removeback, Real smooth, Real xorig, Real yorig)
     {
-        return call(functions[704], ind, fname, imgnumb, removeback, smooth, xorig, yorig);
+        return call(functions[784], ind, fname, imgnumb, removeback, smooth, xorig, yorig);
     }
     
     inline Real sprite_add_sprite(String fname)
     {
-        return call(functions[705], fname);
+        return call(functions[785], fname);
     }
     
     inline Real sprite_replace_sprite(Real ind, String fname)
     {
-        return call(functions[706], ind, fname);
+        return call(functions[786], ind, fname);
     }
     
     inline Real sprite_create_from_screen(Real x, Real y, Real w, Real h, Real removeback, Real smooth, Real xorig, Real yorig)
     {
-        return call(functions[707], x, y, w, h, removeback, smooth, xorig, yorig);
+        return call(functions[787], x, y, w, h, removeback, smooth, xorig, yorig);
     }
     
     inline void sprite_add_from_screen(Real ind, Real x, Real y, Real w, Real h, Real removeback, Real smooth)
     {
-        call(functions[708], ind, x, y, w, h, removeback, smooth);
+        call(functions[788], ind, x, y, w, h, removeback, smooth);
     }
     
     inline Real sprite_create_from_surface(Real id, Real x, Real y, Real w, Real h, Real removeback, Real smooth, Real xorig, Real yorig)
     {
-        return call(functions[709], id, x, y, w, h, removeback, smooth, xorig, yorig);
+        return call(functions[789], id, x, y, w, h, removeback, smooth, xorig, yorig);
     }
     
     inline void sprite_add_from_surface(Real ind, Real id, Real x, Real y, Real w, Real h, Real removeback, Real smooth)
     {
-        call(functions[710], ind, id, x, y, w, h, removeback, smooth);
+        call(functions[790], ind, id, x, y, w, h, removeback, smooth);
     }
     
     inline void sprite_delete(Real ind)
     {
-        call(functions[711], ind);
+        call(functions[791], ind);
     }
     
     inline void sprite_set_alpha_from_sprite(Real ind, Real spr)
     {
-        call(functions[712], ind, spr);
+        call(functions[792], ind, spr);
     }
     
     inline void sprite_collision_mask(Real ind, Real sepmasks, Real bboxmode, Real bbleft, Real bbtop, Real bbright, Real bbbottom, Real kind, Real tolerance)
     {
-        call(functions[713], ind, sepmasks, bboxmode, bbleft, bbtop, bbright, bbbottom, kind, tolerance);
+        call(functions[793], ind, sepmasks, bboxmode, bbleft, bbtop, bbright, bbbottom, kind, tolerance);
     }
     
     ///@}
