@@ -30,37 +30,37 @@ namespace gm
     ///@{
     inline Real mouse_check_button(Real numb)
     {
-        return call(functions[893], numb);
+        return call(functions[967], numb);
     }
     
     inline Real mouse_check_button_pressed(Real numb)
     {
-        return call(functions[894], numb);
+        return call(functions[968], numb);
     }
     
     inline Real mouse_check_button_released(Real numb)
     {
-        return call(functions[895], numb);
+        return call(functions[969], numb);
     }
     
     inline Real mouse_wheel_up()
     {
-        return call(functions[896]);
+        return call(functions[970]);
     }
     
     inline Real mouse_wheel_down()
     {
-        return call(functions[897]);
+        return call(functions[971]);
     }
     
     inline void mouse_clear(Real button)
     {
-        call(functions[898], button);
+        call(functions[972], button);
     }
     
     inline void mouse_wait()
     {
-        call(functions[899]);
+        call(functions[973]);
     }
     
     ///@}

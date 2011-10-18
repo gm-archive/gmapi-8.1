@@ -30,102 +30,102 @@ namespace gm
     ///@{
     inline void motion_set(Real dir, Real speed)
     {
-        call(functions[294], dir, speed);
+        call(functions[368], dir, speed);
     }
     
     inline void motion_add(Real dir, Real speed)
     {
-        call(functions[295], dir, speed);
+        call(functions[369], dir, speed);
     }
     
     inline Real place_free(Real x, Real y)
     {
-        return call(functions[296], x, y);
+        return call(functions[370], x, y);
     }
     
     inline Real place_empty(Real x, Real y)
     {
-        return call(functions[297], x, y);
+        return call(functions[371], x, y);
     }
     
     inline Real place_meeting(Real x, Real y, Real obj)
     {
-        return call(functions[298], x, y, obj);
+        return call(functions[372], x, y, obj);
     }
     
     inline Real place_snapped(Real hsnap, Real vsnap)
     {
-        return call(functions[299], hsnap, vsnap);
+        return call(functions[373], hsnap, vsnap);
     }
     
     inline void move_random(Real hsnap, Real vsnap)
     {
-        call(functions[300], hsnap, vsnap);
+        call(functions[374], hsnap, vsnap);
     }
     
     inline void move_snap(Real hsnap, Real vsnap)
     {
-        call(functions[301], hsnap, vsnap);
+        call(functions[375], hsnap, vsnap);
     }
     
     inline void move_wrap(Real hor, Real vert, Real margin)
     {
-        call(functions[302], hor, vert, margin);
+        call(functions[376], hor, vert, margin);
     }
     
     inline void move_towards_point(Real x, Real y, Real sp)
     {
-        call(functions[303], x, y, sp);
+        call(functions[377], x, y, sp);
     }
     
     inline void move_bounce_solid(Real adv)
     {
-        call(functions[304], adv);
+        call(functions[378], adv);
     }
     
     inline void move_bounce_all(Real adv)
     {
-        call(functions[305], adv);
+        call(functions[379], adv);
     }
     
     inline void move_contact_solid(Real dir, Real maxdist)
     {
-        call(functions[306], dir, maxdist);
+        call(functions[380], dir, maxdist);
     }
     
     inline void move_contact_all(Real dir, Real maxdist)
     {
-        call(functions[307], dir, maxdist);
+        call(functions[381], dir, maxdist);
     }
     
     inline void move_outside_solid(Real dir, Real maxdist)
     {
-        call(functions[308], dir, maxdist);
+        call(functions[382], dir, maxdist);
     }
     
     inline void move_outside_all(Real dir, Real maxdist)
     {
-        call(functions[309], dir, maxdist);
+        call(functions[383], dir, maxdist);
     }
     
     inline Real distance_to_point(Real x, Real y)
     {
-        return call(functions[310], x, y);
+        return call(functions[384], x, y);
     }
     
     inline void distance_to_object(Real obj)
     {
-        call(functions[311], obj);
+        call(functions[385], obj);
     }
     
     inline Real position_empty(Real x, Real y)
     {
-        return call(functions[312], x, y);
+        return call(functions[386], x, y);
     }
     
     inline Real position_meeting(Real x, Real y, Real obj)
     {
-        return call(functions[313], x, y, obj);
+        return call(functions[387], x, y, obj);
     }
     
     ///@}

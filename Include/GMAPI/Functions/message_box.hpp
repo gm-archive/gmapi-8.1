@@ -30,127 +30,127 @@ namespace gm
     ///@{
     inline void show_message(String str)
     {
-        call(functions[545], str);
+        call(functions[619], str);
     }
     
     inline Real show_message_ext(String str, String but1, String but2, String but3)
     {
-        return call(functions[546], str, but1, but2, but3);
+        return call(functions[620], str, but1, but2, but3);
     }
     
     inline Real show_question(String str)
     {
-        return call(functions[547], str);
+        return call(functions[621], str);
     }
     
     inline Real get_integer(String str, Real def)
     {
-        return call(functions[548], str, def);
+        return call(functions[622], str, def);
     }
     
     inline String get_string(String str, String def)
     {
-        return call(functions[549], str, def);
+        return call(functions[623], str, def);
     }
     
     inline void message_background(Real back)
     {
-        call(functions[550], back);
+        call(functions[624], back);
     }
     
     inline void message_alpha(Real alpha)
     {
-        call(functions[551], alpha);
+        call(functions[625], alpha);
     }
     
     inline void message_button(Real spr)
     {
-        call(functions[552], spr);
+        call(functions[626], spr);
     }
     
     inline void message_text_font(String name, Real size, Real color, Real style)
     {
-        call(functions[553], name, size, color, style);
+        call(functions[627], name, size, color, style);
     }
     
     inline void message_button_font(String name, Real size, Real color, Real style)
     {
-        call(functions[554], name, size, color, style);
+        call(functions[628], name, size, color, style);
     }
     
     inline void message_input_font(String name, Real size, Real color, Real style)
     {
-        call(functions[555], name, size, color, style);
+        call(functions[629], name, size, color, style);
     }
     
     inline void message_text_charset(Real type, Real charset)
     {
-        call(functions[556], type, charset);
+        call(functions[630], type, charset);
     }
     
     inline void message_mouse_color(Real col)
     {
-        call(functions[557], col);
+        call(functions[631], col);
     }
     
     inline void message_input_color(Real col)
     {
-        call(functions[558], col);
+        call(functions[632], col);
     }
     
     inline void message_caption(Real show, String str)
     {
-        call(functions[559], show, str);
+        call(functions[633], show, str);
     }
     
     inline void message_position(Real x, Real y)
     {
-        call(functions[560], x, y);
+        call(functions[634], x, y);
     }
     
     inline void message_size(Real w, Real h)
     {
-        call(functions[561], w, h);
+        call(functions[635], w, h);
     }
     
     inline Value show_menu(String str, Value def)
     {
-        return call(functions[562], str, def);
+        return call(functions[636], str, def);
     }
     
     inline Value show_menu_pos(Real x, Real y, String str, Value def)
     {
-        return call(functions[563], x, y, str, def);
+        return call(functions[637], x, y, str, def);
     }
     
     inline Real get_color(Real defcol)
     {
-        return call(functions[564], defcol);
+        return call(functions[638], defcol);
     }
     
     inline String get_open_filename(String filter, String fname)
     {
-        return call(functions[565], filter, fname);
+        return call(functions[639], filter, fname);
     }
     
     inline String get_save_filename(String filter, String fname)
     {
-        return call(functions[566], filter, fname);
+        return call(functions[640], filter, fname);
     }
     
     inline String get_directory(String dname)
     {
-        return call(functions[567], dname);
+        return call(functions[641], dname);
     }
     
     inline String get_directory_alt(String capt, String root)
     {
-        return call(functions[568], capt, root);
+        return call(functions[642], capt, root);
     }
     
     inline void show_error(String str, String abort)
     {
-        call(functions[569], str, abort);
+        call(functions[643], str, abort);
     }
     
     ///@}

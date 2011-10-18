@@ -30,112 +30,112 @@ namespace gm
     ///@{
     inline Real surface_create(Real w, Real h)
     {
-        return call(functions[438], w, h);
+        return call(functions[512], w, h);
     }
     
     inline void surface_free(Real id)
     {
-        call(functions[439], id);
+        call(functions[513], id);
     }
     
     inline Real surface_exists(Real id)
     {
-        return call(functions[440], id);
+        return call(functions[514], id);
     }
     
     inline Real surface_get_width(Real id)
     {
-        return call(functions[441], id);
+        return call(functions[515], id);
     }
     
     inline Real surface_get_height(Real id)
     {
-        return call(functions[442], id);
+        return call(functions[516], id);
     }
     
     inline Real surface_get_texture(Real id)
     {
-        return call(functions[443], id);
+        return call(functions[517], id);
     }
     
     inline void surface_set_target(Real id)
     {
-        call(functions[444], id);
+        call(functions[518], id);
     }
     
     inline void surface_reset_target()
     {
-        call(functions[445]);
+        call(functions[519]);
     }
     
     inline Real surface_getpixel(Real id, Real x, Real y)
     {
-        return call(functions[446], id, x, y);
+        return call(functions[520], id, x, y);
     }
     
     inline void surface_save(Real id, String fname)
     {
-        call(functions[447], id, fname);
+        call(functions[521], id, fname);
     }
     
     inline void surface_save_part(Real id, String fname, Real x, Real y, Real w, Real h)
     {
-        call(functions[448], id, fname, x, y, w, h);
+        call(functions[522], id, fname, x, y, w, h);
     }
     
     inline void draw_surface(Real id, Real x, Real y)
     {
-        call(functions[449], id, x, y);
+        call(functions[523], id, x, y);
     }
     
     inline void draw_surface_stretched(Real id, Real x, Real y, Real w, Real h)
     {
-        call(functions[450], id, x, y, w, h);
+        call(functions[524], id, x, y, w, h);
     }
     
     inline void draw_surface_tiled(Real id, Real x, Real y)
     {
-        call(functions[451], id, x, y);
+        call(functions[525], id, x, y);
     }
     
     inline void draw_surface_part(Real id, Real left, Real top, Real width, Real height, Real x, Real y)
     {
-        call(functions[452], id, left, top, width, height, x, y);
+        call(functions[526], id, left, top, width, height, x, y);
     }
     
     inline void draw_surface_ext(Real id, Real x, Real y, Real xscale, Real yscale, Real rot, Real color, Real alpha)
     {
-        call(functions[453], id, x, y, xscale, yscale, rot, color, alpha);
+        call(functions[527], id, x, y, xscale, yscale, rot, color, alpha);
     }
     
     inline void draw_surface_stretched_ext(Real id, Real x, Real y, Real w, Real h, Real color, Real alpha)
     {
-        call(functions[454], id, x, y, w, h, color, alpha);
+        call(functions[528], id, x, y, w, h, color, alpha);
     }
     
     inline void draw_surface_tiled_ext(Real id, Real x, Real y, Real xscale, Real yscale, Real color, Real alpha)
     {
-        call(functions[455], id, x, y, xscale, yscale, color, alpha);
+        call(functions[529], id, x, y, xscale, yscale, color, alpha);
     }
     
     inline void draw_surface_part_ext(Real id, Real left, Real top, Real width, Real height, Real x, Real y, Real xscale, Real yscale, Real color, Real alpha)
     {
-        call(functions[456], id, left, top, width, height, x, y, xscale, yscale, color, alpha);
+        call(functions[530], id, left, top, width, height, x, y, xscale, yscale, color, alpha);
     }
     
     inline void draw_surface_general(Real id, Real left, Real top, Real width, Real height, Real x, Real y, Real xscale, Real yscale, Real rot, Real c1, Real c2, Real c3, Real c4, Real alpha)
     {
-        call(functions[457], id, left, top, width, height, x, y, xscale, yscale, rot, c1, c2, c3, c4, alpha);
+        call(functions[531], id, left, top, width, height, x, y, xscale, yscale, rot, c1, c2, c3, c4, alpha);
     }
     
     inline void surface_copy(Real destination, Real x, Real y, Real source)
     {
-        call(functions[458], destination, x, y, source);
+        call(functions[532], destination, x, y, source);
     }
     
     inline void surface_copy_part(Real destination, Real x, Real y, Real source, Real xs, Real ys, Real ws, Real hs)
     {
-        call(functions[459], destination, x, y, source, xs, ys, ws, hs);
+        call(functions[533], destination, x, y, source, xs, ys, ws, hs);
     }
     
     ///@}

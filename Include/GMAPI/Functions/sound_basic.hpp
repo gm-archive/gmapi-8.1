@@ -30,57 +30,57 @@ namespace gm
     ///@{
     inline void sound_play(Real index)
     {
-        call(functions[805], index);
+        call(functions[879], index);
     }
     
     inline void sound_loop(Real index)
     {
-        call(functions[806], index);
+        call(functions[880], index);
     }
     
     inline void sound_stop(Real index)
     {
-        call(functions[807], index);
+        call(functions[881], index);
     }
     
     inline void sound_stop_all()
     {
-        call(functions[808]);
+        call(functions[882]);
     }
     
     inline Real sound_isplaying(Real index)
     {
-        return call(functions[809], index);
+        return call(functions[883], index);
     }
     
     inline void sound_volume(Real index, Real value)
     {
-        call(functions[810], index, value);
+        call(functions[884], index, value);
     }
     
     inline void sound_global_volume(Real value)
     {
-        call(functions[811], value);
+        call(functions[885], value);
     }
     
     inline void sound_fade(Real index, Real value, Real time)
     {
-        call(functions[812], index, value, time);
+        call(functions[886], index, value, time);
     }
     
     inline void sound_pan(Real index, Real value)
     {
-        call(functions[813], index, value);
+        call(functions[887], index, value);
     }
     
     inline void sound_background_tempo(Real factor)
     {
-        call(functions[814], factor);
+        call(functions[888], factor);
     }
     
     inline void sound_set_search_directory(String dir)
     {
-        call(functions[815], dir);
+        call(functions[889], dir);
     }
     
     ///@}

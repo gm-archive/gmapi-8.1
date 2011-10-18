@@ -30,37 +30,37 @@ namespace gm
     ///@{
     inline Real timeline_exists(Real ind)
     {
-        return call(functions[794], ind);
+        return call(functions[868], ind);
     }
     
     inline String timeline_get_name(Real ind)
     {
-        return call(functions[795], ind);
+        return call(functions[869], ind);
     }
     
     inline Real timeline_add()
     {
-        return call(functions[796]);
+        return call(functions[870]);
     }
     
     inline void timeline_delete(Real ind)
     {
-        call(functions[797], ind);
+        call(functions[871], ind);
     }
     
     inline void timeline_clear(Real ind)
     {
-        call(functions[798], ind);
+        call(functions[872], ind);
     }
     
     inline void timeline_moment_add(Real ind, Real step, String codestr)
     {
-        call(functions[799], ind, step, codestr);
+        call(functions[873], ind, step, codestr);
     }
     
     inline void timeline_moment_clear(Real ind, Real step)
     {
-        call(functions[800], ind, step);
+        call(functions[874], ind, step);
     }
     
     ///@}

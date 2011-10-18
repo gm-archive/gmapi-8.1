@@ -30,157 +30,157 @@ namespace gm
     ///@{
     inline Real tile_add(Real background, Real left, Real top, Real width, Real height, Real x, Real y, Real depth)
     {
-        return call(functions[460], background, left, top, width, height, x, y, depth);
+        return call(functions[534], background, left, top, width, height, x, y, depth);
     }
     
     inline void tile_delete(Real id)
     {
-        call(functions[461], id);
+        call(functions[535], id);
     }
     
     inline Real tile_exists(Real id)
     {
-        return call(functions[462], id);
+        return call(functions[536], id);
     }
     
     inline Real tile_get_x(Real id)
     {
-        return call(functions[463], id);
+        return call(functions[537], id);
     }
     
     inline Real tile_get_y(Real id)
     {
-        return call(functions[464], id);
+        return call(functions[538], id);
     }
     
     inline Real tile_get_left(Real id)
     {
-        return call(functions[465], id);
+        return call(functions[539], id);
     }
     
     inline Real tile_get_top(Real id)
     {
-        return call(functions[466], id);
+        return call(functions[540], id);
     }
     
     inline Real tile_get_width(Real id)
     {
-        return call(functions[467], id);
+        return call(functions[541], id);
     }
     
     inline Real tile_get_height(Real id)
     {
-        return call(functions[468], id);
+        return call(functions[542], id);
     }
     
     inline Real tile_get_depth(Real id)
     {
-        return call(functions[469], id);
+        return call(functions[543], id);
     }
     
     inline Real tile_get_visible(Real id)
     {
-        return call(functions[470], id);
+        return call(functions[544], id);
     }
     
     inline Real tile_get_xscale(Real id)
     {
-        return call(functions[471], id);
+        return call(functions[545], id);
     }
     
     inline Real tile_get_yscale(Real id)
     {
-        return call(functions[472], id);
+        return call(functions[546], id);
     }
     
     inline Real tile_get_background(Real id)
     {
-        return call(functions[473], id);
+        return call(functions[547], id);
     }
     
     inline Real tile_get_blend(Real id)
     {
-        return call(functions[474], id);
+        return call(functions[548], id);
     }
     
     inline Real tile_get_alpha(Real id)
     {
-        return call(functions[475], id);
+        return call(functions[549], id);
     }
     
     inline void tile_set_position(Real id, Real x, Real y)
     {
-        call(functions[476], id, x, y);
+        call(functions[550], id, x, y);
     }
     
     inline void tile_set_region(Real id, Real left, Real top, Real width, Real height)
     {
-        call(functions[477], id, left, top, width, height);
+        call(functions[551], id, left, top, width, height);
     }
     
     inline void tile_set_background(Real id, Real background)
     {
-        call(functions[478], id, background);
+        call(functions[552], id, background);
     }
     
     inline void tile_set_visible(Real id, Real visible)
     {
-        call(functions[479], id, visible);
+        call(functions[553], id, visible);
     }
     
     inline void tile_set_depth(Real id, Real depth)
     {
-        call(functions[480], id, depth);
+        call(functions[554], id, depth);
     }
     
     inline void tile_set_scale(Real id, Real xscale, Real yscale)
     {
-        call(functions[481], id, xscale, yscale);
+        call(functions[555], id, xscale, yscale);
     }
     
     inline void tile_set_blend(Real id, Real color)
     {
-        call(functions[482], id, color);
+        call(functions[556], id, color);
     }
     
     inline void tile_set_alpha(Real id, Real alpha)
     {
-        call(functions[483], id, alpha);
+        call(functions[557], id, alpha);
     }
     
     inline void tile_layer_hide(Real depth)
     {
-        call(functions[484], depth);
+        call(functions[558], depth);
     }
     
     inline void tile_layer_show(Real depth)
     {
-        call(functions[485], depth);
+        call(functions[559], depth);
     }
     
     inline void tile_layer_delete(Real depth)
     {
-        call(functions[486], depth);
+        call(functions[560], depth);
     }
     
     inline void tile_layer_shift(Real depth, Real x, Real y)
     {
-        call(functions[487], depth, x, y);
+        call(functions[561], depth, x, y);
     }
     
     inline void tile_layer_find(Real depth, Real x, Real y)
     {
-        call(functions[488], depth, x, y);
+        call(functions[562], depth, x, y);
     }
     
     inline void tile_layer_delete_at(Real depth, Real x, Real y)
     {
-        call(functions[489], depth, x, y);
+        call(functions[563], depth, x, y);
     }
     
     inline void tile_layer_depth(Real depth, Real newdepth)
     {
-        call(functions[490], depth, newdepth);
+        call(functions[564], depth, newdepth);
     }
     
     ///@}

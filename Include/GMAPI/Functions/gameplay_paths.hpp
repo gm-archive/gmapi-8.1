@@ -30,12 +30,12 @@ namespace gm
     ///@{
     inline void path_start(Real path, Real speed, Real endaction, Real absolute)
     {
-        call(functions[314], path, speed, endaction, absolute);
+        call(functions[388], path, speed, endaction, absolute);
     }
     
     inline void path_end()
     {
-        call(functions[315]);
+        call(functions[389]);
     }
     
     ///@}

@@ -30,82 +30,82 @@ namespace gm
     ///@{
     inline Real variable_global_exists(String name)
     {
-        return call(functions[259], name);
+        return call(functions[333], name);
     }
     
     inline Real variable_local_exists(String name)
     {
-        return call(functions[260], name);
+        return call(functions[334], name);
     }
     
     inline Value variable_global_get(String name)
     {
-        return call(functions[261], name);
+        return call(functions[335], name);
     }
     
     inline Value variable_global_array_get(String name, Real ind)
     {
-        return call(functions[262], name, ind);
+        return call(functions[336], name, ind);
     }
     
     inline Value variable_global_array2_get(String name, Real ind1, Real ind2)
     {
-        return call(functions[263], name, ind1, ind2);
+        return call(functions[337], name, ind1, ind2);
     }
     
     inline Value variable_local_get(String name)
     {
-        return call(functions[264], name);
+        return call(functions[338], name);
     }
     
     inline Value variable_local_array_get(String name, Real ind)
     {
-        return call(functions[265], name, ind);
+        return call(functions[339], name, ind);
     }
     
     inline Value variable_local_array2_get(String name, Real ind1, Real ind2)
     {
-        return call(functions[266], name, ind1, ind2);
+        return call(functions[340], name, ind1, ind2);
     }
     
     inline void variable_global_set(String name, Value value)
     {
-        call(functions[267], name, value);
+        call(functions[341], name, value);
     }
     
     inline void variable_global_array_set(String name, Real ind, Value value)
     {
-        call(functions[268], name, ind, value);
+        call(functions[342], name, ind, value);
     }
     
     inline void variable_global_array2_set(String name, Real ind1, Real ind2, Value value)
     {
-        call(functions[269], name, ind1, ind2, value);
+        call(functions[343], name, ind1, ind2, value);
     }
     
     inline void variable_local_set(String name, Value value)
     {
-        call(functions[270], name, value);
+        call(functions[344], name, value);
     }
     
     inline void variable_local_array_set(String name, Real ind, Value value)
     {
-        call(functions[271], name, ind, value);
+        call(functions[345], name, ind, value);
     }
     
     inline void variable_local_array2_set(String name, Real ind1, Real ind2, Value value)
     {
-        call(functions[272], name, ind1, ind2, value);
+        call(functions[346], name, ind1, ind2, value);
     }
     
     inline void set_program_priority(Real priority)
     {
-        call(functions[273], priority);
+        call(functions[347], priority);
     }
     
     inline void set_application_title(String title)
     {
-        call(functions[274], title);
+        call(functions[348], title);
     }
     
     ///@}

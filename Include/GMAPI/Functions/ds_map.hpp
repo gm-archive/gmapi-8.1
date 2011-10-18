@@ -30,87 +30,87 @@ namespace gm
     ///@{
     inline Real ds_map_create()
     {
-        return call(functions[175]);
+        return call(functions[249]);
     }
     
     inline void ds_map_destroy(Real id)
     {
-        call(functions[176], id);
+        call(functions[250], id);
     }
     
     inline void ds_map_clear(Real id)
     {
-        call(functions[177], id);
+        call(functions[251], id);
     }
     
     inline Real ds_map_copy(Real id, Real source)
     {
-        return call(functions[178], id, source);
+        return call(functions[252], id, source);
     }
     
     inline Real ds_map_size(Real id)
     {
-        return call(functions[179], id);
+        return call(functions[253], id);
     }
     
     inline Real ds_map_empty(Real id)
     {
-        return call(functions[180], id);
+        return call(functions[254], id);
     }
     
     inline void ds_map_add(Real id, Value key, Value val)
     {
-        call(functions[181], id, key, val);
+        call(functions[255], id, key, val);
     }
     
     inline void ds_map_replace(Real id, Value key, Value val)
     {
-        call(functions[182], id, key, val);
+        call(functions[256], id, key, val);
     }
     
     inline void ds_map_delete(Real id, Value key)
     {
-        call(functions[183], id, key);
+        call(functions[257], id, key);
     }
     
     inline Real ds_map_exists(Real id, Value key)
     {
-        return call(functions[184], id, key);
+        return call(functions[258], id, key);
     }
     
     inline Value ds_map_find_value(Real id, Value key)
     {
-        return call(functions[185], id, key);
+        return call(functions[259], id, key);
     }
     
     inline Value ds_map_find_previous(Real id, Value key)
     {
-        return call(functions[186], id, key);
+        return call(functions[260], id, key);
     }
     
     inline Value ds_map_find_next(Real id, Value key)
     {
-        return call(functions[187], id, key);
+        return call(functions[261], id, key);
     }
     
     inline Value ds_map_find_first(Real id)
     {
-        return call(functions[188], id);
+        return call(functions[262], id);
     }
     
     inline Value ds_map_find_last(Real id)
     {
-        return call(functions[189], id);
+        return call(functions[263], id);
     }
     
     inline String ds_map_write(Real id)
     {
-        return call(functions[190], id);
+        return call(functions[264], id);
     }
     
     inline void ds_map_read(Real id, String str)
     {
-        call(functions[191], id, str);
+        call(functions[265], id, str);
     }
     
     ///@}

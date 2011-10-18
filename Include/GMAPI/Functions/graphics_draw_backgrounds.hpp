@@ -30,47 +30,47 @@ namespace gm
     ///@{
     inline void draw_background(Real back, Real x, Real y)
     {
-        call(functions[368], back, x, y);
+        call(functions[442], back, x, y);
     }
     
     inline void draw_background_stretched(Real back, Real x, Real y, Real w, Real h)
     {
-        call(functions[369], back, x, y, w, h);
+        call(functions[443], back, x, y, w, h);
     }
     
     inline void draw_background_tiled(Real back, Real x, Real y)
     {
-        call(functions[370], back, x, y);
+        call(functions[444], back, x, y);
     }
     
     inline void draw_background_part(Real back, Real left, Real top, Real width, Real height, Real x, Real y)
     {
-        call(functions[371], back, left, top, width, height, x, y);
+        call(functions[445], back, left, top, width, height, x, y);
     }
     
     inline void draw_background_ext(Real back, Real x, Real y, Real xscale, Real yscale, Real rot, Real color, Real alpha)
     {
-        call(functions[372], back, x, y, xscale, yscale, rot, color, alpha);
+        call(functions[446], back, x, y, xscale, yscale, rot, color, alpha);
     }
     
     inline void draw_background_stretched_ext(Real back, Real x, Real y, Real w, Real h, Real color, Real alpha)
     {
-        call(functions[373], back, x, y, w, h, color, alpha);
+        call(functions[447], back, x, y, w, h, color, alpha);
     }
     
     inline void draw_background_tiled_ext(Real back, Real x, Real y, Real xscale, Real yscale, Real color, Real alpha)
     {
-        call(functions[374], back, x, y, xscale, yscale, color, alpha);
+        call(functions[448], back, x, y, xscale, yscale, color, alpha);
     }
     
     inline void draw_background_part_ext(Real back, Real left, Real top, Real width, Real height, Real x, Real y, Real xscale, Real yscale, Real color, Real alpha)
     {
-        call(functions[375], back, left, top, width, height, x, y, xscale, yscale, color, alpha);
+        call(functions[449], back, left, top, width, height, x, y, xscale, yscale, color, alpha);
     }
     
     inline void draw_background_general(Real back, Real left, Real top, Real width, Real height, Real x, Real y, Real xscale, Real yscale, Real rot, Real c1, Real c2, Real c3, Real c4, Real alpha)
     {
-        call(functions[376], back, left, top, width, height, x, y, xscale, yscale, rot, c1, c2, c3, c4, alpha);
+        call(functions[450], back, left, top, width, height, x, y, xscale, yscale, rot, c1, c2, c3, c4, alpha);
     }
     
     ///@}

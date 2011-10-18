@@ -149,6 +149,7 @@
     <ClInclude Include="Include\GMAPI\Functions\computing_things_dates.hpp" />
     <ClInclude Include="Include\GMAPI\Functions\computing_things_real.hpp" />
     <ClInclude Include="Include\GMAPI\Functions\computing_things_string.hpp" />
+    <ClInclude Include="Include\GMAPI\Functions\d3d.hpp" />
     <ClInclude Include="Include\GMAPI\Functions\dll.hpp" />
     <ClInclude Include="Include\GMAPI\Functions\ds_grid.hpp" />
     <ClInclude Include="Include\GMAPI\Functions\ds_list.hpp" />

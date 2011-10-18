@@ -30,87 +30,87 @@ namespace gm
     ///@{
     inline Real background_exists(Real ind)
     {
-        return call(functions[650], ind);
+        return call(functions[724], ind);
     }
     
     inline String background_get_name(Real ind)
     {
-        return call(functions[651], ind);
+        return call(functions[725], ind);
     }
     
     inline Real background_get_width(Real ind)
     {
-        return call(functions[652], ind);
+        return call(functions[726], ind);
     }
     
     inline Real background_get_height(Real ind)
     {
-        return call(functions[653], ind);
+        return call(functions[727], ind);
     }
     
     inline void background_save(Real ind, String fname)
     {
-        call(functions[654], ind, fname);
+        call(functions[728], ind, fname);
     }
     
     inline Real background_duplicate(Real ind)
     {
-        return call(functions[655], ind);
+        return call(functions[729], ind);
     }
     
     inline void background_assign(Real ind, Real back)
     {
-        call(functions[656], ind, back);
+        call(functions[730], ind, back);
     }
     
     inline Real background_add(String fname, Real removeback, Real smooth)
     {
-        return call(functions[657], fname, removeback, smooth);
+        return call(functions[731], fname, removeback, smooth);
     }
     
     inline void background_replace(Real ind, String fname, Real removeback, Real smooth)
     {
-        call(functions[658], ind, fname, removeback, smooth);
+        call(functions[732], ind, fname, removeback, smooth);
     }
     
     inline Real background_add_background(String fname)
     {
-        return call(functions[659], fname);
+        return call(functions[733], fname);
     }
     
     inline void background_replace_background(Real ind, String fname)
     {
-        call(functions[660], ind, fname);
+        call(functions[734], ind, fname);
     }
     
     inline Real background_create_color(Real w, Real h, Real col)
     {
-        return call(functions[661], w, h, col);
+        return call(functions[735], w, h, col);
     }
     
     inline Real background_create_gradient(Real w, Real h, Real col1, Real col2, Real kind)
     {
-        return call(functions[662], w, h, col1, col2, kind);
+        return call(functions[736], w, h, col1, col2, kind);
     }
     
     inline Real background_create_from_screen(Real x, Real y, Real w, Real h, Real removeback, Real smooth)
     {
-        return call(functions[663], x, y, w, h, removeback, smooth);
+        return call(functions[737], x, y, w, h, removeback, smooth);
     }
     
     inline Real background_create_from_surface(Real id, Real x, Real y, Real w, Real h, Real removeback, Real smooth)
     {
-        return call(functions[664], id, x, y, w, h, removeback, smooth);
+        return call(functions[738], id, x, y, w, h, removeback, smooth);
     }
     
     inline void background_delete(Real ind)
     {
-        call(functions[665], ind);
+        call(functions[739], ind);
     }
     
     inline void background_set_alpha_from_background(Real ind, Real back)
     {
-        call(functions[666], ind, back);
+        call(functions[740], ind, back);
     }
     
     ///@}

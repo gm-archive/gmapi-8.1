@@ -30,67 +30,67 @@ namespace gm
     ///@{
     inline Real instance_find(Real obj, Real n)
     {
-        return call(functions[246], obj, n);
+        return call(functions[320], obj, n);
     }
     
     inline Real instance_exists(Real obj)
     {
-        return call(functions[247], obj);
+        return call(functions[321], obj);
     }
     
     inline Real instance_number(Real obj)
     {
-        return call(functions[248], obj);
+        return call(functions[322], obj);
     }
     
     inline Real instance_position(Real x, Real y, Real obj)
     {
-        return call(functions[249], x, y, obj);
+        return call(functions[323], x, y, obj);
     }
     
     inline Real instance_nearest(Real x, Real y, Real obj)
     {
-        return call(functions[250], x, y, obj);
+        return call(functions[324], x, y, obj);
     }
     
     inline Real instance_furthest(Real x, Real y, Real obj)
     {
-        return call(functions[251], x, y, obj);
+        return call(functions[325], x, y, obj);
     }
     
     inline Real instance_place(Real x, Real y, Real obj)
     {
-        return call(functions[252], x, y, obj);
+        return call(functions[326], x, y, obj);
     }
     
     inline Real instance_create(Real x, Real y, Real obj)
     {
-        return call(functions[253], x, y, obj);
+        return call(functions[327], x, y, obj);
     }
     
     inline Real instance_copy(Real performevent)
     {
-        return call(functions[254], performevent);
+        return call(functions[328], performevent);
     }
     
     inline void instance_destroy()
     {
-        call(functions[255]);
+        call(functions[329]);
     }
     
     inline void instance_change(Real obj, Real perf)
     {
-        call(functions[256], obj, perf);
+        call(functions[330], obj, perf);
     }
     
     inline void position_destroy(Real x, Real y)
     {
-        call(functions[257], x, y);
+        call(functions[331], x, y);
     }
     
     inline void position_change(Real x, Real y, Real obj, Real perf)
     {
-        call(functions[258], x, y, obj, perf);
+        call(functions[332], x, y, obj, perf);
     }
     
     ///@}

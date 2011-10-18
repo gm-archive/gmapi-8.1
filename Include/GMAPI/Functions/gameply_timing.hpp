@@ -30,7 +30,7 @@ namespace gm
     ///@{
     inline void sleep(Real numb)
     {
-        call(functions[328], numb);
+        call(functions[402], numb);
     }
     
     ///@}

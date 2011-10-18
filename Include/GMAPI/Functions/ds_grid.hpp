@@ -30,187 +30,187 @@ namespace gm
     ///@{
     inline Real ds_grid_create(Real w, Real h)
     {
-        return call(functions[122], w, h);
+        return call(functions[196], w, h);
     }
     
     inline void ds_grid_destroy(Real id)
     {
-        call(functions[123], id);
+        call(functions[197], id);
     }
     
     inline void ds_grid_copy(Real id, Real source)
     {
-        call(functions[124], id, source);
+        call(functions[198], id, source);
     }
     
     inline void ds_grid_resize(Real id, Real w, Real h)
     {
-        call(functions[125], id, w, h);
+        call(functions[199], id, w, h);
     }
     
     inline Real ds_grid_width(Real id)
     {
-        return call(functions[126], id);
+        return call(functions[200], id);
     }
     
     inline Real ds_grid_height(Real id)
     {
-        return call(functions[127], id);
+        return call(functions[201], id);
     }
     
     inline void ds_grid_clear(Real id, Value val)
     {
-        call(functions[128], id, val);
+        call(functions[202], id, val);
     }
     
     inline void ds_grid_set(Real id, Real x, Real y, Value val)
     {
-        call(functions[129], id, x, y, val);
+        call(functions[203], id, x, y, val);
     }
     
     inline void ds_grid_add(Real id, Real x, Real y, Value val)
     {
-        call(functions[130], id, x, y, val);
+        call(functions[204], id, x, y, val);
     }
     
     inline void ds_grid_multiply(Real id, Real x, Real y, Real val)
     {
-        call(functions[131], id, x, y, val);
+        call(functions[205], id, x, y, val);
     }
     
     inline void ds_grid_set_region(Real id, Real x1, Real y1, Real x2, Real y2, Value val)
     {
-        call(functions[132], id, x1, y1, x2, y2, val);
+        call(functions[206], id, x1, y1, x2, y2, val);
     }
     
     inline void ds_grid_add_region(Real id, Real x1, Real y1, Real x2, Real y2, Value val)
     {
-        call(functions[133], id, x1, y1, x2, y2, val);
+        call(functions[207], id, x1, y1, x2, y2, val);
     }
     
     inline void ds_grid_multiply_region(Real id, Real x1, Real y1, Real x2, Real y2, Real val)
     {
-        call(functions[134], id, x1, y1, x2, y2, val);
+        call(functions[208], id, x1, y1, x2, y2, val);
     }
     
     inline void ds_grid_set_disk(Real id, Real xm, Real ym, Real r, Value val)
     {
-        call(functions[135], id, xm, ym, r, val);
+        call(functions[209], id, xm, ym, r, val);
     }
     
     inline void ds_grid_add_disk(Real id, Real xm, Real ym, Real r, Value val)
     {
-        call(functions[136], id, xm, ym, r, val);
+        call(functions[210], id, xm, ym, r, val);
     }
     
     inline void ds_grid_multiply_disk(Real id, Real xm, Real ym, Real r, Real val)
     {
-        call(functions[137], id, xm, ym, r, val);
+        call(functions[211], id, xm, ym, r, val);
     }
     
     inline void ds_grid_set_grid_region(Real id, Real source, Real x1, Real y1, Real x2, Real y2, Real xpos, Real ypos)
     {
-        call(functions[138], id, source, x1, y1, x2, y2, xpos, ypos);
+        call(functions[212], id, source, x1, y1, x2, y2, xpos, ypos);
     }
     
     inline void ds_grid_add_grid_region(Real id, Real source, Real x1, Real y1, Real x2, Real y2, Real xpos, Real ypos)
     {
-        call(functions[139], id, source, x1, y1, x2, y2, xpos, ypos);
+        call(functions[213], id, source, x1, y1, x2, y2, xpos, ypos);
     }
     
     inline void ds_grid_multiply_grid_region(Real id, Real source, Real x1, Real y1, Real x2, Real y2, Real xpos, Real ypos)
     {
-        call(functions[140], id, source, x1, y1, x2, y2, xpos, ypos);
+        call(functions[214], id, source, x1, y1, x2, y2, xpos, ypos);
     }
     
     inline Value ds_grid_get(Real id, Real x, Real y)
     {
-        return call(functions[141], id, x, y);
+        return call(functions[215], id, x, y);
     }
     
     inline Real ds_grid_get_sum(Real id, Real x1, Real y1, Real x2, Real y2)
     {
-        return call(functions[142], id, x1, y1, x2, y2);
+        return call(functions[216], id, x1, y1, x2, y2);
     }
     
     inline Real ds_grid_get_max(Real id, Real x1, Real y1, Real x2, Real y2)
     {
-        return call(functions[143], id, x1, y1, x2, y2);
+        return call(functions[217], id, x1, y1, x2, y2);
     }
     
     inline Real ds_grid_get_min(Real id, Real x1, Real y1, Real x2, Real y2)
     {
-        return call(functions[144], id, x1, y1, x2, y2);
+        return call(functions[218], id, x1, y1, x2, y2);
     }
     
     inline Real ds_grid_get_mean(Real id, Real x1, Real y1, Real x2, Real y2)
     {
-        return call(functions[145], id, x1, y1, x2, y2);
+        return call(functions[219], id, x1, y1, x2, y2);
     }
     
     inline Real ds_grid_get_disk_sum(Real id, Real xm, Real ym, Real r)
     {
-        return call(functions[146], id, xm, ym, r);
+        return call(functions[220], id, xm, ym, r);
     }
     
     inline Real ds_grid_get_disk_min(Real id, Real xm, Real ym, Real r)
     {
-        return call(functions[147], id, xm, ym, r);
+        return call(functions[221], id, xm, ym, r);
     }
     
     inline Real ds_grid_get_disk_max(Real id, Real xm, Real ym, Real r)
     {
-        return call(functions[148], id, xm, ym, r);
+        return call(functions[222], id, xm, ym, r);
     }
     
     inline Real ds_grid_get_disk_mean(Real id, Real xm, Real ym, Real r)
     {
-        return call(functions[149], id, xm, ym, r);
+        return call(functions[223], id, xm, ym, r);
     }
     
     inline Real ds_grid_value_exists(Real id, Real x1, Real y1, Real x2, Real y2, Value val)
     {
-        return call(functions[150], id, x1, y1, x2, y2, val);
+        return call(functions[224], id, x1, y1, x2, y2, val);
     }
     
     inline Real ds_grid_value_x(Real id, Real x1, Real y1, Real x2, Real y2, Value val)
     {
-        return call(functions[151], id, x1, y1, x2, y2, val);
+        return call(functions[225], id, x1, y1, x2, y2, val);
     }
     
     inline Real ds_grid_value_y(Real id, Real x1, Real y1, Real x2, Real y2, Value val)
     {
-        return call(functions[152], id, x1, y1, x2, y2, val);
+        return call(functions[226], id, x1, y1, x2, y2, val);
     }
     
     inline Real ds_grid_value_disk_exists(Real id, Real xm, Real ym, Real r, Value val)
     {
-        return call(functions[153], id, xm, ym, r, val);
+        return call(functions[227], id, xm, ym, r, val);
     }
     
     inline Real ds_grid_value_disk_x(Real id, Real xm, Real ym, Real r, Value val)
     {
-        return call(functions[154], id, xm, ym, r, val);
+        return call(functions[228], id, xm, ym, r, val);
     }
     
     inline Real ds_grid_value_disk_y(Real id, Real xm, Real ym, Real r, Value val)
     {
-        return call(functions[155], id, xm, ym, r, val);
+        return call(functions[229], id, xm, ym, r, val);
     }
     
     inline void ds_grid_shuffle(Real id)
     {
-        call(functions[156], id);
+        call(functions[230], id);
     }
     
     inline String ds_grid_write(Real id)
     {
-        return call(functions[157], id);
+        return call(functions[231], id);
     }
     
     inline void ds_grid_read(Real id, String str)
     {
-        call(functions[158], id, str);
+        call(functions[232], id, str);
     }
     
     ///@}

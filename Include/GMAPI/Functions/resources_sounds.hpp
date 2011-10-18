@@ -30,47 +30,47 @@ namespace gm
     ///@{
     inline Real sound_exists(Real ind)
     {
-        return call(functions[757], ind);
+        return call(functions[831], ind);
     }
     
     inline String sound_get_name(Real ind)
     {
-        return call(functions[758], ind);
+        return call(functions[832], ind);
     }
     
     inline Real sound_get_kind(Real ind)
     {
-        return call(functions[759], ind);
+        return call(functions[833], ind);
     }
     
     inline Real sound_get_preload(Real ind)
     {
-        return call(functions[760], ind);
+        return call(functions[834], ind);
     }
     
     inline void sound_discard(Real index)
     {
-        call(functions[761], index);
+        call(functions[835], index);
     }
     
     inline void sound_restore(Real index)
     {
-        call(functions[762], index);
+        call(functions[836], index);
     }
     
     inline Real sound_add(String fname, Real kind, Real preload)
     {
-        return call(functions[763], fname, kind, preload);
+        return call(functions[837], fname, kind, preload);
     }
     
     inline void sound_replace(Real index, String fname, Real kind, Real preload)
     {
-        call(functions[764], index, fname, kind, preload);
+        call(functions[838], index, fname, kind, preload);
     }
     
     inline void sound_delete(Real index)
     {
-        call(functions[765], index);
+        call(functions[839], index);
     }
     
     ///@}

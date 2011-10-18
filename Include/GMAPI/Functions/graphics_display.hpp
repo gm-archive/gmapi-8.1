@@ -30,67 +30,67 @@ namespace gm
     ///@{
     inline Real display_get_width()
     {
-        return call(functions[329]);
+        return call(functions[403]);
     }
     
     inline Real display_get_height()
     {
-        return call(functions[330]);
+        return call(functions[404]);
     }
     
     inline Real display_get_colordepth()
     {
-        return call(functions[331]);
+        return call(functions[405]);
     }
     
     inline Real display_get_frequency()
     {
-        return call(functions[332]);
+        return call(functions[406]);
     }
     
     inline void display_set_size(Real w, Real h)
     {
-        call(functions[333], w, h);
+        call(functions[407], w, h);
     }
     
     inline void display_set_colordepth(Real coldepth)
     {
-        call(functions[334], coldepth);
+        call(functions[408], coldepth);
     }
     
     inline void display_set_frequency(Real frequency)
     {
-        call(functions[335], frequency);
+        call(functions[409], frequency);
     }
     
     inline void display_set_all(Real w, Real h, Real frequency, Real coldepth)
     {
-        call(functions[336], w, h, frequency, coldepth);
+        call(functions[410], w, h, frequency, coldepth);
     }
     
     inline Real display_test_all(Real w, Real h, Real frequency, Real coldepth)
     {
-        return call(functions[337], w, h, frequency, coldepth);
+        return call(functions[411], w, h, frequency, coldepth);
     }
     
     inline void display_reset(Real AA)
     {
-        call(functions[338], AA);
+        call(functions[412], AA);
     }
     
     inline Real display_mouse_get_x()
     {
-        return call(functions[339]);
+        return call(functions[413]);
     }
     
     inline Real display_mouse_get_y()
     {
-        return call(functions[340]);
+        return call(functions[414]);
     }
     
     inline void display_mouse_set(Real x, Real y)
     {
-        call(functions[341], x, y);
+        call(functions[415], x, y);
     }
     
     ///@}

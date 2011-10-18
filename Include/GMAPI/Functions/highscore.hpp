@@ -30,67 +30,67 @@ namespace gm
     ///@{
     inline void highscore_show(Real numb)
     {
-        call(functions[532], numb);
+        call(functions[606], numb);
     }
     
     inline void highscore_set_background(Real back)
     {
-        call(functions[533], back);
+        call(functions[607], back);
     }
     
     inline void highscore_set_border(Real show)
     {
-        call(functions[534], show);
+        call(functions[608], show);
     }
     
     inline void highscore_set_font(String name, Real size, Real style)
     {
-        call(functions[535], name, size, style);
+        call(functions[609], name, size, style);
     }
     
     inline void highscore_set_colors(Real back, Real newentry, Real otherentires)
     {
-        call(functions[536], back, newentry, otherentires);
+        call(functions[610], back, newentry, otherentires);
     }
     
     inline void highscore_set_strings(String caption, String nobody, String escape)
     {
-        call(functions[537], caption, nobody, escape);
+        call(functions[611], caption, nobody, escape);
     }
     
     inline void highscore_show_ext(Real numb, Real back, Real border, Real col1, Real col2, String name, Real size)
     {
-        call(functions[538], numb, back, border, col1, col2, name, size);
+        call(functions[612], numb, back, border, col1, col2, name, size);
     }
     
     inline void highscore_clear()
     {
-        call(functions[539]);
+        call(functions[613]);
     }
     
     inline void highscore_add(String str, Real numb)
     {
-        call(functions[540], str, numb);
+        call(functions[614], str, numb);
     }
     
     inline void highscore_add_current()
     {
-        call(functions[541]);
+        call(functions[615]);
     }
     
     inline Real highscore_value(Real place)
     {
-        return call(functions[542], place);
+        return call(functions[616], place);
     }
     
     inline String highscore_name(Real place)
     {
-        return call(functions[543], place);
+        return call(functions[617], place);
     }
     
     inline void draw_highscore(Real x1, Real y1, Real x2, Real y2)
     {
-        call(functions[544], x1, y1, x2, y2);
+        call(functions[618], x1, y1, x2, y2);
     }
     
     ///@}

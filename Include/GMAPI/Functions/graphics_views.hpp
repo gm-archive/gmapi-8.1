@@ -30,47 +30,47 @@ namespace gm
     ///@{
     inline void window_set_region_size(Real w, Real h, Real adaptwindow)
     {
-        call(functions[491], w, h, adaptwindow);
+        call(functions[565], w, h, adaptwindow);
     }
     
     inline Real window_get_region_width()
     {
-        return call(functions[492]);
+        return call(functions[566]);
     }
     
     inline Real window_get_region_height()
     {
-        return call(functions[493]);
+        return call(functions[567]);
     }
     
     inline Real window_view_mouse_get_x(Real id)
     {
-        return call(functions[494], id);
+        return call(functions[568], id);
     }
     
     inline Real window_view_mouse_get_y(Real id)
     {
-        return call(functions[495], id);
+        return call(functions[569], id);
     }
     
     inline void window_view_mouse_set(Real id, Real x, Real y)
     {
-        call(functions[496], id, x, y);
+        call(functions[570], id, x, y);
     }
     
     inline Real window_views_mouse_get_x()
     {
-        return call(functions[497]);
+        return call(functions[571]);
     }
     
     inline Real window_views_mouse_get_y()
     {
-        return call(functions[498]);
+        return call(functions[572]);
     }
     
     inline void window_views_mouse_set(Real x, Real y)
     {
-        call(functions[499], x, y);
+        call(functions[573], x, y);
     }
     
     ///@}

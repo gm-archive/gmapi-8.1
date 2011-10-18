@@ -30,27 +30,27 @@ namespace gm
     ///@{
     inline void screen_redraw()
     {
-        call(functions[433]);
+        call(functions[507]);
     }
     
     inline void screen_refresh()
     {
-        call(functions[434]);
+        call(functions[508]);
     }
     
     inline void set_automatic_draw(Real value)
     {
-        call(functions[435], value);
+        call(functions[509], value);
     }
     
     inline void set_synchronization(Real value)
     {
-        call(functions[436], value);
+        call(functions[510], value);
     }
     
     inline void screen_wait_vsync()
     {
-        call(functions[437]);
+        call(functions[511]);
     }
     
     ///@}

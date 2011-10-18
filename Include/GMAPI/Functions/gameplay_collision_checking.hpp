@@ -30,27 +30,27 @@ namespace gm
     ///@{
     inline Real collision_point(Real x, Real y, Real obj, Real prec, Real notme)
     {
-        return call(functions[231], x, y, obj, prec, notme);
+        return call(functions[305], x, y, obj, prec, notme);
     }
     
     inline Real collision_rectangle(Real x1, Real y1, Real x2, Real y2, Real obj, Real prec, Real notme)
     {
-        return call(functions[232], x1, y1, x2, y2, obj, prec, notme);
+        return call(functions[306], x1, y1, x2, y2, obj, prec, notme);
     }
     
     inline Real collision_circle(Real xc, Real yc, Real radius, Real obj, Real prec, Real notme)
     {
-        return call(functions[233], xc, yc, radius, obj, prec, notme);
+        return call(functions[307], xc, yc, radius, obj, prec, notme);
     }
     
     inline Real collision_ellipse(Real x1, Real y1, Real x2, Real y2, Real obj, Real prec, Real notme)
     {
-        return call(functions[234], x1, y1, x2, y2, obj, prec, notme);
+        return call(functions[308], x1, y1, x2, y2, obj, prec, notme);
     }
     
     inline Real collision_line(Real x1, Real y1, Real x2, Real y2, Real obj, Real prec, Real notme)
     {
-        return call(functions[235], x1, y1, x2, y2, obj, prec, notme);
+        return call(functions[309], x1, y1, x2, y2, obj, prec, notme);
     }
     
     ///@}

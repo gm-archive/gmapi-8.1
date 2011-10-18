@@ -30,42 +30,42 @@ namespace gm
     ///@{
     inline void sound_effect_set(Real snd, Real effect)
     {
-        call(functions[835], snd, effect);
+        call(functions[909], snd, effect);
     }
     
     inline void sound_effect_chorus(Real snd, Real wetdry, Real depth, Real feedback, Real frequency, Real wave, Real delay, Real phase)
     {
-        call(functions[836], snd, wetdry, depth, feedback, frequency, wave, delay, phase);
+        call(functions[910], snd, wetdry, depth, feedback, frequency, wave, delay, phase);
     }
     
     inline void sound_effect_echo(Real snd, Real wetdry, Real feedback, Real leftdelay, Real rightdelay, Real pandelay)
     {
-        call(functions[837], snd, wetdry, feedback, leftdelay, rightdelay, pandelay);
+        call(functions[911], snd, wetdry, feedback, leftdelay, rightdelay, pandelay);
     }
     
     inline void sound_effect_flanger(Real snd, Real wetdry, Real depth, Real feedback, Real frequency, Real wave, Real delay, Real phase)
     {
-        call(functions[838], snd, wetdry, depth, feedback, frequency, wave, delay, phase);
+        call(functions[912], snd, wetdry, depth, feedback, frequency, wave, delay, phase);
     }
     
     inline void sound_effect_gargle(Real snd, Real rate, Real wave)
     {
-        call(functions[839], snd, rate, wave);
+        call(functions[913], snd, rate, wave);
     }
     
     inline void sound_effect_reverb(Real snd, Real gain, Real mix, Real time, Real ratio)
     {
-        call(functions[840], snd, gain, mix, time, ratio);
+        call(functions[914], snd, gain, mix, time, ratio);
     }
     
     inline void sound_effect_compressor(Real snd, Real gain, Real attack, Real release, Real threshold, Real ratio, Real delay)
     {
-        call(functions[841], snd, gain, attack, release, threshold, ratio, delay);
+        call(functions[915], snd, gain, attack, release, threshold, ratio, delay);
     }
     
     inline void sound_effect_equalizer(Real snd, Real center, Real bandwidth, Real gain)
     {
-        call(functions[842], snd, center, bandwidth, gain);
+        call(functions[916], snd, center, bandwidth, gain);
     }
     
     ///@}

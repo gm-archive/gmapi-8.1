@@ -30,62 +30,62 @@ namespace gm
     ///@{
     inline Real ds_queue_create()
     {
-        return call(functions[208]);
+        return call(functions[282]);
     }
     
     inline void ds_queue_destroy(Real id)
     {
-        call(functions[209], id);
+        call(functions[283], id);
     }
     
     inline void ds_queue_clear(Real id)
     {
-        call(functions[210], id);
+        call(functions[284], id);
     }
     
     inline Real ds_queue_copy(Real id, Real source)
     {
-        return call(functions[211], id, source);
+        return call(functions[285], id, source);
     }
     
     inline Real ds_queue_size(Real id)
     {
-        return call(functions[212], id);
+        return call(functions[286], id);
     }
     
     inline Real ds_queue_empty(Real id)
     {
-        return call(functions[213], id);
+        return call(functions[287], id);
     }
     
     inline void ds_queue_enqueue(Real id, Value val)
     {
-        call(functions[214], id, val);
+        call(functions[288], id, val);
     }
     
     inline Value ds_queue_dequeue(Real id)
     {
-        return call(functions[215], id);
+        return call(functions[289], id);
     }
     
     inline Value ds_queue_head(Real id)
     {
-        return call(functions[216], id);
+        return call(functions[290], id);
     }
     
     inline Value ds_queue_tail(Real id)
     {
-        return call(functions[217], id);
+        return call(functions[291], id);
     }
     
     inline String ds_queue_write(Real id)
     {
-        return call(functions[218], id);
+        return call(functions[292], id);
     }
     
     inline void ds_queue_read(Real id, String str)
     {
-        call(functions[219], id, str);
+        call(functions[293], id, str);
     }
     
     ///@}

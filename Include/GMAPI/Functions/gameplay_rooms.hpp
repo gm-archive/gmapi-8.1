@@ -30,62 +30,62 @@ namespace gm
     ///@{
     inline void room_goto(Real numb)
     {
-        call(functions[316], numb);
+        call(functions[390], numb);
     }
     
     inline void room_goto_previous()
     {
-        call(functions[317]);
+        call(functions[391]);
     }
     
     inline void room_goto_next()
     {
-        call(functions[318]);
+        call(functions[392]);
     }
     
     inline void room_restart()
     {
-        call(functions[319]);
+        call(functions[393]);
     }
     
     inline Real room_previous(Real numb)
     {
-        return call(functions[320], numb);
+        return call(functions[394], numb);
     }
     
     inline Real room_next(Real numb)
     {
-        return call(functions[321], numb);
+        return call(functions[395], numb);
     }
     
     inline void game_end()
     {
-        call(functions[322]);
+        call(functions[396]);
     }
     
     inline void game_restart()
     {
-        call(functions[323]);
+        call(functions[397]);
     }
     
     inline void game_save(String string)
     {
-        call(functions[324], string);
+        call(functions[398], string);
     }
     
     inline void game_load(String string)
     {
-        call(functions[325], string);
+        call(functions[399], string);
     }
     
     inline void transition_define(Real kind, String name)
     {
-        call(functions[326], kind, name);
+        call(functions[400], kind, name);
     }
     
     inline Real transition_exists(Real kind)
     {
-        return call(functions[327], kind);
+        return call(functions[401], kind);
     }
     
     ///@}

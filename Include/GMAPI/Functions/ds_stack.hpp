@@ -30,57 +30,57 @@ namespace gm
     ///@{
     inline Real ds_stack_create()
     {
-        return call(functions[220]);
+        return call(functions[294]);
     }
     
     inline void ds_stack_destroy(Real id)
     {
-        call(functions[221], id);
+        call(functions[295], id);
     }
     
     inline void ds_stack_clear(Real id)
     {
-        call(functions[222], id);
+        call(functions[296], id);
     }
     
     inline Real ds_stack_copy(Real id, Real source)
     {
-        return call(functions[223], id, source);
+        return call(functions[297], id, source);
     }
     
     inline Real ds_stack_size(Real id)
     {
-        return call(functions[224], id);
+        return call(functions[298], id);
     }
     
     inline Real ds_stack_empty(Real id)
     {
-        return call(functions[225], id);
+        return call(functions[299], id);
     }
     
     inline void ds_stack_push(Real id, Value val)
     {
-        call(functions[226], id, val);
+        call(functions[300], id, val);
     }
     
     inline Value ds_stack_pop(Real id)
     {
-        return call(functions[227], id);
+        return call(functions[301], id);
     }
     
     inline Value ds_stack_top(Real id)
     {
-        return call(functions[228], id);
+        return call(functions[302], id);
     }
     
     inline String ds_stack_write(Real id)
     {
-        return call(functions[229], id);
+        return call(functions[303], id);
     }
     
     inline void ds_stack_read(Real id, String str)
     {
-        call(functions[230], id, str);
+        call(functions[304], id, str);
     }
     
     ///@}

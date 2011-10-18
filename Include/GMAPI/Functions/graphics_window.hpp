@@ -30,162 +30,162 @@ namespace gm
     ///@{
     inline void window_set_visible(Real visible)
     {
-        call(functions[500], visible);
+        call(functions[574], visible);
     }
     
     inline Real window_get_visible()
     {
-        return call(functions[501]);
+        return call(functions[575]);
     }
     
     inline void window_set_fullscreen(Real full)
     {
-        call(functions[502], full);
+        call(functions[576], full);
     }
     
     inline Real window_get_fullscreen()
     {
-        return call(functions[503]);
+        return call(functions[577]);
     }
     
     inline void window_set_showborder(Real show)
     {
-        call(functions[504], show);
+        call(functions[578], show);
     }
     
     inline Real window_get_showborder()
     {
-        return call(functions[505]);
+        return call(functions[579]);
     }
     
     inline void window_set_showicons(Real show)
     {
-        call(functions[506], show);
+        call(functions[580], show);
     }
     
     inline Real window_get_showicons()
     {
-        return call(functions[507]);
+        return call(functions[581]);
     }
     
     inline void window_set_stayontop(Real stay)
     {
-        call(functions[508], stay);
+        call(functions[582], stay);
     }
     
     inline Real window_get_stayontop()
     {
-        return call(functions[509]);
+        return call(functions[583]);
     }
     
     inline void window_set_sizeable(Real sizeable)
     {
-        call(functions[510], sizeable);
+        call(functions[584], sizeable);
     }
     
     inline Real window_get_sizeable()
     {
-        return call(functions[511]);
+        return call(functions[585]);
     }
     
     inline void window_set_caption(String caption)
     {
-        call(functions[512], caption);
+        call(functions[586], caption);
     }
     
     inline String window_get_caption()
     {
-        return call(functions[513]);
+        return call(functions[587]);
     }
     
     inline void window_set_cursor(Real curs)
     {
-        call(functions[514], curs);
+        call(functions[588], curs);
     }
     
     inline Real window_get_cursor()
     {
-        return call(functions[515]);
+        return call(functions[589]);
     }
     
     inline void window_set_color(Real color)
     {
-        call(functions[516], color);
+        call(functions[590], color);
     }
     
     inline Real window_get_color()
     {
-        return call(functions[517]);
+        return call(functions[591]);
     }
     
     inline void window_set_region_scale(Real scale, Real adaptwindow)
     {
-        call(functions[518], scale, adaptwindow);
+        call(functions[592], scale, adaptwindow);
     }
     
     inline Real window_get_region_scale()
     {
-        return call(functions[519]);
+        return call(functions[593]);
     }
     
     inline void window_set_position(Real x, Real y)
     {
-        call(functions[520], x, y);
+        call(functions[594], x, y);
     }
     
     inline void window_set_size(Real w, Real h)
     {
-        call(functions[521], w, h);
+        call(functions[595], w, h);
     }
     
     inline void window_set_rectangle(Real x, Real y, Real w, Real h)
     {
-        call(functions[522], x, y, w, h);
+        call(functions[596], x, y, w, h);
     }
     
     inline void window_center()
     {
-        call(functions[523]);
+        call(functions[597]);
     }
     
     inline void window_default()
     {
-        call(functions[524]);
+        call(functions[598]);
     }
     
     inline Real window_get_x()
     {
-        return call(functions[525]);
+        return call(functions[599]);
     }
     
     inline Real window_get_y()
     {
-        return call(functions[526]);
+        return call(functions[600]);
     }
     
     inline Real window_get_width()
     {
-        return call(functions[527]);
+        return call(functions[601]);
     }
     
     inline Real window_get_height()
     {
-        return call(functions[528]);
+        return call(functions[602]);
     }
     
     inline Real window_mouse_get_x()
     {
-        return call(functions[529]);
+        return call(functions[603]);
     }
     
     inline Real window_mouse_get_y()
     {
-        return call(functions[530]);
+        return call(functions[604]);
     }
     
     inline void window_mouse_set(Real x, Real y)
     {
-        call(functions[531], x, y);
+        call(functions[605], x, y);
     }
     
     ///@}

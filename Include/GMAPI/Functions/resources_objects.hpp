@@ -30,107 +30,107 @@ namespace gm
     ///@{
     inline Real object_exists(Real ind)
     {
-        return call(functions[679], ind);
+        return call(functions[753], ind);
     }
     
     inline String object_get_name(Real ind)
     {
-        return call(functions[680], ind);
+        return call(functions[754], ind);
     }
     
     inline Real object_get_sprite(Real ind)
     {
-        return call(functions[681], ind);
+        return call(functions[755], ind);
     }
     
     inline Real object_get_solid(Real ind)
     {
-        return call(functions[682], ind);
+        return call(functions[756], ind);
     }
     
     inline Real object_get_visible(Real ind)
     {
-        return call(functions[683], ind);
+        return call(functions[757], ind);
     }
     
     inline Real object_get_depth(Real ind)
     {
-        return call(functions[684], ind);
+        return call(functions[758], ind);
     }
     
     inline Real object_get_persistent(Real ind)
     {
-        return call(functions[685], ind);
+        return call(functions[759], ind);
     }
     
     inline Real object_get_mask(Real ind)
     {
-        return call(functions[686], ind);
+        return call(functions[760], ind);
     }
     
     inline Real object_get_parent(Real ind)
     {
-        return call(functions[687], ind);
+        return call(functions[761], ind);
     }
     
     inline Real object_is_ancestor(Real ind1, Real ind2)
     {
-        return call(functions[688], ind1, ind2);
+        return call(functions[762], ind1, ind2);
     }
     
     inline void object_set_sprite(Real ind, Real spr)
     {
-        call(functions[689], ind, spr);
+        call(functions[763], ind, spr);
     }
     
     inline void object_set_solid(Real ind, Real solid)
     {
-        call(functions[690], ind, solid);
+        call(functions[764], ind, solid);
     }
     
     inline void object_set_visible(Real ind, Real vis)
     {
-        call(functions[691], ind, vis);
+        call(functions[765], ind, vis);
     }
     
     inline void object_set_depth(Real ind, Real depth)
     {
-        call(functions[692], ind, depth);
+        call(functions[766], ind, depth);
     }
     
     inline void object_set_persistent(Real ind, Real pers)
     {
-        call(functions[693], ind, pers);
+        call(functions[767], ind, pers);
     }
     
     inline void object_set_mask(Real ind, Real spr)
     {
-        call(functions[694], ind, spr);
+        call(functions[768], ind, spr);
     }
     
     inline void object_set_parent(Real ind, Real obj)
     {
-        call(functions[695], ind, obj);
+        call(functions[769], ind, obj);
     }
     
     inline Real object_add()
     {
-        return call(functions[696]);
+        return call(functions[770]);
     }
     
     inline void object_delete(Real ind)
     {
-        call(functions[697], ind);
+        call(functions[771], ind);
     }
     
     inline void object_event_add(Real ind, Real evtype, Real evnumb, String codestr)
     {
-        call(functions[698], ind, evtype, evnumb, codestr);
+        call(functions[772], ind, evtype, evnumb, codestr);
     }
     
     inline void object_event_clear(Real ind, Real evtype, Real evnumb)
     {
-        call(functions[699], ind, evtype, evnumb);
+        call(functions[773], ind, evtype, evnumb);
     }
     
     ///@}

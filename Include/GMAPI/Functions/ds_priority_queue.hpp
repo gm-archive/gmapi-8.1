@@ -30,82 +30,82 @@ namespace gm
     ///@{
     inline Real ds_priority_create()
     {
-        return call(functions[192]);
+        return call(functions[266]);
     }
     
     inline void ds_priority_destroy(Real id)
     {
-        call(functions[193], id);
+        call(functions[267], id);
     }
     
     inline void ds_priority_clear(Real id)
     {
-        call(functions[194], id);
+        call(functions[268], id);
     }
     
     inline void ds_priority_copy(Real id, Real source)
     {
-        call(functions[195], id, source);
+        call(functions[269], id, source);
     }
     
     inline Real ds_priority_size(Real id)
     {
-        return call(functions[196], id);
+        return call(functions[270], id);
     }
     
     inline Real ds_priority_empty(Real id)
     {
-        return call(functions[197], id);
+        return call(functions[271], id);
     }
     
     inline void ds_priority_add(Real id, Value val, Real prio)
     {
-        call(functions[198], id, val, prio);
+        call(functions[272], id, val, prio);
     }
     
     inline void ds_priority_change_priority(Real id, Value val, Real prio)
     {
-        call(functions[199], id, val, prio);
+        call(functions[273], id, val, prio);
     }
     
     inline Value ds_priority_find_priority(Real id, Value val)
     {
-        return call(functions[200], id, val);
+        return call(functions[274], id, val);
     }
     
     inline void ds_priority_delete_value(Real id, Value val)
     {
-        call(functions[201], id, val);
+        call(functions[275], id, val);
     }
     
     inline void ds_priority_delete_min(Real id)
     {
-        call(functions[202], id);
+        call(functions[276], id);
     }
     
     inline Value ds_priority_find_min(Real id)
     {
-        return call(functions[203], id);
+        return call(functions[277], id);
     }
     
     inline void ds_priority_delete_max(Real id)
     {
-        call(functions[204], id);
+        call(functions[278], id);
     }
     
     inline Value ds_priority_find_max(Real id)
     {
-        return call(functions[205], id);
+        return call(functions[279], id);
     }
     
     inline String ds_priority_write(Real id)
     {
-        return call(functions[206], id);
+        return call(functions[280], id);
     }
     
     inline void ds_priority_read(Real id, String str)
     {
-        call(functions[207], id, str);
+        call(functions[281], id, str);
     }
     
     ///@}

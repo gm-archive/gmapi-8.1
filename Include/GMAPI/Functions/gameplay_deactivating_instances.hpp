@@ -30,32 +30,32 @@ namespace gm
     ///@{
     inline void instance_deactivate_all(Real notme)
     {
-        call(functions[236], notme);
+        call(functions[310], notme);
     }
     
     inline void instance_deactivate_object(Real obj)
     {
-        call(functions[237], obj);
+        call(functions[311], obj);
     }
     
     inline void instance_deactivate_region(Real left, Real top, Real width, Real height, Real inside, Real notme)
     {
-        call(functions[238], left, top, width, height, inside, notme);
+        call(functions[312], left, top, width, height, inside, notme);
     }
     
     inline void instance_activate_all()
     {
-        call(functions[239]);
+        call(functions[313]);
     }
     
     inline void instance_activate_object(Real obj)
     {
-        call(functions[240], obj);
+        call(functions[314], obj);
     }
     
     inline void instance_activate_region(Real left, Real top, Real width, Real height, Real inside)
     {
-        call(functions[241], left, top, width, height, inside);
+        call(functions[315], left, top, width, height, inside);
     }
     
     ///@}

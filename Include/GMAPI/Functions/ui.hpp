@@ -30,12 +30,12 @@ namespace gm
     ///@{
     inline void io_clear()
     {
-        call(functions[864]);
+        call(functions[938]);
     }
     
     inline void io_handle()
     {
-        call(functions[865]);
+        call(functions[939]);
     }
     
     ///@}

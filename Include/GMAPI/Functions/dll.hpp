@@ -30,131 +30,131 @@ namespace gm
     ///@{
     inline void external_define(String dll, String name, Real calltype, Real restype, Real argnumb)
     {
-        call(functions[117], dll, name, calltype, restype, argnumb);
+        call(functions[191], dll, name, calltype, restype, argnumb);
     }
     inline void external_define(String dll, String name, Real calltype, Real restype, Real argnumb, Value v0)
     {
-        call(functions[117], dll, name, calltype, restype, argnumb, v0);
+        call(functions[191], dll, name, calltype, restype, argnumb, v0);
     }
     inline void external_define(String dll, String name, Real calltype, Real restype, Real argnumb, Value v0, Value v1)
     {
-        call(functions[117], dll, name, calltype, restype, argnumb, v0, v1);
+        call(functions[191], dll, name, calltype, restype, argnumb, v0, v1);
     }
     inline void external_define(String dll, String name, Real calltype, Real restype, Real argnumb, Value v0, Value v1, Value v2)
     {
-        call(functions[117], dll, name, calltype, restype, argnumb, v0, v1, v2);
+        call(functions[191], dll, name, calltype, restype, argnumb, v0, v1, v2);
     }
     inline void external_define(String dll, String name, Real calltype, Real restype, Real argnumb, Value v0, Value v1, Value v2, Value v3)
     {
-        call(functions[117], dll, name, calltype, restype, argnumb, v0, v1, v2, v3);
+        call(functions[191], dll, name, calltype, restype, argnumb, v0, v1, v2, v3);
     }
     inline void external_define(String dll, String name, Real calltype, Real restype, Real argnumb, Value v0, Value v1, Value v2, Value v3, Value v4)
     {
-        call(functions[117], dll, name, calltype, restype, argnumb, v0, v1, v2, v3, v4);
+        call(functions[191], dll, name, calltype, restype, argnumb, v0, v1, v2, v3, v4);
     }
     inline void external_define(String dll, String name, Real calltype, Real restype, Real argnumb, Value v0, Value v1, Value v2, Value v3, Value v4, Value v5)
     {
-        call(functions[117], dll, name, calltype, restype, argnumb, v0, v1, v2, v3, v4, v5);
+        call(functions[191], dll, name, calltype, restype, argnumb, v0, v1, v2, v3, v4, v5);
     }
     inline void external_define(String dll, String name, Real calltype, Real restype, Real argnumb, Value v0, Value v1, Value v2, Value v3, Value v4, Value v5, Value v6)
     {
-        call(functions[117], dll, name, calltype, restype, argnumb, v0, v1, v2, v3, v4, v5, v6);
+        call(functions[191], dll, name, calltype, restype, argnumb, v0, v1, v2, v3, v4, v5, v6);
     }
     inline void external_define(String dll, String name, Real calltype, Real restype, Real argnumb, Value v0, Value v1, Value v2, Value v3, Value v4, Value v5, Value v6, Value v7)
     {
-        call(functions[117], dll, name, calltype, restype, argnumb, v0, v1, v2, v3, v4, v5, v6, v7);
+        call(functions[191], dll, name, calltype, restype, argnumb, v0, v1, v2, v3, v4, v5, v6, v7);
     }
     inline void external_define(String dll, String name, Real calltype, Real restype, Real argnumb, Value v0, Value v1, Value v2, Value v3, Value v4, Value v5, Value v6, Value v7, Value v8)
     {
-        call(functions[117], dll, name, calltype, restype, argnumb, v0, v1, v2, v3, v4, v5, v6, v7, v8);
+        call(functions[191], dll, name, calltype, restype, argnumb, v0, v1, v2, v3, v4, v5, v6, v7, v8);
     }
     inline void external_define(String dll, String name, Real calltype, Real restype, Real argnumb, Value v0, Value v1, Value v2, Value v3, Value v4, Value v5, Value v6, Value v7, Value v8, Value v9)
     {
-        call(functions[117], dll, name, calltype, restype, argnumb, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9);
+        call(functions[191], dll, name, calltype, restype, argnumb, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9);
     }
     inline void external_define(String dll, String name, Real calltype, Real restype, Real argnumb, Value v0, Value v1, Value v2, Value v3, Value v4, Value v5, Value v6, Value v7, Value v8, Value v9, Value v10)
     {
-        call(functions[117], dll, name, calltype, restype, argnumb, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10);
+        call(functions[191], dll, name, calltype, restype, argnumb, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10);
     }
     
     inline Value external_call(Real id)
     {
-        return call(functions[118], id);
+        return call(functions[192], id);
     }
     inline Value external_call(Real id, Value v0)
     {
-        return call(functions[118], id, v0);
+        return call(functions[192], id, v0);
     }
     inline Value external_call(Real id, Value v0, Value v1)
     {
-        return call(functions[118], id, v0, v1);
+        return call(functions[192], id, v0, v1);
     }
     inline Value external_call(Real id, Value v0, Value v1, Value v2)
     {
-        return call(functions[118], id, v0, v1, v2);
+        return call(functions[192], id, v0, v1, v2);
     }
     inline Value external_call(Real id, Value v0, Value v1, Value v2, Value v3)
     {
-        return call(functions[118], id, v0, v1, v2, v3);
+        return call(functions[192], id, v0, v1, v2, v3);
     }
     inline Value external_call(Real id, Value v0, Value v1, Value v2, Value v3, Value v4)
     {
-        return call(functions[118], id, v0, v1, v2, v3, v4);
+        return call(functions[192], id, v0, v1, v2, v3, v4);
     }
     inline Value external_call(Real id, Value v0, Value v1, Value v2, Value v3, Value v4, Value v5)
     {
-        return call(functions[118], id, v0, v1, v2, v3, v4, v5);
+        return call(functions[192], id, v0, v1, v2, v3, v4, v5);
     }
     inline Value external_call(Real id, Value v0, Value v1, Value v2, Value v3, Value v4, Value v5, Value v6)
     {
-        return call(functions[118], id, v0, v1, v2, v3, v4, v5, v6);
+        return call(functions[192], id, v0, v1, v2, v3, v4, v5, v6);
     }
     inline Value external_call(Real id, Value v0, Value v1, Value v2, Value v3, Value v4, Value v5, Value v6, Value v7)
     {
-        return call(functions[118], id, v0, v1, v2, v3, v4, v5, v6, v7);
+        return call(functions[192], id, v0, v1, v2, v3, v4, v5, v6, v7);
     }
     inline Value external_call(Real id, Value v0, Value v1, Value v2, Value v3, Value v4, Value v5, Value v6, Value v7, Value v8)
     {
-        return call(functions[118], id, v0, v1, v2, v3, v4, v5, v6, v7, v8);
+        return call(functions[192], id, v0, v1, v2, v3, v4, v5, v6, v7, v8);
     }
     inline Value external_call(Real id, Value v0, Value v1, Value v2, Value v3, Value v4, Value v5, Value v6, Value v7, Value v8, Value v9)
     {
-        return call(functions[118], id, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9);
+        return call(functions[192], id, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9);
     }
     inline Value external_call(Real id, Value v0, Value v1, Value v2, Value v3, Value v4, Value v5, Value v6, Value v7, Value v8, Value v9, Value v10)
     {
-        return call(functions[118], id, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10);
+        return call(functions[192], id, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10);
     }
     inline Value external_call(Real id, Value v0, Value v1, Value v2, Value v3, Value v4, Value v5, Value v6, Value v7, Value v8, Value v9, Value v10, Value v11)
     {
-        return call(functions[118], id, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11);
+        return call(functions[192], id, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11);
     }
     inline Value external_call(Real id, Value v0, Value v1, Value v2, Value v3, Value v4, Value v5, Value v6, Value v7, Value v8, Value v9, Value v10, Value v11, Value v12)
     {
-        return call(functions[118], id, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12);
+        return call(functions[192], id, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12);
     }
     inline Value external_call(Real id, Value v0, Value v1, Value v2, Value v3, Value v4, Value v5, Value v6, Value v7, Value v8, Value v9, Value v10, Value v11, Value v12, Value v13)
     {
-        return call(functions[118], id, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13);
+        return call(functions[192], id, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13);
     }
     inline Value external_call(Real id, Value v0, Value v1, Value v2, Value v3, Value v4, Value v5, Value v6, Value v7, Value v8, Value v9, Value v10, Value v11, Value v12, Value v13, Value v14)
     {
-        return call(functions[118], id, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14);
+        return call(functions[192], id, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14);
     }
     
     inline void external_free(Real dll)
     {
-        call(functions[119], dll);
+        call(functions[193], dll);
     }
     
     inline Real window_handle()
     {
-        return call(functions[120]);
+        return call(functions[194]);
     }
     
     inline Real get_function_address(String func_name)
     {
-        return call(functions[121], func_name);
+        return call(functions[195], func_name);
     }
     
     ///@}

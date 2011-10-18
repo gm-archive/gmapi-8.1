@@ -30,22 +30,22 @@ namespace gm
     ///@{
     inline void event_perform(Real type, Real numb)
     {
-        call(functions[242], type, numb);
+        call(functions[316], type, numb);
     }
     
     inline void event_perform_object(Real obj, Real type, Real numb)
     {
-        call(functions[243], obj, type, numb);
+        call(functions[317], obj, type, numb);
     }
     
     inline void event_user(Real numb)
     {
-        call(functions[244], numb);
+        call(functions[318], numb);
     }
     
     inline void event_inherited()
     {
-        call(functions[245]);
+        call(functions[319]);
     }
     
     ///@}

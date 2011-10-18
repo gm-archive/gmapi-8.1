@@ -30,97 +30,97 @@ namespace gm
     ///@{
     inline Real mp_linear_step(Real x, Real y, Real stepsize, Real checkall)
     {
-        return call(functions[275], x, y, stepsize, checkall);
+        return call(functions[349], x, y, stepsize, checkall);
     }
     
     inline Real mp_linear_step_object(Real x, Real y, Real stepsize, Real obj)
     {
-        return call(functions[276], x, y, stepsize, obj);
+        return call(functions[350], x, y, stepsize, obj);
     }
     
     inline Real mp_potential_step(Real x, Real y, Real stepsize, Real checkall)
     {
-        return call(functions[277], x, y, stepsize, checkall);
+        return call(functions[351], x, y, stepsize, checkall);
     }
     
     inline Real mp_potential_step_object(Real x, Real y, Real stepsize, Real obj)
     {
-        return call(functions[278], x, y, stepsize, obj);
+        return call(functions[352], x, y, stepsize, obj);
     }
     
     inline Real mp_potential_settings(Real maxrot, Real rotstep, Real ahead, Real onspot)
     {
-        return call(functions[279], maxrot, rotstep, ahead, onspot);
+        return call(functions[353], maxrot, rotstep, ahead, onspot);
     }
     
     inline Real mp_linear_path(Real path, Real xg, Real yg, Real stepsize, Real checkall)
     {
-        return call(functions[280], path, xg, yg, stepsize, checkall);
+        return call(functions[354], path, xg, yg, stepsize, checkall);
     }
     
     inline Real mp_linear_path_object(Real path, Real xg, Real yg, Real stepsize, Real obj)
     {
-        return call(functions[281], path, xg, yg, stepsize, obj);
+        return call(functions[355], path, xg, yg, stepsize, obj);
     }
     
     inline Real mp_potential_path(Real path, Real xg, Real yg, Real stepsize, Real factor, Real checkall)
     {
-        return call(functions[282], path, xg, yg, stepsize, factor, checkall);
+        return call(functions[356], path, xg, yg, stepsize, factor, checkall);
     }
     
     inline Real mp_potential_path_object(Real path, Real xg, Real yg, Real stepsize, Real factor, Real obj)
     {
-        return call(functions[283], path, xg, yg, stepsize, factor, obj);
+        return call(functions[357], path, xg, yg, stepsize, factor, obj);
     }
     
     inline Real mp_grid_create(Real left, Real top, Real hcells, Real vcells, Real cellwidth, Real cellheight)
     {
-        return call(functions[284], left, top, hcells, vcells, cellwidth, cellheight);
+        return call(functions[358], left, top, hcells, vcells, cellwidth, cellheight);
     }
     
     inline void mp_grid_destroy(Real id)
     {
-        call(functions[285], id);
+        call(functions[359], id);
     }
     
     inline void mp_grid_clear_all(Real id)
     {
-        call(functions[286], id);
+        call(functions[360], id);
     }
     
     inline void mp_grid_clear_cell(Real id, Real h, Real v)
     {
-        call(functions[287], id, h, v);
+        call(functions[361], id, h, v);
     }
     
     inline void mp_grid_clear_rectangle(Real id, Real left, Real top, Real right, Real bottom)
     {
-        call(functions[288], id, left, top, right, bottom);
+        call(functions[362], id, left, top, right, bottom);
     }
     
     inline void mp_grid_add_cell(Real id, Real h, Real v)
     {
-        call(functions[289], id, h, v);
+        call(functions[363], id, h, v);
     }
     
     inline void mp_grid_add_rectangle(Real id, Real left, Real top, Real right, Real bottom)
     {
-        call(functions[290], id, left, top, right, bottom);
+        call(functions[364], id, left, top, right, bottom);
     }
     
     inline void mp_grid_add_instances(Real id, Real obj, Real prec)
     {
-        call(functions[291], id, obj, prec);
+        call(functions[365], id, obj, prec);
     }
     
     inline void mp_grid_path(Real id, Real path, Real xstart, Real ystart, Real xgoal, Real ygoal, Real allowdiag)
     {
-        call(functions[292], id, path, xstart, ystart, xgoal, ygoal, allowdiag);
+        call(functions[366], id, path, xstart, ystart, xgoal, ygoal, allowdiag);
     }
     
     inline void mp_grid_draw(Real id)
     {
-        call(functions[293], id);
+        call(functions[367], id);
     }
     
     ///@}
