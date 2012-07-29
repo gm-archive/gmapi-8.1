@@ -7,7 +7,7 @@ namespace gm
     ///@{
     struct Instance;
     /**@brief An array of all the current instances in the game.*/
-    class InstanceArray
+    class GMAPI_DLL InstanceArray
     {
     public:
         /**Gets the nth instance in the game.*/
@@ -16,6 +16,8 @@ namespace gm
          * exists.
          */
         Instance *get(int id);
+        /**Number of instances.*/
+        int getCount();
     private:
         char _pad0000[0x68];
         int len;

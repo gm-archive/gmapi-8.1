@@ -1,4 +1,4 @@
-/* Copyright (c) 2011 William Newbery
+/* Copyright (c) 2011-2012 William Newbery
  * 
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -35,6 +35,7 @@ namespace gm
     bool initShared();
     void freeShared();
     bool initStrings();
+    bool initVariables();
     
     
     Shared *getShared()
@@ -51,13 +52,15 @@ namespace gm
         }
         else
         {
-            if(!initShared())
+            if (!initShared())
                 return false;
-            if(!initStrings())
+            if (!initStrings())
                 return false; 
-            if(!initFunctions(get_function_address_ptr))
+            if (!initFunctions(get_function_address_ptr))
                 return false;
-            if(!initInstanceArray())
+            if (!initInstanceArray())
+                return false;
+            if (!initVariables())
                 return false;
             if(!shared->initCnt)
             {

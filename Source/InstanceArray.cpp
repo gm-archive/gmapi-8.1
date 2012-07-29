@@ -20,10 +20,18 @@ namespace gm
         }
         return 0;
     }
+    int InstanceArray::getCount()
+    {
+        return len;
+    }
     bool initInstanceArray()
     {
+        //use the instance_exists assembly (since its a known "entry point"
+        //to locate GM's instance array.
         char *p = (char*)(unsigned)gm::get_function_address("instance_exists").real;
         p += (0x00608480 - 0x006083DC) + 1;
+        //Validation, to see if any of the assembly has changed that would
+        //make the read value meaningless
         static const unsigned char BEFORE[] =
         {
             0x89, 0x45, 0xF8,
@@ -42,7 +50,7 @@ namespace gm
             return false;
         if(memcmp(AFTER, p + 4, sizeof(AFTER)) != 0)
             return false;
-        
+        //Locate the instance array
         InstanceArray ****iapppp = (InstanceArray****)p;
         instanceArray = ***iapppp;
         

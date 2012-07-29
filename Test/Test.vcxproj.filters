@@ -18,5 +18,11 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Obj.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InstanceArray.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

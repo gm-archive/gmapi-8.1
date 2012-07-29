@@ -1,4 +1,4 @@
-/* Copyright (c) 2011 William Newbery
+/* Copyright (c) 2011-2012 William Newbery
  * 
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -22,10 +22,19 @@
 #include "Precompiled.hpp"
 #include "CoreInternal.hpp"
 #include "Instance.hpp"
+#include "Variable.hpp"
 namespace gm
 {
     GMAPI_DLL Instance *getSelf(){return getShared()->self;}
     GMAPI_DLL Instance *getOther(){return getShared()->other;}
     GMAPI_DLL void setSelf(Instance *self){getShared()->self=self;}
     GMAPI_DLL void setOther(Instance *other){getShared()->other=other;}
+
+    Variable *Instance::findUserVar(int varid)
+    {
+        for (int i=0; i<vars->len; ++i)
+            if (vars->vars[i].id == varid)
+                return &vars->vars[i];
+        return 0;
+    }
 }

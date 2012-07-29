@@ -1,9 +1,10 @@
 #include "GMAPI.hpp"
+#include <Windows.h>
 #define EXPORT extern "C" __declspec(dllexport)
 EXPORT double test_init(double get_function_address)
 {
-    
-    if(gm::init(get_function_address))
+    //MessageBox(0, L"test_init", L"test", MB_OK);
+    if(gm::init(get_function_address)   )
     {
         /*gm::show_message(
             gm::string_replace(
@@ -17,7 +18,23 @@ EXPORT double test_init(double get_function_address)
 EXPORT double test_shutdown()
 {
     gm::shutdown();
-    return 0;
+    return 1;
+}
+EXPORT double test_is_real()
+{
+    return gm::is_real(5);
+}
+EXPORT double test_is_real2()
+{
+    return gm::is_real("Not real");
+}
+EXPORT double test_is_string()
+{   
+    return gm::is_string(5);
+}
+EXPORT double test_is_string2()
+{
+    return gm::is_string("Not real");
 }
 
 #include <fstream>

@@ -1,4 +1,4 @@
-/* Copyright (c) 2011 William Newbery
+/* Copyright (c) 2011-2012 William Newbery
  * 
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -22,7 +22,7 @@
 #ifndef GMAPI_VALUE_HPP
 #define GMAPI_VALUE_HPP
 #include "String.hpp"
-#include <string>
+#include <cassert>
 namespace gm
 {
     /**@defgroup gm_variables GM Variables & Values
@@ -46,48 +46,102 @@ namespace gm
             STRING = 1
         };
         /**Default constructor. Sets the value to a real with value 0.0.*/
-        Value():type(REAL), real(0), str(0){}
+        Value():type(REAL), real(0), str(){}
         /**Constructs a real value.*/
-        Value(double real):type(REAL), real(real), str(0){}
+        Value(double real):type(REAL), real(real), str(){}
         /**Constructs a string value using a copy of str.*/
-        Value(const char *str):type(REAL), real(0), str(0)
-        {
-            setStr(str);
-        }
-        /**Constructs a string value using a copy of str.*/
-        Value(const char *str, unsigned len):type(REAL), real(0), str(0)
-        {
-            setStr(str, len);
-        }
-        /**Constructs a string value using a copy of str.*/
-        Value(const std::string &str):type(REAL), real(0), str(0)
-        {
-            setStr(str);
-        }
+        Value(const char *str):type(STRING), real(0), str(str) {}
+        Value(const char *str, unsigned len):type(STRING), real(0), str(str, len) {}
+        Value(const std::string &str):type(STRING), real(0), str(str.data(), str.size()) {}
+        Value(const wchar_t *str):type(STRING), real(0), str(str) {}
+        Value(const wchar_t *str, unsigned len):type(STRING), real(0), str(str, len) {}
+        Value(const std::wstring &str):type(STRING), real(0), str(str.data(), str.size()) {}
+
         /**Constructs the value as a copy of v.*/
         Value(const Value &v)
-        :type(v.type), real(v.real), str(0)
+        :type(v.type), real(v.real), str(v.str)
         {
-            if(type == STRING)
-                setStr(v.str, gmstrLen(v.str));
         }
         ~Value()
         {
-            if(this->str)
-                releaseStr(this->str);
         }
         
-        Value& operator = (Value v)
+        void setReal(double r)
         {
-            swap(*this, v);
+            type = REAL;
+            real = r;
+            str.setNull();
+        }
+        void setStr(const char *newstr)
+        {
+            type = STRING;
+            str.set(newstr);
+        }
+        void setStr(const wchar_t *newstr)
+        {
+            type = STRING;
+            str.set(newstr);
+        }
+        void setStr(const char *newstr, unsigned len)
+        {
+            type = STRING;
+            str.set(newstr, len);
+        }
+        void setStr(const wchar_t *newstr, unsigned len)
+        {
+            type = STRING;
+            str.set(newstr, len);
+        }
+        void setStr(const std::string& newstr)
+        {
+            type = STRING;
+            str.set(newstr);
+        }
+        void setStr(const std::wstring& newstr)
+        {
+            type = STRING;
+            str.set(newstr);
+        }
+        template<class IMP>
+        void setStr(const DelphiBaseString<IMP> &newstr)
+        {
+            str.set(newstr);
+        }
+        
+        void set(const Value &v)
+        {
+            v.type == REAL ? setReal(v.real) : setStr(v.str);
+        }
+
+        double& getReal()
+        {
+            assert(type == REAL);
+            return real;
+        }
+        double getReal()const
+        {
+            assert(type == REAL);
+            return real;
+        }
+        ValueString& getStr()
+        {
+            assert(type == STRING);
+            return str;
+        }
+        const ValueString& getStr()const
+        {
+            assert(type == STRING);
+            return str;
+        }
+
+        Value& operator = (const Value &v)
+        {
+            set(v);
             return *this;
         }
         Value& operator = (double v)
         {
-            type = REAL;
-            real = v;
-            releaseStr(this->str);
-            this->str = 0;
+            setReal(v);
             return *this;
         }
         Value& operator = (const char *str)
@@ -100,35 +154,39 @@ namespace gm
             setStr(str);
             return *this;
         }
-        void setStr(const char *str)
+        Value& operator = (const wchar_t *str)
         {
-            setStr(str, strlen(str));
+            setStr(str);
+            return *this;
         }
-        void setStr(const std::string &str)
+        Value& operator = (const std::wstring &str)
         {
-            setStr(str.c_str(), str.size());
+            setStr(str);
+            return *this;
         }
-        void setStr(const char *str, unsigned len)
+        template<class IMP>
+        Value& operator = (const DelphiBaseString<IMP> &str)
         {
-            type = STRING;
-            releaseStr(this->str);
-            this->str = newStr(str, len);
+            setStr(str);
+            return *this;
         }
+        
+        operator double()const {return getReal();}
+        operator ValueString&() {return getStr();}
+        operator const ValueString&()const {return getStr();}
+        
         Type type;
-        /**When type == REAL, stores the real value.*/
+        /**When type == REAL, stores the real value.
+         * @note Assigning to this field will not force type to equal REAL.
+         */
         double real;
         /**When type == STRING, points to the string object.
          * 
-         * This is actually a Delphi string, that stores some information
-         * before the string.
-         * 
-         * Use the gm::getStrStruct(Value::str)function to get this struct.
-         * 
-         * It is advisable to use setStr rather than directly setting this
-         * field.
+         * @note Assigning to this field will not force type to equal STRING.
          */
-        char *str;
+        ValueString str;
     };
+    
     /**Swap the values of two gm::Value objects.
      * This has been implemented to avoid an expensive string copy (or even
      * reference count changes).

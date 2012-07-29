@@ -1,4 +1,4 @@
-/* Copyright (c) 2011 William Newbery
+/* Copyright (c) 2011-2012 William Newbery
  * 
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -22,74 +22,290 @@
 #ifndef GMAPI_STRING_HPP
 #define GMAPI_STRING_HPP
 #include "Dll.hpp"
+#include <string>
+#include <Windows.h>
 namespace gm
 {
-#pragma warning(push)
-#pragma warning(disable:4200)
-    /**@brief A Delphi string object.
-     * 
-     * Stores various information about the string, with the string itself following this object.
-     */
-    struct StrStruct
-    {
-        /**The codepage for this string.*/
-        unsigned short codepage;
-        /**The size in bytes of a single element.*/
-        unsigned short elementSize;
-        /**The number of references to this string.*/
-        long volatile refcnt;
-        /**The number of elements in the string, excluding the final null
-         * element.
-         */
-        unsigned len;
-        /**The string itself, which follows on from here.
-         * 
-         * The string may contain embedded nulls, and is also garunteed to end
-         * with a null.
-         */
-        char str[0];
-    };
-#pragma warning(pop)
-    /**Gets a pointer to the start of the string object from the start of the
-     * string itself.
-     */
-    inline StrStruct *getStrStruct(char *gmstr)
-    {
-        return (StrStruct*)(gmstr - sizeof(StrStruct));
-    }
-    inline const StrStruct *getStrStruct(const char *gmstr)
-    {
-        return (const StrStruct*)(gmstr - sizeof(StrStruct));
-    }
-    /**Gets the length of the Delphi string object. Since this just reads a
-     * a field in the string object, it is far faster than searching for the
-     * null with something like strlen, and also handles strings with embedded
-     * nulls correctly.
-     */
-    inline unsigned gmstrLen(const char *gmstr)
-    {
-        return getStrStruct(gmstr)->len;
-    }
-    inline void strSetLen(char *gmstr, unsigned newlen)
-    {
-        getStrStruct(gmstr)->len = newlen;
-    }
-    
-    /**Allocates a new UTF8 Delphi string object with space for len elements.*/
-    GMAPI_DLL char *newStr(unsigned len);
-    /**Allocates a new UTF8 Delphi string object initially storing a copy of 
-     * the null terminated string str.
-     */
-    GMAPI_DLL char *newStr(const char *str);
-    /**Allocates a new UTF8 Delphi string object initially storing a copy of 
-     * the string str with length len.
-     */
-    GMAPI_DLL char *newStr(const char *str, unsigned len);
+    /**Allocate the delphi UnicodeString memory.*/
+    GMAPI_DLL char *newStr(unsigned len, unsigned short elementSize=1, unsigned short codePage=65001);
+    GMAPI_DLL char *newStr(const void *str, unsigned len, unsigned short elementSize=1, unsigned short codePage=65001);
+
     /**Decrements the string objects reference counter, destroying it if the
      * reference count reaches zero.
      */
-    GMAPI_DLL void releaseStr(char *gmstr);
+    GMAPI_DLL void releaseStr(const char *delphiStr);
     /**Adds an extra reference to the string object.*/
-    GMAPI_DLL void strIncRef(char *gmstr);
+    GMAPI_DLL void strIncRef(const char *delphiStr);
+
+    /**@brief Limited functionality string so can restrict gm::value str to
+     * UTF-8.
+     */
+    template<typename IMP>
+    class GMAPI_DLL DelphiBaseString
+    {
+    public:
+        DelphiBaseString() : data(0) {}
+        ~DelphiBaseString()
+        {
+            releaseStr(data);
+        }
+
+        char *getData()const{return data;}
+        bool isNull()const
+        {
+            return data == 0;
+        }
+        unsigned getLen()const
+        {
+            return *(unsigned*)data-4;
+        }
+        long getRefCnt()const
+        {
+            return *(long*)(data-8);
+        }
+        unsigned short getElementSize()const
+        {
+            return *(unsigned short*)(data-10);
+        }
+        unsigned short getCodePage()const
+        {
+            return *(unsigned short*)(data-12);
+        }
+
+        void setNull()
+        {
+            releaseStr(data);
+            data = 0;
+        }
+
+//         void set(const char *utf8){utf8 ? ((IMP*)this)->set(utf8, strlen(utf8)) : setNull();}
+//         void set(const wchar_t *utf16){utf16 ? ((IMP*)this)->set(utf16, wcslen(utf16)) : setNull();}
+//         void set(const std::string &utf8){((IMP*)this)->set(utf8.data(), utf8.size());}
+//         void set(const std::wstring &utf16){((IMP*)this)->set(utf16.data(), utf16.size());}
+
+        void setUtf8(const char *utf8){utf8 ? setUtf8(utf8, strlen(utf8)) : setNull();}
+        void setUtf8(const wchar_t *utf16){utf16 ? setUtf8(utf16, wcslen(utf16)) : setNull();}
+        void setUtf8(const std::string &utf8){setUtf8(utf8.data(), utf8.size());}
+        void setUtf8(const std::wstring &utf16){setUtf8(utf16.data(), utf16.size());}
+        void setUtf8(const char *utf8, unsigned len)
+        {
+            releaseStr(data);
+            data = utf8 ? newStr(utf8, len, 1, 65001) : 0;
+        }
+        void setUtf8(const wchar_t *utf16, unsigned len)
+        {
+            releaseStr(data);
+            if (utf16)
+            {
+                int len8 = WideCharToMultiByte(CP_UTF8, 0, utf16, len,
+                    0,0, NULL,NULL);
+                data = newStr(len8,1,65001);
+                WideCharToMultiByte(CP_UTF8, 0, utf16, len,
+                    data,len8, NULL,NULL);
+                data[len8] = 0;
+            }
+            else data = 0;
+        }
+        template<class IMP2>
+        void setUtf8(const DelphiBaseString<IMP2> &str)
+        {
+            if (str.isNull()) setNull();
+            else if (str.getCodePage() == 65001)
+            {
+                strIncRef(str.getData());
+                releaseStr(data);
+                data = str.getData();
+            }
+            else setUtf8((const wchar_t*)str.getData(), str.getLen());//convert
+        }
+
+        template<class IMP2>
+        DelphiBaseString& operator = (const DelphiBaseString<IMP2> &str) { ((IMP*)this)->set(str); return *this; }
+        DelphiBaseString& operator = (const char *utf8) { ((IMP*)this)->set(utf8); return *this; }
+        DelphiBaseString& operator = (const wchar_t *utf16) { ((IMP*)this)->set(utf16); return *this; }
+        DelphiBaseString& operator = (const std::string &utf8) { ((IMP*)this)->set(utf8); return *this; }
+        DelphiBaseString& operator = (const std::wstring &utf16) { ((IMP*)this)->set(utf16); return *this; }
+
+        operator std::string()const
+        {
+            if (isNull())
+                return "";
+            else if (getElementSize() == 1)
+                return std::string(getData(), getLen());
+            else
+            {
+                int len8 = WideCharToMultiByte(CP_UTF8, 0, (const wchar_t*)getData(),
+                    getLen(), 0,0, NULL,NULL);
+                std::string out(len8,0);
+                WideCharToMultiByte(CP_UTF8, 0, (const wchar_t*)getData(),
+                    getLen(), &out[0], len8, NULL,NULL);
+                return out;
+            }
+        }
+        operator std::wstring()const
+        {
+            if (isNull())
+                return L"";
+            else if (getElementSize() == 2)
+                return std::wstring((const wchar_t*)getData(), getLen());
+            else
+            {
+                int len16 = MultiByteToWideChar(CP_UTF8, 0, getData(), getLen(), 0, 0);
+                std::wstring out(len16,0);
+                MultiByteToWideChar(CP_UTF8, 0, getData(), getLen(), &out[0], len16);
+                return out;
+            }
+        }
+
+
+        friend void swap(DelphiBaseString<IMP> &a, DelphiBaseString<IMP> &b)
+        {
+            std::swap(a.data, b.data);
+        }
+    protected:
+        char *data;
+    };
+
+    /**@brief Less complete than DelphiString, used as the string member in
+     * gm::Value.
+     * 
+     * Comparison to DelphiString:
+     * - Can only hold UTF-8 data.
+     * - Has no utf8/utf16 factory methods. Constructors act as the utf8 ones.
+     * - Has no setUtf16 methods, and the set methods map to the setUtf8 ones.
+     */
+    class GMAPI_DLL ValueString : public DelphiBaseString<ValueString>
+    {
+    public:
+        ValueString(){}
+        template<class IMP2> ValueString(const DelphiBaseString<IMP2> &str){set(str);}
+        ValueString(const char *utf8) {set(utf8);}
+        ValueString(const wchar_t *utf16) {set(utf16);}
+        ValueString(const char *utf8, unsigned len) {set(utf8, len);}
+        ValueString(const wchar_t *utf16, unsigned len) {set(utf16, len);}
+        ValueString(const std::string &utf8) {set(utf8);}
+        ValueString(const std::wstring &utf16) {set(utf16);}
+
+        void set(const char *utf8){utf8 ? set(utf8, strlen(utf8)) : setNull();}
+        void set(const wchar_t *utf16){utf16 ? set(utf16, wcslen(utf16)) : setNull();}
+        void set(const std::string &utf8){set(utf8.data(), utf8.size());}
+        void set(const std::wstring &utf16){set(utf16.data(), utf16.size());}
+
+        void set(const char *utf8, unsigned len){setUtf8(utf8,len);}
+        void set(const wchar_t *utf16, unsigned len){setUtf8(utf16,len);}
+
+        template<class IMP2> void set(const DelphiBaseString<IMP2> &str){setUtf8(str);}
+    };
+    /**@brief Basically works as a wrapper/smart pointer for delphi
+     * UnicodeString objects with support for easy handling of UTF-16.
+     */
+    class GMAPI_DLL DelphiString : public DelphiBaseString<DelphiString>
+    {
+    public:
+        DelphiString(){}
+        template<class IMP2> DelphiString(const DelphiBaseString<IMP2> &str)
+        {
+            set(str);
+        }
+        DelphiString(void *str, unsigned len, unsigned short elemSize, unsigned short codePage)
+        {
+            set(str, len, elemSize, codePage);
+        }
+        DelphiString(const char *utf8) {set(utf8);}
+        DelphiString(const wchar_t *utf16) {set(utf16);}
+        DelphiString(const char *utf8, unsigned len) {set(utf8, len);}
+        DelphiString(const wchar_t *utf16, unsigned len) {set(utf16, len);}
+        DelphiString(const std::string &utf8) {set(utf8);}
+        DelphiString(const std::wstring &utf16) {set(utf16);}
+
+        static DelphiString utf8(const DelphiString &str) {DelphiString d; d.setUtf8(str); return d;}
+        static DelphiString utf8(const char *utf8) {DelphiString d; d.setUtf8(utf8); return d;}
+        static DelphiString utf8(const wchar_t *utf16) {DelphiString d; d.setUtf8(utf16); return d;}
+        static DelphiString utf8(const std::string &utf8) {DelphiString d; d.setUtf8(utf8); return d;}
+        static DelphiString utf8(const std::wstring &utf16) {DelphiString d; d.setUtf8(utf16); return d;}
+
+        static DelphiString utf16(const DelphiString &str) {DelphiString d; d.setUtf16(str); return d;}
+        static DelphiString utf16(const char *utf8) {DelphiString d; d.setUtf16(utf8); return d;}
+        static DelphiString utf16(const wchar_t *utf16) {DelphiString d; d.setUtf16(utf16); return d;}
+        static DelphiString utf16(const std::string &utf8) {DelphiString d; d.setUtf16(utf8); return d;}
+        static DelphiString utf16(const std::wstring &utf16) {DelphiString d; d.setUtf16(utf16); return d;}
+
+        
+        void setUtf16(const char *utf8){utf8 ? setUtf16(utf8, strlen(utf8)) : setNull();}
+        void setUtf16(const wchar_t *utf16){utf16 ? setUtf16(utf16, wcslen(utf16)) : setNull();}
+        void setUtf16(const std::string &utf8){setUtf16(utf8.data(), utf8.size());}
+        void setUtf16(const std::wstring &utf16){setUtf16(utf16.data(), utf16.size());}
+
+        void set(const char *utf8){utf8 ? set(utf8, strlen(utf8)) : setNull();}
+        void set(const wchar_t *utf16){utf16 ? set(utf16, wcslen(utf16)) : setNull();}
+        void set(const std::string &utf8){set(utf8.data(), utf8.size());}
+        void set(const std::wstring &utf16){set(utf16.data(), utf16.size());}
+
+        void set(const char *utf8, unsigned len){setUtf8(utf8,len);}
+        void set(const wchar_t *utf16, unsigned len)
+        {
+            releaseStr(data);
+            data = utf16 ? newStr(utf16, len) : 0;
+        }
+        void set(const void *str, unsigned len,
+            unsigned short elemSize, unsigned short codePage)
+        {
+            releaseStr(data);
+            data = newStr(str, len, elemSize, codePage);
+        }
+
+        void setUtf16(const char *utf8, unsigned len)
+        {
+            releaseStr(data);
+            if (utf8)
+            {
+                int len16 = MultiByteToWideChar(
+                    CP_UTF8, 0, utf8, len,
+                    0, 0);
+                data = newStr(len16, 2, 1200);
+                MultiByteToWideChar(
+                    CP_UTF8, 0, utf8, len,
+                    (wchar_t*)data, len16);
+                ((wchar_t*)data)[len16] = 0;
+            }
+            else data = 0;
+        }
+        void setUtf16(const wchar_t *utf16, unsigned len)
+        {
+            releaseStr(data);
+            data = utf16 ? newStr(utf16, len, 2, 1200) : 0;
+        }
+
+
+        template<class IMP2> void set(const DelphiBaseString<IMP2> &str)
+        {
+            if (str.isNull()) setNull();
+            else
+            {
+                strIncRef(str.getData());
+                releaseStr(data);
+                data = str.getData();
+            }
+        }
+        template<class IMP2> void setUtf16(const DelphiBaseString<IMP2> &str)
+        {
+            if (str.isNull()) setNull();
+            else if (str.getCodePage() == 1200)
+            {
+                strIncRef(str.getData());
+                releaseStr(data);
+                data = str.getData();
+            }
+            else setUtf16(str.getData(), str.getLen());
+        }
+
+        
+        /**Perform a deep copy.*/
+        DelphiString clone()const
+        {
+            return DelphiString(data, getLen(), getElementSize(), getCodePage());
+        }
+        
+    };
 }
 #endif
