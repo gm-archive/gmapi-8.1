@@ -1,6 +1,16 @@
 #include "GMAPI.hpp"
 #include <Windows.h>
 #define EXPORT extern "C" __declspec(dllexport)
+
+#include <fstream>
+BOOL WINAPI DllMain( HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved )
+{
+    if (dwReason == DLL_PROCESS_ATTACH)
+        std::fstream(L"log2.txt",std::ios::app) << "DLL Load.\n";
+    else if (dwReason == DLL_PROCESS_DETACH)
+        std::fstream(L"log2.txt",std::ios::app) << "DLL Unload.\n";
+    return TRUE;
+}
 EXPORT double test_init(double get_function_address)
 {
     //MessageBox(0, L"test_init", L"test", MB_OK);

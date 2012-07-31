@@ -29,12 +29,4 @@ namespace gm
     GMAPI_DLL Instance *getOther(){return getShared()->other;}
     GMAPI_DLL void setSelf(Instance *self){getShared()->self=self;}
     GMAPI_DLL void setOther(Instance *other){getShared()->other=other;}
-
-    Variable *Instance::findUserVar(int varid)
-    {
-        for (int i=0; i<vars->len; ++i)
-            if (vars->vars[i].id == varid)
-                return &vars->vars[i];
-        return 0;
-    }
 }

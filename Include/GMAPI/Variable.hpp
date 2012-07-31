@@ -37,20 +37,72 @@ namespace gm
         //0x18 bytes
         /**The variables value.*/
         Value val;
-        char padd20[4];
+        int u20;
         char padd24[4];
     };
 
-    /**@brief Array container for gm::Variable objects.*/
-    struct Variables
+    /**@brief Array container for gm::Variable objects.
+     * 
+     * Used for all the user-defined variables, with one per instance and
+     * another for global variables. Can not access the built in variables.
+     */
+    class GMAPI_DLL Variables
     {
+    public:
+        /**Returns the variable varid if it exists or null otherwise.*/
+        Variable *findVar(int varid);
+        /**Returns the variable name if it exists or null otherwise.*/
+        Variable *findVar(const DelphiString &name);
+        
+        /**Returns the index of name into the vars array.*/
+        int findIndex(const DelphiString &name);
+        /**Returns the index of name into the varid array.*/
+        int findIndex(int varid);
+        /**Returns the variable located at index. Index must be valid.*/
+        Variable *getFromIndex(int index);
+
+        /**Get the number of variables stored here.*/
+        int getLen(){return len;}
+        Variable *getVars(){return vars;}
+    private:
         int unknown;
         Variable *vars;
         int len;
     };
+    
+    
+    GMAPI_DLL extern Variables *userGlobals;
+    /**Gets the id for a variable name. Works for both built in and user
+     * defined, member and global variables,
+     * 
+     * Does not work for constants.
+     * 
+     * If their is no varid for the requested name, a new one is created.
+     */
+    GMAPI_DLL int getVarId(const DelphiString &name);
+    
+    /**Get an instance variable. Works for both built in variables and user
+     * defined variables.
+     */
+    GMAPI_DLL Value getVar(Instance *ins, int varid, int unknown=0);
+    inline Value getVar(int varid, int unknown=0)
+    {
+        return getVar(getSelf(), varid, unknown);
+    }
+    inline Value getVar(const DelphiString &name)
+    {
+        return getVar(getVarId(name));
+    }
 
-    GMAPI_DLL void getVar(Instance *self, int varid, int unknown, Value *out);
-    GMAPI_DLL int getVarId(const wchar_t *delphiStringU16);
+    /**The ones in GML you can prefix with global.*/
+    inline Value getGlobal(int varid)
+    {
+        return userGlobals->findVar(varid)->val;
+    }
+    inline Value getGlobal(const DelphiString &name)
+    {
+        return userGlobals->findVar(name)->val;
+    }
     ///@}
 }
 #endif

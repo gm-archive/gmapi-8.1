@@ -28,7 +28,7 @@ namespace gm
      * @brief Objects and functions for working with GM instances.
      */
     ///@{
-    struct Variables;
+    class Variables;
     struct Variable;
     /**@brief The GM instance structure.*/
     struct Instance
@@ -80,8 +80,6 @@ namespace gm
         double timeline_position;
         double timeline_speed;
         //possibly more
-
-        GMAPI_DLL Variable *findUserVar(int varid);
     };
     
     /**Gets the current GM instance.*/

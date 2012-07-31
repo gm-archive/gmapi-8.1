@@ -27,10 +27,32 @@ namespace gm
     struct Instance;
     struct Shared
     {
+        /**The number of times shared initialisation has been performed.
+         * e.g. adding the code into GM to preserve the self and other
+         * pointers.
+         */
         int initCnt;
         Instance *self;
         Instance *other;
+        /**The version of the hook code. If a GMAPI instance is loaded after
+         * another GMAPI was already loaded, but this one has a newer version
+         * of the code, it will replace the old hook with its newer one.*/
+        int hookVersion;
+        /**The DLL that owns the current hook (to ensure that DLL can't get
+         * unloaded while the hook is still in place).
+         */
+        HINSTANCE hookModule;
+        /**The function to remove the current hook, and restore the original
+         * GM code.
+         */
+        void (__cdecl *removeHook)();
     };
+    static const unsigned HOOK_VERSION = 2;
     Shared *getShared();
+    /**Gets the HINSTANCE/HMODULE/base address of whatever this is
+     * implemented in. E.g. the GMAPI DLL is you used that, or the DLL
+     * you statically linked the GMAPI into.
+     */
+    HINSTANCE getThisModule(bool incRef);
 }
 #endif

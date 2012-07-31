@@ -72,23 +72,28 @@ namespace gm
         return data + 12;
     }
 
-    GMAPI_DLL void getVar(Instance *self, int varid, int unknown, Value *outval)
+    GMAPI_DLL Value getVar(Instance *self, int varid, int unknown)
     {
+        Value outval;
+        Value *poutval = &outval;
         __asm
         {
             mov     eax, self
             mov     edx, varid
             mov     ecx, unknown
-            push    outval
+            push    poutval
             call    gmGetVar
         }
+        return outval;
     }
-    GMAPI_DLL int getVarId(const wchar_t *delphiStringU16)
+    GMAPI_DLL int getVarId(const DelphiString &name)
     {
+        DelphiString name16 = DelphiString::utf16(name);
         int retval;
+        const char *data = name16.getData();
         __asm
         {
-            mov eax, delphiStringU16
+            mov eax, data
             call gmGetVarId
             mov retval, eax
         }

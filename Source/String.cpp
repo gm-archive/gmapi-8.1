@@ -107,12 +107,21 @@ namespace gm
     {
         char *out = newStr(len, elementSize, codePage);
         memcpy(out, str, len*elementSize);
-        memset(out + len*elementSize, 0, elementSize);
+        memset(out + len*elementSize, 0, 2);
         return out;
     }
     GMAPI_DLL void strIncRef(const char *gmstr)
     {
         InterlockedIncrement((volatile long*)(gmstr - 8));
+    }
+    GMAPI_DLL char *cpyStr(const void *vdelphiStr)
+    {
+        const char *delphiStr = (const char*)vdelphiStr;
+        return newStr(
+             (const void*)(delphiStr-0),
+            *(unsigned*)(delphiStr-4),
+            *(unsigned short*)(delphiStr-10),
+            *(unsigned short*)(delphiStr-12));
     }
     bool initStrings()
     {

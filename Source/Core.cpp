@@ -30,6 +30,10 @@ namespace gm
 {
     Shared *shared          = 0;
     HANDLE sharedHandle     = 0;
+    /**Not the shame as shared::init. This is just the number of times this
+     * specific instance has been initialised. E.g. if the same dll is being
+     * used by multiple extensions in the same game.
+     */
     int initcnt = 0;
     
     bool initShared();
@@ -43,6 +47,16 @@ namespace gm
         return shared;
     }
     
+    void remoteRemoveHook()
+    {
+        assert (shared->hookModule == getThisModule(false));
+        assert (shared->hookVersion == HOOK_VERSION);
+        assert (shared->removeHook == remoteRemoveHook);
+        removeCallHook();
+        //If was only hosting the call hooks, free the now not needed shared
+        //memory.
+        if (initcnt == 0) freeShared();
+    }
     bool init(double get_function_address_ptr)
     {
         if(initcnt)
@@ -52,8 +66,13 @@ namespace gm
         }
         else
         {
-            if (!initShared())
-                return false;
+            if (shared == 0)
+            {
+                //shared != 0 is possible if previously loaded, and is currently
+                //hosting the hooks into GM's code.
+                if (!initShared())
+                    return false;
+            }
             if (!initStrings())
                 return false; 
             if (!initFunctions(get_function_address_ptr))
@@ -66,19 +85,44 @@ namespace gm
             {
                 if(!installCallHook((void*)(uintptr_t)get_function_address("external_call").real))
                     return false;
+                shared->hookModule = getThisModule(true);
+                shared->removeHook = &remoteRemoveHook;
+                shared->hookVersion = HOOK_VERSION;
+            }
+            else if(shared->hookVersion < HOOK_VERSION)
+            {
+
+                shared->removeHook();
+                HMODULE module = getThisModule(true);
+                FreeLibrary(shared->hookModule);
+                shared->hookModule = module;
+                shared->removeHook = 0;
+                shared->hookVersion = HOOK_VERSION;
+                if (!installCallHook((void*)(uintptr_t)get_function_address("external_call").real))
+                    return false;
+                shared->removeHook = &remoteRemoveHook;
             }
             shared->initCnt++;
-            ++initcnt;
+            initcnt = 1;
             return true;
         }
     }
     void shutdown()
     {
-        if(--initcnt)
+        //if this gmapi instance is no longer used
+        if(!--initcnt)
         {
+            //if no gmapi instance is being used
             if(!--shared->initCnt)
-                removeCallHook();
-            freeShared();
+            {
+                shared->removeHook();
+                FreeLibrary(shared->hookModule);
+            }
+            //Only free the shared data if this instance is not still being used
+            //to host the hook code, since that code uses the shared memory.
+            //It will be freed later by remoteRemoveHook
+            if (shared->hookModule != getThisModule(false))
+                freeShared();
         }
     }
     
@@ -91,6 +135,8 @@ namespace gm
     }
     bool initShared()
     {
+        //Create a named shared memory region such that different GMAPI
+        //instances can find it without knowing about each other.
         std::wstring name = getSharedMemName();
         sharedHandle = CreateFileMapping(
             INVALID_HANDLE_VALUE,
@@ -98,6 +144,9 @@ namespace gm
             PAGE_READWRITE | SEC_COMMIT,
             0, sizeof(Shared),
             name.c_str());
+        if (sharedHandle == NULL)
+            return false;
+
         shared = (Shared*)MapViewOfFile(
             sharedHandle, FILE_MAP_WRITE,
             0,0,0);
@@ -107,5 +156,20 @@ namespace gm
     {
         UnmapViewOfFile(shared);
         CloseHandle(sharedHandle);
+        shared = 0;
+        sharedHandle = NULL;
+    }
+
+    HINSTANCE getThisModule(bool incRef)
+    {
+        DWORD flags = GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS;
+        if (!incRef) flags |= GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT;
+        HINSTANCE module;
+        if(!GetModuleHandleEx(
+            flags,
+            (LPWSTR)&getThisModule,
+            &module))
+            return NULL;
+        return module;
     }
 }

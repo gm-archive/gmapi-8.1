@@ -29,6 +29,7 @@ namespace gm
     /**Allocate the delphi UnicodeString memory.*/
     GMAPI_DLL char *newStr(unsigned len, unsigned short elementSize=1, unsigned short codePage=65001);
     GMAPI_DLL char *newStr(const void *str, unsigned len, unsigned short elementSize=1, unsigned short codePage=65001);
+    GMAPI_DLL char *cpyStr(const void *delphiStr);
 
     /**Decrements the string objects reference counter, destroying it if the
      * reference count reaches zero.
@@ -41,23 +42,25 @@ namespace gm
      * UTF-8.
      */
     template<typename IMP>
-    class GMAPI_DLL DelphiBaseString
+    class DelphiBaseString
     {
     public:
         DelphiBaseString() : data(0) {}
-        ~DelphiBaseString()
-        {
-            releaseStr(data);
-        }
+        /**Need to handle at a higher level. Not implemented!*/
+        DelphiBaseString(const DelphiBaseString& str){assert(0);}
 
         char *getData()const{return data;}
         bool isNull()const
         {
             return data == 0;
         }
+        bool isUnique()const
+        {
+            return getRefCnt() == 1;
+        }
         unsigned getLen()const
         {
-            return *(unsigned*)data-4;
+            return *(unsigned*)(data-4);
         }
         long getRefCnt()const
         {
@@ -71,60 +74,7 @@ namespace gm
         {
             return *(unsigned short*)(data-12);
         }
-
-        void setNull()
-        {
-            releaseStr(data);
-            data = 0;
-        }
-
-//         void set(const char *utf8){utf8 ? ((IMP*)this)->set(utf8, strlen(utf8)) : setNull();}
-//         void set(const wchar_t *utf16){utf16 ? ((IMP*)this)->set(utf16, wcslen(utf16)) : setNull();}
-//         void set(const std::string &utf8){((IMP*)this)->set(utf8.data(), utf8.size());}
-//         void set(const std::wstring &utf16){((IMP*)this)->set(utf16.data(), utf16.size());}
-
-        void setUtf8(const char *utf8){utf8 ? setUtf8(utf8, strlen(utf8)) : setNull();}
-        void setUtf8(const wchar_t *utf16){utf16 ? setUtf8(utf16, wcslen(utf16)) : setNull();}
-        void setUtf8(const std::string &utf8){setUtf8(utf8.data(), utf8.size());}
-        void setUtf8(const std::wstring &utf16){setUtf8(utf16.data(), utf16.size());}
-        void setUtf8(const char *utf8, unsigned len)
-        {
-            releaseStr(data);
-            data = utf8 ? newStr(utf8, len, 1, 65001) : 0;
-        }
-        void setUtf8(const wchar_t *utf16, unsigned len)
-        {
-            releaseStr(data);
-            if (utf16)
-            {
-                int len8 = WideCharToMultiByte(CP_UTF8, 0, utf16, len,
-                    0,0, NULL,NULL);
-                data = newStr(len8,1,65001);
-                WideCharToMultiByte(CP_UTF8, 0, utf16, len,
-                    data,len8, NULL,NULL);
-                data[len8] = 0;
-            }
-            else data = 0;
-        }
-        template<class IMP2>
-        void setUtf8(const DelphiBaseString<IMP2> &str)
-        {
-            if (str.isNull()) setNull();
-            else if (str.getCodePage() == 65001)
-            {
-                strIncRef(str.getData());
-                releaseStr(data);
-                data = str.getData();
-            }
-            else setUtf8((const wchar_t*)str.getData(), str.getLen());//convert
-        }
-
-        template<class IMP2>
-        DelphiBaseString& operator = (const DelphiBaseString<IMP2> &str) { ((IMP*)this)->set(str); return *this; }
-        DelphiBaseString& operator = (const char *utf8) { ((IMP*)this)->set(utf8); return *this; }
-        DelphiBaseString& operator = (const wchar_t *utf16) { ((IMP*)this)->set(utf16); return *this; }
-        DelphiBaseString& operator = (const std::string &utf8) { ((IMP*)this)->set(utf8); return *this; }
-        DelphiBaseString& operator = (const std::wstring &utf16) { ((IMP*)this)->set(utf16); return *this; }
+        
 
         operator std::string()const
         {
@@ -156,16 +106,93 @@ namespace gm
                 return out;
             }
         }
-
-
-        friend void swap(DelphiBaseString<IMP> &a, DelphiBaseString<IMP> &b)
-        {
-            std::swap(a.data, b.data);
-        }
     protected:
         char *data;
     };
+    /**@brief Limited functionality string so can restrict gm::value str to
+     * UTF-8.
+     */
+    template<class IMP>
+    class DelphiModifiableString : public DelphiBaseString<IMP>
+    {
+    public:
+        DelphiModifiableString(){}
+        DelphiModifiableString(const DelphiModifiableString &str): DelphiBaseString() {((IMP*)this)->set(str);}
+        template<class IMP2> DelphiModifiableString(const DelphiBaseString<IMP2> &str): DelphiBaseString() {((IMP*)this)->set(str);}
 
+        void setNull()
+        {
+            ((IMP*)this)->release(data);
+            data = 0;
+        }
+
+//         void set(const char *utf8){utf8 ? ((IMP*)this)->set(utf8, strlen(utf8)) : setNull();}
+//         void set(const wchar_t *utf16){utf16 ? ((IMP*)this)->set(utf16, wcslen(utf16)) : setNull();}
+//         void set(const std::string &utf8){((IMP*)this)->set(utf8.data(), utf8.size());}
+//         void set(const std::wstring &utf16){((IMP*)this)->set(utf16.data(), utf16.size());}
+
+        void setUtf8(const char *utf8){utf8 ? setUtf8(utf8, strlen(utf8)) : setNull();}
+        void setUtf8(const wchar_t *utf16){utf16 ? setUtf8(utf16, wcslen(utf16)) : setNull();}
+        void setUtf8(const std::string &utf8){setUtf8(utf8.data(), utf8.size());}
+        void setUtf8(const std::wstring &utf16){setUtf8(utf16.data(), utf16.size());}
+        void setUtf8(const char *utf8, unsigned len)
+        {
+            ((IMP*)this)->release(data);
+            data = utf8 ? newStr(utf8, len, 1, 65001) : 0;
+        }
+        void setUtf8(const wchar_t *utf16, unsigned len)
+        {
+            ((IMP*)this)->release(data);
+            if (utf16)
+            {
+                int len8 = WideCharToMultiByte(CP_UTF8, 0, utf16, len,
+                    0,0, NULL,NULL);
+                data = newStr(len8,1,65001);
+                WideCharToMultiByte(CP_UTF8, 0, utf16, len,
+                    data,len8, NULL,NULL);
+                data[len8] = 0;
+            }
+            else data = 0;
+        }
+        template<class IMP2>
+        void setUtf8(const DelphiBaseString<IMP2> &str)
+        {
+            if (str.isNull()) setNull();
+            else if (str.getCodePage() == 65001)
+            {
+                strIncRef(str.getData());
+                ((IMP*)this)->release(data);
+                data = str.getData();
+            }
+            else setUtf8((const wchar_t*)str.getData(), str.getLen());//convert
+        }
+
+        DelphiBaseString& operator = (const DelphiBaseString &str) { ((IMP*)this)->set(str); return *this; }
+        template<class IMP2>
+        DelphiBaseString& operator = (const DelphiBaseString<IMP2> &str) { ((IMP*)this)->set(str); return *this; }
+        DelphiBaseString& operator = (const char *utf8) { ((IMP*)this)->set(utf8); return *this; }
+        DelphiBaseString& operator = (const wchar_t *utf16) { ((IMP*)this)->set(utf16); return *this; }
+        DelphiBaseString& operator = (const std::string &utf8) { ((IMP*)this)->set(utf8); return *this; }
+        DelphiBaseString& operator = (const std::wstring &utf16) { ((IMP*)this)->set(utf16); return *this; }
+    protected:
+        void release()
+        {
+            releaseStr(data);
+            data = 0;
+        }
+        void release(char *data)
+        {
+           releaseStr(data);
+        }
+    };
+    /**@brief References a string, but does not own it.*/
+    class RefString : public DelphiBaseString<RefString>
+    {
+    public:
+        RefString(){}
+        template<class IMP2>
+        RefString(const DelphiBaseString<IMP2> &str):data(str.data){}
+    };
     /**@brief Less complete than DelphiString, used as the string member in
      * gm::Value.
      * 
@@ -174,17 +201,22 @@ namespace gm
      * - Has no utf8/utf16 factory methods. Constructors act as the utf8 ones.
      * - Has no setUtf16 methods, and the set methods map to the setUtf8 ones.
      */
-    class GMAPI_DLL ValueString : public DelphiBaseString<ValueString>
+    class ValueString : public DelphiModifiableString<ValueString>
     {
     public:
         ValueString(){}
-        template<class IMP2> ValueString(const DelphiBaseString<IMP2> &str){set(str);}
+        ValueString(const ValueString &str):DelphiModifiableString(str){}
+        template<class IMP2> ValueString(const DelphiBaseString<IMP2> &str):DelphiModifiableString(str){}
         ValueString(const char *utf8) {set(utf8);}
         ValueString(const wchar_t *utf16) {set(utf16);}
         ValueString(const char *utf8, unsigned len) {set(utf8, len);}
         ValueString(const wchar_t *utf16, unsigned len) {set(utf16, len);}
         ValueString(const std::string &utf8) {set(utf8);}
         ValueString(const std::wstring &utf16) {set(utf16);}
+        ~ValueString()
+        {
+            releaseStr(data);
+        }
 
         void set(const char *utf8){utf8 ? set(utf8, strlen(utf8)) : setNull();}
         void set(const wchar_t *utf16){utf16 ? set(utf16, wcslen(utf16)) : setNull();}
@@ -199,14 +231,12 @@ namespace gm
     /**@brief Basically works as a wrapper/smart pointer for delphi
      * UnicodeString objects with support for easy handling of UTF-16.
      */
-    class GMAPI_DLL DelphiString : public DelphiBaseString<DelphiString>
+    class GMAPI_DLL DelphiString : public DelphiModifiableString<DelphiString>
     {
     public:
         DelphiString(){}
-        template<class IMP2> DelphiString(const DelphiBaseString<IMP2> &str)
-        {
-            set(str);
-        }
+        DelphiString(const DelphiString &str):DelphiModifiableString(str){}
+        template<class IMP2> DelphiString(const DelphiBaseString<IMP2> &str):DelphiModifiableString(str){}
         DelphiString(void *str, unsigned len, unsigned short elemSize, unsigned short codePage)
         {
             set(str, len, elemSize, codePage);
@@ -217,6 +247,15 @@ namespace gm
         DelphiString(const wchar_t *utf16, unsigned len) {set(utf16, len);}
         DelphiString(const std::string &utf8) {set(utf8);}
         DelphiString(const std::wstring &utf16) {set(utf16);}
+        DelphiString(const void *delphiString, bool takeOwnership)
+        {
+            data = (char*)delphiString;
+            if (!takeOwnership) strIncRef(data);
+        }
+        ~DelphiString()
+        {
+            releaseStr(data);
+        }
 
         static DelphiString utf8(const DelphiString &str) {DelphiString d; d.setUtf8(str); return d;}
         static DelphiString utf8(const char *utf8) {DelphiString d; d.setUtf8(utf8); return d;}
@@ -245,7 +284,7 @@ namespace gm
         void set(const wchar_t *utf16, unsigned len)
         {
             releaseStr(data);
-            data = utf16 ? newStr(utf16, len) : 0;
+            data = utf16 ? newStr(utf16, len, 2, 1200) : 0;
         }
         void set(const void *str, unsigned len,
             unsigned short elemSize, unsigned short codePage)

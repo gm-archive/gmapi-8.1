@@ -11,6 +11,5 @@ EXPORT double ia_get_firstid()
 }
 EXPORT double ia_get_findself()
 {
-    gm::Value val = gm::variable_local_get("anothervar");
     return gm::instanceArray->get(gm::getSelf()->id)->id;
 }

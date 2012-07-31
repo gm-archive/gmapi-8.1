@@ -22,10 +22,12 @@
 
 #include "Precompiled.hpp"
 #include "Functions/dll.hpp"
+#include "Variable.hpp"
 namespace gm
 {
     const void *gmGetVar = 0;
     const void *gmGetVarId = 0;
+    Variables *userGlobals = 0;
 
     bool initVariables()
     {
@@ -55,7 +57,83 @@ namespace gm
         //                  next instruction address  + relative call
         gmGetVarId = (void*)(((int)p+VARID_OFFSET +4) + *((int*)(p+VARID_OFFSET )));
         gmGetVar   = (void*)(((int)p+VARGET_OFFSET+4) + *((int*)(p+VARGET_OFFSET)));
+
+
+        //Locate some internal addresses out of the variable_global_get code
+        static const unsigned REF_GLB_START = 0x0064B354;
+        static const unsigned REF_GLB_CALL = 0x0064B383 + 1;
+        static const unsigned GLB_CALL_OFFSET = REF_GLB_CALL - REF_GLB_START;
+        
+        static const unsigned char BEFORE_GLB_CALL[] = {0x8B,0x4D,0x08,   0x33,0xD2,   0xE8};
+        static const unsigned  char AFTER_GLB_CALLS[] = {0x33,0xC0,   0x5A,0x59,0x59,   0x64,0x89,0x10};
+        static const size_t BEFORE_GLB_CALL_LEN  = sizeof(BEFORE_GLB_CALL);
+        static const size_t AFTER_GLB_CALL_LEN = sizeof(AFTER_GLB_CALLS);
+
+        static const unsigned REF_GLB_CALL_START = 0x005725BC;
+        static const unsigned REF_GLB_CALL_VARS = 0x005725BD + 2;
+        static const unsigned GLB_CALL_VARS_OFFSET = REF_GLB_CALL_VARS - REF_GLB_CALL_START;
+
+        static const unsigned char BEFORE_GLB_CALL_VARS[] = {0x51,   0x8B, 0x0D};
+        static const unsigned  char AFTER_GLB_CALL_VARS[]  = {0x91,   0x87,0xCA,   0xE8};
+        static const size_t BEFORE_GLB_CALL_VARS_LEN  = sizeof(BEFORE_GLB_CALL_VARS);
+        static const size_t AFTER_GLB_CALL_VARS_LEN = sizeof(AFTER_GLB_CALL_VARS);
+
+        p = (unsigned  char*)(unsigned)gm::get_function_address("variable_global_get").real;
+        if (memcmp(
+            p+GLB_CALL_OFFSET-BEFORE_GLB_CALL_LEN,
+            BEFORE_GLB_CALL,
+            BEFORE_GLB_CALL_LEN) != 0)
+            return false;
+        if (memcmp(
+            p+GLB_CALL_OFFSET+4,
+            AFTER_GLB_CALLS,
+            AFTER_GLB_CALL_LEN) != 0)
+            return false;
+
+        p = (unsigned  char*)(((int)p+GLB_CALL_OFFSET +4) + *((int*)(p+GLB_CALL_OFFSET)));
+
+        if (memcmp(
+            p+GLB_CALL_VARS_OFFSET-BEFORE_GLB_CALL_VARS_LEN,
+            BEFORE_GLB_CALL_VARS,
+            BEFORE_GLB_CALL_VARS_LEN) != 0)
+            return false;
+        if (memcmp(
+            p+GLB_CALL_VARS_OFFSET+4,
+            AFTER_GLB_CALL_VARS,
+            AFTER_GLB_CALL_VARS_LEN) != 0)
+            return false;
+
+        userGlobals = **(Variables ***)(p + GLB_CALL_VARS_OFFSET);
         
         return true;
+    }
+
+    Variable *Variables::findVar(const DelphiString &name)
+    {
+        return findVar(getVarId(name));
+    }
+    int Variables::findIndex(const DelphiString &name)
+    {
+        return findIndex(getVarId(name));
+    }
+
+    Variable *Variables::findVar(int varid)
+    {
+        int index = findIndex(varid);
+        if (index >= 0) return getFromIndex(index);
+        else return 0;
+    }
+
+    int Variables::findIndex(int varid)
+    {
+        for (int i=0; i<len; ++i)
+            if (vars[i].id == varid)
+                return i;
+        return -1;
+    }
+    Variable *Variables::getFromIndex(int index)
+    {
+        assert (index >= 0 && index < len);
+        return vars + index;
     }
 }
