@@ -191,7 +191,8 @@ namespace gm
     public:
         RefString(){}
         template<class IMP2>
-        RefString(const DelphiBaseString<IMP2> &str):data(str.data){}
+        RefString(const DelphiBaseString<IMP2> &str){data=str.data;}
+        RefString(const void *delphiStr){data = (char*)delphiStr;}
     };
     /**@brief Less complete than DelphiString, used as the string member in
      * gm::Value.
@@ -213,6 +214,22 @@ namespace gm
         ValueString(const wchar_t *utf16, unsigned len) {set(utf16, len);}
         ValueString(const std::string &utf8) {set(utf8);}
         ValueString(const std::wstring &utf16) {set(utf16);}
+        ValueString(const void *delphiString, bool takeOwnership)
+        {
+            RefString ref = delphiString;
+            if (ref.getCodePage() == 65001)
+            {
+                data = (char*)delphiString;
+                if (!takeOwnership)
+                    strIncRef(data);
+            }
+            else
+            {
+                set(ref);
+                if (takeOwnership)
+                    releaseStr((const char*)delphiString);
+            }
+        }
         ~ValueString()
         {
             releaseStr(data);

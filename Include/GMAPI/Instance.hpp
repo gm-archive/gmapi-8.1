@@ -29,7 +29,7 @@ namespace gm
      */
     ///@{
     class Variables;
-    struct Variable;
+    class Variable;
     /**@brief The GM instance structure.*/
     struct Instance
     {

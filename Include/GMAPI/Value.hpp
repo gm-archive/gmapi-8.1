@@ -49,6 +49,7 @@ namespace gm
         Value():type(REAL), real(0), str(){}
         /**Constructs a real value.*/
         Value(double real):type(REAL), real(real), str(){}
+        Value(int real):type(REAL), real(real), str(){}
         /**Constructs a string value using a copy of str.*/
         Value(const char *str):type(STRING), real(0), str(str) {}
         Value(const char *str, unsigned len):type(STRING), real(0), str(str, len) {}
@@ -56,6 +57,9 @@ namespace gm
         Value(const wchar_t *str):type(STRING), real(0), str(str) {}
         Value(const wchar_t *str, unsigned len):type(STRING), real(0), str(str, len) {}
         Value(const std::wstring &str):type(STRING), real(0), str(str.data(), str.size()) {}
+
+        template<class IMP>
+        Value(const DelphiBaseString<IMP> &str):type(str.isNull() ? REAL : STRING), real(0), str(str) {}
 
         /**Constructs the value as a copy of v.*/
         Value(const Value &v)

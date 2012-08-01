@@ -43,6 +43,10 @@ namespace gm
         return call(functions[827], ind);
     }
     
+    inline Value execute_string(unsigned argcnt, Value *args)
+    {
+        return docall(functions[828], argcnt, args);
+    }
     inline Value execute_string(String str)
     {
         return call(functions[828], str);
@@ -108,6 +112,11 @@ namespace gm
         return call(functions[828], str, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14);
     }
     
+
+    inline Value execute_file(unsigned argcnt, Value *args)
+    {
+        return docall(functions[829], argcnt, args);
+    }
     inline Value execute_file(String fname)
     {
         return call(functions[829], fname);
@@ -173,6 +182,11 @@ namespace gm
         return call(functions[829], fname, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14);
     }
     
+
+    inline Value script_execute(unsigned argcnt, Value *args)
+    {
+        return docall(functions[830], argcnt, args);
+    }
     inline Value script_execute(Real scr)
     {
         return call(functions[830], scr);

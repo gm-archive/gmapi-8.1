@@ -107,33 +107,4 @@ namespace gm
         
         return true;
     }
-
-    Variable *Variables::findVar(const DelphiString &name)
-    {
-        return findVar(getVarId(name));
-    }
-    int Variables::findIndex(const DelphiString &name)
-    {
-        return findIndex(getVarId(name));
-    }
-
-    Variable *Variables::findVar(int varid)
-    {
-        int index = findIndex(varid);
-        if (index >= 0) return getFromIndex(index);
-        else return 0;
-    }
-
-    int Variables::findIndex(int varid)
-    {
-        for (int i=0; i<len; ++i)
-            if (vars[i].id == varid)
-                return i;
-        return -1;
-    }
-    Variable *Variables::getFromIndex(int index)
-    {
-        assert (index >= 0 && index < len);
-        return vars + index;
-    }
 }
