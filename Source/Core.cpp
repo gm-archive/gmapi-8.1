@@ -83,6 +83,7 @@ namespace gm
                 return false;
             if(!shared->initCnt)
             {
+                //first shared init
                 if(!installCallHook((void*)(uintptr_t)get_function_address("external_call").real))
                     return false;
                 shared->hookModule = getThisModule(true);
@@ -91,7 +92,7 @@ namespace gm
             }
             else if(shared->hookVersion < HOOK_VERSION)
             {
-
+                //this module has a newer version of the hook code
                 shared->removeHook();
                 HMODULE module = getThisModule(true);
                 FreeLibrary(shared->hookModule);
@@ -115,7 +116,9 @@ namespace gm
             //if no gmapi instance is being used
             if(!--shared->initCnt)
             {
-                shared->removeHook();
+                if (shared->hookModule == getThisModule(false))
+                    removeCallHook();
+                else shared->removeHook();
                 FreeLibrary(shared->hookModule);
             }
             //Only free the shared data if this instance is not still being used
