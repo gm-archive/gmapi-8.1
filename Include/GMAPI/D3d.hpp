@@ -19,15 +19,18 @@
  * 3. This notice may not be removed or altered from any source
  * distribution.
  */
-#include "GMAPI/Constants.hpp"
-#include "GMAPI/Core.hpp"
-#include "GMAPI/Dll.hpp"
-//#include "GMAPI/D3d.hpp"
-#include "GMAPI/Function.hpp"
-#include "GMAPI/Functions.hpp"
-#include "GMAPI/Instance.hpp"
-#include "GMAPI/InstanceArray.hpp"
-#include "GMAPI/String.hpp"
-#include "GMAPI/Types.hpp"
-#include "GMAPI/Value.hpp"
-#include "GMAPI/Variable.hpp"
+#ifndef GMAPI_D3D_HPP
+#define GMAPI_D3D_HPP
+#include "Dll.hpp"
+#include <d3d8.h>
+
+namespace gm
+{
+    /**@defgroup d3d Direct3D
+     * @brief Objects and functions for accessing Direct3D8 objects.
+     */
+    ///@{
+    GMAPI_DLL extern IDirect3DDevice8 *d3dDev;
+    ///@}
+}
+#endif

@@ -64,15 +64,23 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(WindowsSdkDir)include;D:\Libs\Microsoft DirectX SDK (August 2007)\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Libs\Microsoft DirectX SDK (August 2007)\Lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Static|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(WindowsSdkDir)include;D:\Libs\Microsoft DirectX SDK (August 2007)\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Libs\Microsoft DirectX SDK (August 2007)\Lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(WindowsSdkDir)include;D:\Libs\Microsoft DirectX SDK (August 2007)\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Libs\Microsoft DirectX SDK (August 2007)\Lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-Static|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(WindowsSdkDir)include;D:\Libs\Microsoft DirectX SDK (August 2007)\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Libs\Microsoft DirectX SDK (August 2007)\Lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -142,6 +150,7 @@
     <ClInclude Include="Include\GMAPI.hpp" />
     <ClInclude Include="Include\GMAPI\Constants.hpp" />
     <ClInclude Include="Include\GMAPI\Core.hpp" />
+    <ClInclude Include="Include\GMAPI\D3d.hpp" />
     <ClInclude Include="Include\GMAPI\Dll.hpp" />
     <ClInclude Include="Include\GMAPI\Function.hpp" />
     <ClInclude Include="Include\GMAPI\Functions.hpp" />
@@ -217,6 +226,7 @@
     <ClCompile Include="Source\BinSearch.cpp" />
     <ClCompile Include="Source\CallHook.cpp" />
     <ClCompile Include="Source\Core.cpp" />
+    <ClCompile Include="Source\D3d.cpp" />
     <ClCompile Include="Source\Functions.cpp" />
     <ClCompile Include="Source\Instance.cpp" />
     <ClCompile Include="Source\InstanceArray.cpp" />

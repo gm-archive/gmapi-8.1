@@ -40,6 +40,7 @@ namespace gm
     void freeShared();
     bool initStrings();
     bool initVariables();
+    bool initD3d();
     
     
     Shared *getShared()
@@ -80,6 +81,8 @@ namespace gm
             if (!initInstanceArray())
                 return false;
             if (!initVariables())
+                return false;
+            if (!initD3d())
                 return false;
             if(!shared->initCnt)
             {

@@ -27,5 +27,8 @@
     <ClCompile Include="Variables.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="D3d.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
