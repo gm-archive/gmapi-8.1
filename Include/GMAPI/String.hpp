@@ -1,21 +1,21 @@
 /* Copyright (c) 2011-2012 William Newbery
- * 
+ *
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
  * arising from the use of this software.
- * 
+ *
  * Permission is granted to anyone to use this software for any purpose,
  * including commercial applications, and to alter it and redistribute it
  * freely, subject to the following restrictions:
- * 
+ *
  * 1. The origin of this software must not be misrepresented; you must not
  * claim that you wrote the original software. If you use this software
  * in a product, an acknowledgment in the product documentation would be
  * appreciated but is not required.
- * 
+ *
  * 2. Altered source versions must be plainly marked as such, and must not be
  * misrepresented as being the original software.
- * 
+ *
  * 3. This notice may not be removed or altered from any source
  * distribution.
  */
@@ -74,7 +74,7 @@ namespace gm
         {
             return *(unsigned short*)(data-12);
         }
-        
+
 
         operator std::string()const
         {
@@ -116,9 +116,10 @@ namespace gm
     class DelphiModifiableString : public DelphiBaseString<IMP>
     {
     public:
+        using DelphiBaseString<IMP>::data;
         DelphiModifiableString(){}
-        DelphiModifiableString(const DelphiModifiableString &str): DelphiBaseString() {((IMP*)this)->set(str);}
-        template<class IMP2> DelphiModifiableString(const DelphiBaseString<IMP2> &str): DelphiBaseString() {((IMP*)this)->set(str);}
+        DelphiModifiableString(const DelphiModifiableString &str): DelphiBaseString<IMP>() {((IMP*)this)->set(str);}
+        template<class IMP2> DelphiModifiableString(const DelphiBaseString<IMP2> &str): DelphiBaseString<IMP>() {((IMP*)this)->set(str);}
 
         void setNull()
         {
@@ -167,13 +168,13 @@ namespace gm
             else setUtf8((const wchar_t*)str.getData(), str.getLen());//convert
         }
 
-        DelphiBaseString& operator = (const DelphiBaseString &str) { ((IMP*)this)->set(str); return *this; }
+        DelphiModifiableString& operator = (const DelphiModifiableString &str) { ((IMP*)this)->set(str); return *this; }
         template<class IMP2>
-        DelphiBaseString& operator = (const DelphiBaseString<IMP2> &str) { ((IMP*)this)->set(str); return *this; }
-        DelphiBaseString& operator = (const char *utf8) { ((IMP*)this)->set(utf8); return *this; }
-        DelphiBaseString& operator = (const wchar_t *utf16) { ((IMP*)this)->set(utf16); return *this; }
-        DelphiBaseString& operator = (const std::string &utf8) { ((IMP*)this)->set(utf8); return *this; }
-        DelphiBaseString& operator = (const std::wstring &utf16) { ((IMP*)this)->set(utf16); return *this; }
+        DelphiModifiableString& operator = (const DelphiBaseString<IMP2> &str) { ((IMP*)this)->set(str); return *this; }
+        DelphiModifiableString& operator = (const char *utf8) { ((IMP*)this)->set(utf8); return *this; }
+        DelphiModifiableString& operator = (const wchar_t *utf16) { ((IMP*)this)->set(utf16); return *this; }
+        DelphiModifiableString& operator = (const std::string &utf8) { ((IMP*)this)->set(utf8); return *this; }
+        DelphiModifiableString& operator = (const std::wstring &utf16) { ((IMP*)this)->set(utf16); return *this; }
     protected:
         void release()
         {
@@ -189,6 +190,7 @@ namespace gm
     class RefString : public DelphiBaseString<RefString>
     {
     public:
+        using DelphiBaseString<RefString>::data;
         RefString(){}
         template<class IMP2>
         RefString(const DelphiBaseString<IMP2> &str){data=str.data;}
@@ -196,7 +198,7 @@ namespace gm
     };
     /**@brief Less complete than DelphiString, used as the string member in
      * gm::Value.
-     * 
+     *
      * Comparison to DelphiString:
      * - Can only hold UTF-8 data.
      * - Has no utf8/utf16 factory methods. Constructors act as the utf8 ones.
@@ -205,9 +207,12 @@ namespace gm
     class ValueString : public DelphiModifiableString<ValueString>
     {
     public:
+        using DelphiModifiableString<ValueString>::data;
         ValueString(){}
-        ValueString(const ValueString &str):DelphiModifiableString(str){}
-        template<class IMP2> ValueString(const DelphiBaseString<IMP2> &str):DelphiModifiableString(str){}
+        ValueString(const ValueString &str):DelphiModifiableString<ValueString>(str){}
+        template<class IMP2> ValueString(const DelphiBaseString<IMP2> &str)
+            :DelphiModifiableString<ValueString>(str)
+        {}
         ValueString(const char *utf8) {set(utf8);}
         ValueString(const wchar_t *utf16) {set(utf16);}
         ValueString(const char *utf8, unsigned len) {set(utf8, len);}
@@ -251,9 +256,10 @@ namespace gm
     class GMAPI_DLL DelphiString : public DelphiModifiableString<DelphiString>
     {
     public:
+        using DelphiModifiableString<DelphiString>::data;
         DelphiString(){}
-        DelphiString(const DelphiString &str):DelphiModifiableString(str){}
-        template<class IMP2> DelphiString(const DelphiBaseString<IMP2> &str):DelphiModifiableString(str){}
+        DelphiString(const DelphiString &str):DelphiModifiableString<DelphiString>(str){}
+        template<class IMP2> DelphiString(const DelphiBaseString<IMP2> &str):DelphiModifiableString<DelphiString>(str){}
         DelphiString(void *str, unsigned len, unsigned short elemSize, unsigned short codePage)
         {
             set(str, len, elemSize, codePage);
@@ -286,7 +292,7 @@ namespace gm
         static DelphiString utf16(const std::string &utf8) {DelphiString d; d.setUtf16(utf8); return d;}
         static DelphiString utf16(const std::wstring &utf16) {DelphiString d; d.setUtf16(utf16); return d;}
 
-        
+
         void setUtf16(const char *utf8){utf8 ? setUtf16(utf8, strlen(utf8)) : setNull();}
         void setUtf16(const wchar_t *utf16){utf16 ? setUtf16(utf16, wcslen(utf16)) : setNull();}
         void setUtf16(const std::string &utf8){setUtf16(utf8.data(), utf8.size());}
@@ -355,13 +361,13 @@ namespace gm
             else setUtf16(str.getData(), str.getLen());
         }
 
-        
+
         /**Perform a deep copy.*/
         DelphiString clone()const
         {
             return DelphiString(data, getLen(), getElementSize(), getCodePage());
         }
-        
+
     };
 }
 #endif
