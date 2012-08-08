@@ -100,6 +100,11 @@ namespace gm
         return retval;
     }
 
+    void *hookReturn;
+    void setHookReturn(void *ret)
+    {
+        hookReturn = ret;
+    }
     __declspec(naked) void hookFunction()
     {
         __asm 
@@ -132,4 +137,5 @@ namespace gm
             jmp     hookReturn
         }
     }
+    void *hookFunctionPtr = &hookFunction;
 }

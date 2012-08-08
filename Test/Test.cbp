@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Test" />
+		<Option pch_mode="2" />
+		<Option default_target="Debug-Static" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="..\GCC\Debug\Test" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="..\GCC\Debug\" />
+				<Option object_output="GCC\Objs\Debug\" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option host_application="..\..\UnitTest.exe" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add option="-DBUILD_DLL" />
+				</Compiler>
+				<Linker>
+					<Add library="user32" />
+					<Add directory="..\GCC\Debug\" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="..\GCC\Release\Test" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="..\GCC\Release\" />
+				<Option object_output="GCC\Objs\Release\" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option host_application="..\..\UnitTest.exe" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-Wall" />
+					<Add option="-DBUILD_DLL" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="user32" />
+					<Add directory="..\GCC\Release\" />
+				</Linker>
+			</Target>
+			<Target title="Debug-Static">
+				<Option output="..\GCC\Debug-Static\Test" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="..\GCC\Debug-Static\" />
+				<Option object_output="GCC\Objs\Debug-Static\" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option host_application="..\..\UnitTest.exe" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add option="-DBUILD_DLL" />
+					<Add option="-DGMAPI_STATIC" />
+				</Compiler>
+				<Linker>
+					<Add library="user32" />
+					<Add directory="..\GCC\Debug-Static\" />
+				</Linker>
+			</Target>
+			<Target title="Release-Static">
+				<Option output="..\GCC\Release-Static\Test" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="..\GCC\Release-Static\" />
+				<Option object_output="GCC\Objs\Release-Static\" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option host_application="..\..\UnitTest.exe" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-Wall" />
+					<Add option="-DBUILD_DLL" />
+					<Add option="-DGMAPI_STATIC" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="user32" />
+					<Add directory="..\GCC\Release-Static\" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-DUNICODE" />
+			<Add option="-D_UNICODE" />
+			<Add directory="..\Include\" />
+			<Add directory="D:\Libs\Microsoft DirectX SDK (August 2007)\Include" />
+		</Compiler>
+		<Linker>
+			<Add library="libGMAPI.a" />
+		</Linker>
+		<Unit filename="D3d.cpp" />
+		<Unit filename="InstanceArray.cpp" />
+		<Unit filename="Main.cpp" />
+		<Unit filename="Obj.cpp" />
+		<Unit filename="Variables.cpp" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

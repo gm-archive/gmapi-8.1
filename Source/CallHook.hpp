@@ -25,6 +25,6 @@ namespace gm
 {
     bool installCallHook(void *external_call);
     void removeCallHook ();
-    extern void *hookReturn;
+    //extern void *hookReturn;
 }
 #endif

@@ -24,6 +24,7 @@
 #include "Dll.hpp"
 #include <string>
 #include <Windows.h>
+#include <cassert>
 namespace gm
 {
     /**Allocate the delphi UnicodeString memory.*/

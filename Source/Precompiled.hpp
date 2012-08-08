@@ -21,6 +21,9 @@
  */
 #ifndef GMAPI_PRECOMPILED_HPP
 #define GMAPI_PRECOMPILED_HPP
+#define NOMINMAX
+#define _WIN32_WINNT 0x501
+
 #include <cassert>
 
 #include <Windows.h>
