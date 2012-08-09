@@ -41,6 +41,7 @@ namespace gm
     bool initStrings();
     bool initVariables();
     bool initD3d();
+    bool initSprites();
     
     
     Shared *getShared()
@@ -83,6 +84,8 @@ namespace gm
             if (!initVariables())
                 return false;
             if (!initD3d())
+                return false;
+            if (!initSprites())
                 return false;
             if(!shared->initCnt)
             {

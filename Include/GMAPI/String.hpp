@@ -281,13 +281,15 @@ namespace gm
             releaseStr(data);
         }
 
-        static DelphiString utf8(const DelphiString &str) {DelphiString d; d.setUtf8(str); return d;}
+        template <class IMP2>
+        static DelphiString utf8(const DelphiBaseString<IMP2> &str) {DelphiString d; d.setUtf8(str); return d;}
         static DelphiString utf8(const char *utf8) {DelphiString d; d.setUtf8(utf8); return d;}
         static DelphiString utf8(const wchar_t *utf16) {DelphiString d; d.setUtf8(utf16); return d;}
         static DelphiString utf8(const std::string &utf8) {DelphiString d; d.setUtf8(utf8); return d;}
         static DelphiString utf8(const std::wstring &utf16) {DelphiString d; d.setUtf8(utf16); return d;}
 
-        static DelphiString utf16(const DelphiString &str) {DelphiString d; d.setUtf16(str); return d;}
+        template <class IMP2>
+        static DelphiString utf16(const DelphiBaseString<IMP2> &str) {DelphiString d; d.setUtf16(str); return d;}
         static DelphiString utf16(const char *utf8) {DelphiString d; d.setUtf16(utf8); return d;}
         static DelphiString utf16(const wchar_t *utf16) {DelphiString d; d.setUtf16(utf16); return d;}
         static DelphiString utf16(const std::string &utf8) {DelphiString d; d.setUtf16(utf8); return d;}
