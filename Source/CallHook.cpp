@@ -40,12 +40,12 @@ namespace gm
     struct NewCode
     {
         //7 byte jmp op
-        unsigned char jmp; void *jmpAddress; unsigned short jmpSeg;
-        //2 nop
-        unsigned char nop1, nop2;
+        unsigned char jmp; int jmpRel; //void *jmpAddress; unsigned short jmpSeg;
+        //2 nops
+        unsigned char nop1, nop2, nop3, nop4;
     };
 #   pragma pack(pop)
-    const NewCode newCode = {0xEA, hookFunctionPtr, 0x0023, 0x90, 0x90};
+    //const NewCode newCode = {0xEA, hookFunctionPtr, 0x0023, 0x90, 0x90};
 
     const unsigned char oldCode[] =
     {
@@ -58,15 +58,18 @@ namespace gm
 
     bool unprotectMem(DWORD *oldProtect)
     {
-        return VirtualProtect(external_call_ptr, sizeof(newCode), PAGE_EXECUTE_READWRITE, oldProtect) != 0;
+        return VirtualProtect(external_call_ptr, sizeof(oldCode), PAGE_EXECUTE_READWRITE, oldProtect) != 0;
     }
     bool reprotectMem(DWORD protect)
     {
-        return VirtualProtect(external_call_ptr, sizeof(newCode), protect, &protect) != 0;
+        return VirtualProtect(external_call_ptr, sizeof(oldCode), protect, &protect) != 0;
     }
     bool installCallHook(void *external_call)
     {
         external_call_ptr = external_call;
+        NewCode newCode = {
+            0xE9, ((char*)hookFunctionPtr) - ((char*)external_call) - 5,
+            0x90, 0x90, 0x90, 0x90};
 
         assert(sizeof(newCode) == sizeof(oldCode));
         setHookReturn((char*)external_call + sizeof(newCode));
@@ -78,7 +81,10 @@ namespace gm
             return false;
         }
 
-        assert(memcmp(external_call, oldCode, sizeof(newCode)) == 0);
+        assert (sizeof(oldCode) == sizeof(newCode));
+        if(memcmp(external_call, oldCode, sizeof(newCode)) != 0)
+            return false;
+        
         memcpy(external_call, &newCode, sizeof(newCode));
 
         //remove write access again
@@ -91,7 +97,7 @@ namespace gm
         DWORD oldProtect;
         if(!unprotectMem(&oldProtect))
             return;
-        memcpy(external_call_ptr, oldCode, sizeof(newCode));
+        memcpy(external_call_ptr, oldCode, sizeof(oldCode));
         reprotectMem(oldProtect);
     }
 }

@@ -47,7 +47,7 @@ namespace gm
          */
         void (__cdecl *removeHook)();
     };
-    static const unsigned HOOK_VERSION = 2;
+    static const unsigned HOOK_VERSION = 3;
     Shared *getShared();
     /**Gets the HINSTANCE/HMODULE/base address of whatever this is
      * implemented in. E.g. the GMAPI DLL is you used that, or the DLL
