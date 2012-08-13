@@ -22,10 +22,10 @@ namespace gm
         Value *retvptr = &retv;
         __asm__
         (
-            "push %0    \n\t"
             "push %1    \n\t"
             "push %2    \n\t"
-            "call %3    \n\t"
+            "push %3    \n\t"
+            "call *%4   \n\t"
             :"=a"(unused)
             :"m"(args), "m"(argcnt), "m"(retvptr), "m"(f)
             ,"a"(self), "d"(other), "c"(argcnt)
@@ -39,7 +39,7 @@ namespace gm
         __asm__
         (
             "mov     $65001, %%edx  \n\t"
-            "call    %0             \n\t"
+            "call    *%1            \n\t"
             :"=a"(res)
             :"r"(delphiNewUtf8), "a"(len)
             :"%edx"
@@ -51,7 +51,7 @@ namespace gm
         int unused;
         __asm__
         (
-            "call %0"
+            "call *%0"
             :"=a"(unused)
             :"r"(delphiReleaseStr), "a"(&gmstr)
             :
@@ -64,9 +64,9 @@ namespace gm
 
         __asm__
         (
-            "call %0"
+            "call *%1"
             :"=a"(data)
-            :"r"(delphiStrAlloc), "a"(data)
+            :"r"(delphiStrAlloc)
             :
         );
 
@@ -84,8 +84,8 @@ namespace gm
         Value outval;
         __asm__
         (
-            "push %0    \n\t"
-            "call %1    \n\t"
+            "push  %1   \n\t"
+            "call *%2   \n\t"
             :"=a"(unused)
             :"r"(&outval), "r"(gmGetVar)
             ,"a"(self), "d"(varid), "c"(unknown)
@@ -100,7 +100,7 @@ namespace gm
         const char *strData = name16.getData();
         __asm__
         (
-            "call %0"
+            "call *%1"
             :"=a"(retval)
             :"r"(gmGetVarId), "a"(strData)
             :

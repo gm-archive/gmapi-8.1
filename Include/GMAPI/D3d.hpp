@@ -19,9 +19,10 @@
  * 3. This notice may not be removed or altered from any source
  * distribution.
  */
-#ifndef GMAPI_D3D_HPP
+#if !defined(GMAPI_D3D_HPP) && !defined(GMAPI_NO_D3D)
 #define GMAPI_D3D_HPP
 #include "Dll.hpp"
+
 #include <d3d8.h>
 
 namespace gm

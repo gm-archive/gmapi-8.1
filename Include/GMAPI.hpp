@@ -22,7 +22,7 @@
 #include "GMAPI/Constants.hpp"
 #include "GMAPI/Core.hpp"
 #include "GMAPI/Dll.hpp"
-//#include "GMAPI/D3d.hpp"
+#include "GMAPI/D3d.hpp"
 #include "GMAPI/Function.hpp"
 #include "GMAPI/Functions.hpp"
 #include "GMAPI/Instance.hpp"

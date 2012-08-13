@@ -51,86 +51,87 @@ namespace gm
     ///@{
     inline Value call(Function func)
     {
-        return docall(func, 0, 0);
+        Value args[] = {Value()};
+        return docall(func, 0, args);
     }
     inline Value call(Function func, const Value &arg0)
     {
-        Value args[] = {arg0};
+        Value args[] = {arg0, Value()};
         return docall(func, 1, args);
     }
     inline Value call(Function func, const Value &arg0, const Value &arg1)
     {
-        Value args[] = {arg0, arg1};
+        Value args[] = {arg0, arg1, Value()};
         return docall(func, 2, args);
     }
     inline Value call(Function func, const Value &arg0, const Value &arg1, const Value &arg2)
     {
-        Value args[] = {arg0, arg1, arg2};
+        Value args[] = {arg0, arg1, arg2, Value()};
         return docall(func, 3, args);
     }
     inline Value call(Function func, const Value &arg0, const Value &arg1, const Value &arg2, const Value &arg3)
     {
-        Value args[] = {arg0, arg1, arg2, arg3};
+        Value args[] = {arg0, arg1, arg2, arg3, Value()};
         return docall(func, 4, args);
     }
     inline Value call(Function func, const Value &arg0, const Value &arg1, const Value &arg2, const Value &arg3, const Value &arg4)
     {
-        Value args[] = {arg0, arg1, arg2, arg3, arg4};
+        Value args[] = {arg0, arg1, arg2, arg3, arg4, Value()};
         return docall(func, 5, args);
     }
     inline Value call(Function func, const Value &arg0, const Value &arg1, const Value &arg2, const Value &arg3, const Value &arg4, const Value &arg5)
     {
-        Value args[] = {arg0, arg1, arg2, arg3, arg4, arg5};
+        Value args[] = {arg0, arg1, arg2, arg3, arg4, arg5, Value()};
         return docall(func, 6, args);
     }
     inline Value call(Function func, const Value &arg0, const Value &arg1, const Value &arg2, const Value &arg3, const Value &arg4, const Value &arg5, const Value &arg6)
     {
-        Value args[] = {arg0, arg1, arg2, arg3, arg4, arg5, arg6};
+        Value args[] = {arg0, arg1, arg2, arg3, arg4, arg5, arg6, Value()};
         return docall(func, 7, args);
     }
     inline Value call(Function func, const Value &arg0, const Value &arg1, const Value &arg2, const Value &arg3, const Value &arg4, const Value &arg5, const Value &arg6, const Value &arg7)
     {
-        Value args[] = {arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7};
+        Value args[] = {arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, Value()};
         return docall(func, 8, args);
     }
     inline Value call(Function func, const Value &arg0, const Value &arg1, const Value &arg2, const Value &arg3, const Value &arg4, const Value &arg5, const Value &arg6, const Value &arg7, const Value &arg8)
     {
-        Value args[] = {arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8};
+        Value args[] = {arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, Value()};
         return docall(func, 9, args);
     }
     inline Value call(Function func, const Value &arg0, const Value &arg1, const Value &arg2, const Value &arg3, const Value &arg4, const Value &arg5, const Value &arg6, const Value &arg7, const Value &arg8, const Value &arg9)
     {
-        Value args[] = {arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9};
+        Value args[] = {arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, Value()};
         return docall(func, 10, args);
     }
     inline Value call(Function func, const Value &arg0, const Value &arg1, const Value &arg2, const Value &arg3, const Value &arg4, const Value &arg5, const Value &arg6, const Value &arg7, const Value &arg8, const Value &arg9, const Value &arg10)
     {
-        Value args[] = {arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10};
+        Value args[] = {arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, Value()};
         return docall(func, 11, args);
     }
     inline Value call(Function func, const Value &arg0, const Value &arg1, const Value &arg2, const Value &arg3, const Value &arg4, const Value &arg5, const Value &arg6, const Value &arg7, const Value &arg8, const Value &arg9, const Value &arg10, const Value &arg11)
     {
-        Value args[] = {arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg1, arg11};
+        Value args[] = {arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg1, arg11, Value()};
         return docall(func, 12, args);
     }
     inline Value call(Function func, const Value &arg0, const Value &arg1, const Value &arg2, const Value &arg3, const Value &arg4, const Value &arg5, const Value &arg6, const Value &arg7, const Value &arg8, const Value &arg9, const Value &arg10, const Value &arg11, const Value &arg12)
     {
-        Value args[] = {arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12};
+        Value args[] = {arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, Value()};
         return docall(func, 13, args);
     }
     inline Value call(Function func, const Value &arg0, const Value &arg1, const Value &arg2, const Value &arg3, const Value &arg4, const Value &arg5, const Value &arg6, const Value &arg7, const Value &arg8, const Value &arg9, const Value &arg10, const Value &arg11, const Value &arg12, const Value &arg13)
     {
-        Value args[] = {arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13};
+        Value args[] = {arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, Value()};
         return docall(func, 14, args);
     }
     inline Value call(Function func, const Value &arg0, const Value &arg1, const Value &arg2, const Value &arg3, const Value &arg4, const Value &arg5, const Value &arg6, const Value &arg7, const Value &arg8, const Value &arg9, const Value &arg10, const Value &arg11, const Value &arg12, const Value &arg13, const Value &arg14)
     {
-        Value args[] = {arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14};
+        Value args[] = {arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14, Value()};
         return docall(func, 15, args);
     }
     inline Value call(Function func, const Value &arg0, const Value &arg1, const Value &arg2, const Value &arg3, const Value &arg4, const Value &arg5, const Value &arg6, const Value &arg7, const Value &arg8, const Value &arg9, const Value &arg10, const Value &arg11, const Value &arg12, const Value &arg13, const Value &arg14, const Value &arg15)
     {
-        Value args[] = {arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14, arg15};
+        Value args[] = {arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14, arg15, Value()};
         return docall(func, 16, args);
     }
     ///@}

@@ -5,25 +5,7 @@
 namespace gm
 {
     GMAPI_DLL InstanceArray *instanceArray;
-    Instance* InstanceArray::getIndex(int index)
-    {
-        assert(index >= 0 && index <= len);
-        return instances[index];
-    }
-    Instance *InstanceArray::get(int id)
-    {
-        for(int index=0; index < len; ++index)
-        {
-            Instance *ins = getIndex(index);
-            if(ins->id == id)
-                return ins;
-        }
-        return 0;
-    }
-    int InstanceArray::getCount()
-    {
-        return len;
-    }
+
     bool initInstanceArray()
     {
         //use the instance_exists assembly (since its a known "entry point"

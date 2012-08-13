@@ -97,7 +97,7 @@ namespace gm
      * Used for all the user-defined variables, with one per instance and
      * another for global variables. Can not access the built in variables.
      */
-    class GMAPI_DLL Variables
+    class Variables
     {
     public:
         /**Returns the variable varid if it exists or null otherwise.*/

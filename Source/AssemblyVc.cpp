@@ -20,7 +20,7 @@ namespace gm
         __asm
         {
             push args
-            push argcnt
+            push 15
             push retvptr
             mov eax, self
             mov edx, other

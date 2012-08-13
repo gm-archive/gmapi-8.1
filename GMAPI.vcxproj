@@ -241,6 +241,7 @@
     </ClCompile>
     <ClCompile Include="Source\Sprite.cpp" />
     <ClCompile Include="Source\String.cpp" />
+    <ClCompile Include="Source\Texture.cpp" />
     <ClCompile Include="Source\Variable.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

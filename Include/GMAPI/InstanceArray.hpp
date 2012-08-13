@@ -1,23 +1,39 @@
 #ifndef GMAPI_INSTANCE_ARRAY_HPP
 #define GMAPI_INSTANCE_ARRAY_HPP
 #include "Dll.hpp"
+#include "Instance.hpp"
 namespace gm
 {
     /**@ingroup instances*/
     ///@{
-    struct Instance;
     /**@brief An array of all the current instances in the game.*/
-    class GMAPI_DLL InstanceArray
+    class InstanceArray
     {
     public:
         /**Gets the nth instance in the game.*/
-        Instance *getIndex(int index);
+        Instance *getIndex(int index)
+        {
+            assert(index >= 0 && index <= len);
+            return instances[index];
+        }
         /**Gets the instance with the specified id, or null if no such instance
          * exists.
          */
-        Instance *get(int id);
+        Instance *get(int id)
+        {
+            for(int index=0; index < len; ++index)
+            {
+                Instance *ins = getIndex(index);
+                if(ins->id == id)
+                    return ins;
+            }
+            return 0;
+        }
         /**Number of instances.*/
-        int getCount();
+        int getCount()
+        {
+            return len;
+        }
     private:
         char _pad0000[0x68];
         int len;
@@ -30,10 +46,6 @@ namespace gm
     {
         return instanceArray->get(id);
     }
-    /**Called by the gm::init method, to initialise the gm::instanceArray.
-     * @internal
-     */
-    bool initInstanceArray();
     ///@}
 }
 #endif
