@@ -39,6 +39,13 @@ namespace gm
         Sprite **sprites;
         DelphiString *names;
         int count;
+
+        Sprite *get(int sprid)
+        {
+            if (sprid < 0 || sprid >= count)
+                return 0;
+            else return sprites[sprid];
+        }
     };
     GMAPI_DLL extern Sprites *sprites;
     ///@}

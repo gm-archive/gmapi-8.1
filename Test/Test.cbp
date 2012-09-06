@@ -14,6 +14,7 @@
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option host_application="..\..\UnitTest.exe" />
+				<Option run_host_application_in_terminal="0" />
 				<Option createDefFile="1" />
 				<Compiler>
 					<Add option="-Wall" />
@@ -32,6 +33,7 @@
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option host_application="..\..\UnitTest.exe" />
+				<Option run_host_application_in_terminal="0" />
 				<Option createDefFile="1" />
 				<Compiler>
 					<Add option="-O2" />
@@ -51,6 +53,7 @@
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option host_application="..\..\UnitTest.exe" />
+				<Option run_host_application_in_terminal="0" />
 				<Option createDefFile="1" />
 				<Compiler>
 					<Add option="-Wall" />
@@ -70,6 +73,7 @@
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option host_application="..\..\UnitTest.exe" />
+				<Option run_host_application_in_terminal="0" />
 				<Option createDefFile="1" />
 				<Compiler>
 					<Add option="-O2" />
@@ -101,6 +105,7 @@
 		<Extensions>
 			<code_completion />
 			<debugger />
+			<envvars />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

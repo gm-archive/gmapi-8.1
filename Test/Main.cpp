@@ -34,6 +34,8 @@ EXPORT double test_is_string2()
 
 EXPORT double test_script_execute(double scr)
 {
+
+
     return gm::script_execute(scr);
 }
 std::string retstr;

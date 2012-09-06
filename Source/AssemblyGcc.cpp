@@ -51,7 +51,7 @@ namespace gm
         int unused;
         __asm__
         (
-            "call *%0"
+            "call *%1"
             :"=a"(unused)
             :"r"(delphiReleaseStr), "a"(&gmstr)
             :
@@ -115,7 +115,7 @@ namespace gm
     void* gmapiAsmGetShared = (void*)&getShared;
     void* gmapiAsmHookReturn = 0;
 
-    void* hookFunctionPtr = (void*)&gmpaiAsmHookFunction;
+    void* hookFunctionPtr = (void*)gmpaiAsmHookFunction;
     void setHookReturn(void *ret)
     {
         gmapiAsmHookReturn = ret;
