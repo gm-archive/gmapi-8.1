@@ -25,11 +25,13 @@ namespace gm
     ///@}
     GMAPI_DLL extern int *texturesCount;
     GMAPI_DLL extern Texture **textures;
-    inline Texture *getTexture(int texid)
+    inline bool textureExists(int texid)
     {
-        if (texid < 0 || texid >= *texturesCount)
-            return 0;
-        else return textures[texid];
+        return texid >= 0 && texid < *texturesCount;
+    }
+    inline Texture& getTexture(int texid)
+    {
+        return (*textures)[texid];
     }
 }
 #endif

@@ -2,12 +2,7 @@
 #include "GMAPI/D3d.hpp"
 #define EXPORT extern "C" __declspec(dllexport)
 
-gm::ValueString retstr;
-EXPORT double test_(double rgb)
-{
-    return gm::d3dDev->Clear(0,0,D3DCLEAR_TARGET, (unsigned)rgb, 0, 0);
-}
-
+static gm::ValueString retstr;
 EXPORT double test_sprite_exists(double ind)
 {
     return ind >= 0 && ind < gm::sprites->count;
