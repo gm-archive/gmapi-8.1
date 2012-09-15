@@ -48,6 +48,10 @@ namespace gm
         }
     };
     GMAPI_DLL extern Sprites *sprites;
+    inline Sprite *getSprite(int sprid)
+    {
+        return sprites->get(sprid);
+    }
     ///@}
 
 }
