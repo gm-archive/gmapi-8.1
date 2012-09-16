@@ -19,11 +19,16 @@
  * 3. This notice may not be removed or altered from any source
  * distribution.
  */
-#if !defined(GMAPI_D3D_HPP) && !defined(GMAPI_NO_D3D)
+#ifndef GMAPI_D3D_HPP
 #define GMAPI_D3D_HPP
 #include "Dll.hpp"
 
-#include <d3d8.h>
+#ifdef GMAPI_USE_D3D
+#   include <d3d8.h>
+#else
+    typedef void IDirect3DDevice8;
+    typedef void IDirect3DTexture8;
+#endif
 
 namespace gm
 {

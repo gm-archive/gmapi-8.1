@@ -1,9 +1,7 @@
 #ifndef GMAPI_TEXTURE_HPP
 #define GMAPI_TEXTURE_HPP
 #include "Dll.hpp"
-#ifndef GMAPI_NO_D3D
-    #include <d3d8.h>
-#endif
+#include "D3d.hpp"
 namespace gm
 {
 
@@ -11,11 +9,7 @@ namespace gm
     ///@{
     struct Texture
     {
-#ifndef GMAPI_NO_D3D
         IDirect3DTexture8 *d3dTex;
-#else
-        void *d3dTex;
-#endif
         int imageWidth;
         int imageHeight;
         int width;
