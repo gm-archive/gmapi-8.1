@@ -1,0 +1,25 @@
+
+# /
+/CodeGen
+/Debug
+/Debug-Static
+/Dist
+/Docs
+/GCC
+/Inter
+/ipch
+/Release
+/Release-Static
+/GMAPI.vcxproj.user
+/GMAPI.sdf
+/GMAPI.suo
+/GMAPI.opensdf
+/.metadata
+
+# /Test/
+/Test/Debug
+/Test/Debug-Static
+/Test/GCC
+/Test/Inter
+/Test/Release
+/Test/Release-Static
